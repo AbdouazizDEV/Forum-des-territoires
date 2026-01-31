@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Section from '../../common/Section/Section';
+import Button from '../../common/Button/Button';
 import { fadeInLeft, fadeInRight, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 
@@ -30,22 +32,33 @@ const About = () => {
           className="prose prose-lg max-w-none"
         >
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Le Forum des Territoires représente une évolution majeure dans le paysage de la coopération 
-            décentralisée entre l'Afrique et l'Europe. Cette plateforme stratégique émerge dans un contexte 
-            marqué par l'Acte III de la Décentralisation au Sénégal, qui renforce l'autonomie et les 
-            compétences des collectivités territoriales.
+            Lancée en réponse aux défis et opportunités liés à l'Acte III de la Décentralisation au Sénégal, 
+            la première édition du Forum des Territoires Sénégal–Belgique–Luxembourg a marqué une étape déterminante 
+            dans la mise en visibilité des potentiels économiques, culturels et environnementaux des territoires 
+            africains. Elle a permis d'initier des dynamiques structurantes de coopération décentralisée et 
+            d'investissement entre l'Afrique de l'Ouest et l'Europe.
           </p>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Initialement conçu comme un espace de dialogue entre le Sénégal, la Belgique et le Luxembourg, 
-            le forum s'est progressivement élargi pour devenir un véritable carrefour international. 
-            Cette transformation reflète la volonté de créer des synergies durables entre les territoires 
-            africains et européens, au-delà des frontières traditionnelles.
+            Face à l'intérêt croissant exprimé par plusieurs pays africains, le Forum a élargi son périmètre 
+            et devient <Link to="/le-forum" className="text-primary"><strong>le Forum des Territoires</strong></Link>, une plateforme transnationale dédiée au dialogue, au partage 
+            d'expériences et à la mise en relation d'acteurs publics et privés autour d'opportunités d'investissement 
+            concrètes. Cette évolution traduit l'ambition de consolider un espace d'échanges multilatéral, inclusif 
+            et résolument orienté vers l'action.
           </p>
-          <p className="text-gray-700 text-lg leading-relaxed">
-            Aujourd'hui, le Forum des Territoires se positionne comme un catalyseur d'opportunités, 
-            facilitant les échanges, les investissements et les partenariats stratégiques pour un 
-            développement territorial inclusif et durable.
-          </p>
+          <motion.div
+            variants={fadeInRight}
+            className="mt-8"
+          >
+            <Link to="/sinscrire-pour-les-panels">
+              <Button
+                variant="primary"
+                size="lg"
+                className="px-8"
+              >
+                En savoir plus
+              </Button>
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
     </Section>

@@ -16,6 +16,7 @@ import Format from './pages/Format/Format';
 import Lieu from './pages/Lieu/Lieu';
 import Gallery from './pages/Gallery/Gallery';
 import Contact from './pages/Contact/Contact';
+import SinscrirePanels from './pages/SinscrirePanels/SinscrirePanels';
 
 /**
  * Composant App principal avec routing
@@ -35,6 +36,7 @@ function App() {
           <Route path="/participer" element={<Participer />} />
           <Route path="/reserver" element={<Reserver />} />
           <Route path="/stand" element={<Stand />} />
+          <Route path="/sinscrire-pour-les-panels" element={<SinscrirePanels />} />
           {/* Routes legacy pour compatibilité */}
           <Route path="/le-forum" element={<Forum />} />
           <Route path="/ressources" element={<Resources />} />

@@ -34,9 +34,11 @@ const Pillars = () => {
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto"
+          className="text-center !text-dark text-lg mb-12 max-w-2xl mx-auto"
         >
-          Trois piliers fondamentaux pour une coopération territoriale efficace et durable
+          Face aux enjeux de décentralisation, d’attractivité territoriale et de financement du développement local, le Forum des Territoires propose une réponse pragmatique, structurée et orientée vers l’action.
+          <br />
+          <strong className="text-primary">Trois piliers fondamentaux pour une coopération territoriale efficace et durable</strong>
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">

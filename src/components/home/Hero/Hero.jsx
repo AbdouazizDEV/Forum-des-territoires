@@ -11,7 +11,7 @@ import AnimatedCounter from '../../common/AnimatedCounter/AnimatedCounter';
  */
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-accent-orange via-primary to-primary">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Text Content */}
@@ -24,17 +24,17 @@ const Hero = () => {
             {/* Main Title */}
             <motion.h1
               variants={fadeInUp}
-              className="font-display font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight"
+              className="font-display font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight text-white"
             >
-              {SITE_INFO.heroTitle}
+              L'Habitat au coeur<br />des Territoires
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
               variants={fadeInUp}
-              className="text-lg md:text-xl lg:text-2xl font-light mb-8 text-white/90"
+              className="text-lg md:text-xl lg:text-2xl font-light mb-8 text-white/95"
             >
-              {SITE_INFO.heroSubtitle}
+              Batir ensemble les villes et territoires de demain - Bruxelles, 3-6 Juin 2026
             </motion.p>
 
             {/* CTA Buttons */}
@@ -46,7 +46,7 @@ const Hero = () => {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="bg-white border-2 border-primary text-black hover:bg-primary hover:text-white px-8"
+                  className="bg-white border-2 border-primary !text-black hover:bg-primary hover:!text-white px-8 rounded-lg font-semibold"
                 >
                   Reserver ma place
                 </Button>
@@ -55,7 +55,7 @@ const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 border-2 border-accent-orange text-white hover:bg-accent-orange hover:text-white px-8"
+                  className="bg-amber-700 border-2 border-white text-white hover:bg-amber-800 hover:border-white px-8 rounded-lg font-semibold"
                 >
                   Prendre un stand
                 </Button>
@@ -70,7 +70,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="lg:flex justify-end"
           >
-              <div className="bg-accent-orange/80 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-2xl border border-white/20">
+            <div className="bg-orange-500 rounded-xl p-8 md:p-10 shadow-2xl" style={{ width: '100%' }}>
               <div className="grid grid-cols-2 gap-6 md:gap-8">
                 {HERO_STATS.map((stat, index) => (
                   <motion.div

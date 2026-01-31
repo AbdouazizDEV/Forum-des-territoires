@@ -78,33 +78,57 @@ export const PILLARS = [
 export const RESOURCE_SECTORS = [
   {
     id: 1,
-    title: "Agriculture et agro-industrie",
+    title: "Agriculture durable, agro-industrie et sécurité alimentaire",
+    slug: "agriculture",
     icon: "Sprout"
   },
   {
     id: 2,
-    title: "Tourisme et patrimoine",
+    title: "Élevage, cuirs et industries connexes",
+    slug: "elevage",
     icon: "MapPin"
   },
   {
     id: 3,
-    title: "Énergies renouvelables",
+    title: "Énergies renouvelables et transition énergétique",
+    slug: "energies",
     icon: "Zap"
   },
   {
     id: 4,
-    title: "Infrastructures",
+    title: "Tourisme culturel, écologique et communautaire",
+    slug: "tourisme",
     icon: "Building"
   },
   {
     id: 5,
-    title: "Économie bleue",
+    title: "Économie bleue (pêche, aquaculture, économie maritime)",
+    slug: "economie-bleue",
     icon: "Waves"
   },
   {
     id: 6,
-    title: "Transformation digitale",
+    title: "Gestion des déchets, assainissement, économie circulaire",
+    slug: "dechets",
     icon: "Smartphone"
+  },
+  {
+    id: 7,
+    title: "Numérique, innovation et jeunesse entrepreneuriale",
+    slug: "numerique",
+    icon: "Smartphone"
+  },
+  {
+    id: 8,
+    title: "Infrastructures (logement social, mobilité, éducation)",
+    slug: "infrastructures",
+    icon: "Building"
+  },
+  {
+    id: 9,
+    title: "Inclusion (genre, jeunes, personnes en situation de handicap)",
+    slug: "inclusion",
+    icon: "Users"
   }
 ];
 
