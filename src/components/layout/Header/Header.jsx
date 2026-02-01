@@ -56,19 +56,19 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm"
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center justify-between h-24 overflow-visible">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center group flex-shrink-0 h-full">
+          <Link to="/" className="flex items-center group flex-shrink-0 z-10">
             <motion.img
               src={logoImage}
               alt="Forum des Territoires"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="h-20 w-auto min-w-[120px] object-contain block"
-              style={{ display: 'block' }}
+              className="h-16 md:h-20 w-auto object-contain"
               transition={{ duration: 0.2 }}
+              loading="eager"
               onError={(e) => {
-                console.error('Erreur de chargement du logo:', e);
+                console.error('Erreur de chargement du logo:', logoImage, e);
               }}
             />
           </Link>
