@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
+import Button from '../../components/common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { Calendar, Clock, MapPin, Users, Sun, Moon } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Sun, Moon, Mail, Phone, ArrowRight } from 'lucide-react';
+import { CONTACT_INFO } from '../../utils/constants';
 
 /**
  * Page Programme - Contenu officiel du Forum des Territoires 2026
@@ -172,6 +175,68 @@ const Programme = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Section Contact */}
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16"
+        >
+          <Card variant="default" className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 border-2 border-primary/20">
+            <div className="p-6 md:p-8">
+              <div className="text-center mb-6">
+                <h2 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
+                  Nous contacter
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-4"></div>
+                <p className="text-gray-600">
+                  Des questions sur le programme ? Contactez-nous pour plus d'informations
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="flex items-center space-x-4 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-orange rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Email</p>
+                    <p className="font-medium text-gray-900">{CONTACT_INFO.email}</p>
+                  </div>
+                </a>
+                
+                <div className="space-y-3">
+                  {CONTACT_INFO.phones.map((phone, index) => (
+                    <a
+                      key={index}
+                      href={`tel:${phone.replace(/\s/g, '')}`}
+                      className="flex items-center space-x-4 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Phone className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500 mb-1">Téléphone</p>
+                        <p className="font-medium text-gray-900">{phone}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="text-center">
+                <Link to="/contact">
+                  <Button variant="primary" size="lg" className="group">
+                    Formulaire de contact
+                    <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
       </motion.div>
     </Section>
   );

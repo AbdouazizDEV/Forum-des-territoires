@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Section from '../../components/common/Section/Section';
+import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
-import { fadeInUp, staggerContainer } from '../../utils/animations';
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { isValidEmail } from '../../utils/helpers';
-import { CONTACT_INFO } from '../../utils/constants';
-import { Mail, Phone, Send } from 'lucide-react';
+import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/constants';
+import { Mail, Phone, Send, MessageSquare, User, Building, Globe, ArrowRight, CheckCircle, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 /**
- * Page Contact / Inscription
+ * Page Contact / Inscription - Style magnifique
  */
 const Contact = () => {
-  const { ref, controls } = useScrollAnimation();
+  const { ref: refHero, controls: controlsHero } = useScrollAnimation();
+  const { ref: refForm, controls: controlsForm } = useScrollAnimation();
   const [formData, setFormData] = useState({
     civility: '',
     fullName: '',
@@ -81,239 +84,339 @@ const Contact = () => {
     }, 1500);
   };
 
+  const socialIcons = {
+    facebook: Facebook,
+    instagram: Instagram,
+    youtube: Youtube,
+    linkedin: Linkedin
+  };
+
   return (
-    <Section id="contact" background="default" padding="lg">
-      <motion.div
-        ref={ref}
-        initial="initial"
-        animate={controls}
-        variants={staggerContainer}
-        className="max-w-4xl mx-auto"
-      >
-        <motion.h1
-          variants={fadeInUp}
-          className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark text-center"
+    <div className="pt-20">
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-accent-orange to-secondary">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <motion.div
+          ref={refHero}
+          initial="initial"
+          animate={controlsHero}
+          variants={staggerContainer}
+          className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center text-white"
         >
-          Contact & Inscription
-        </motion.h1>
-
-        <motion.p
-          variants={fadeInUp}
-          className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto"
-        >
-          Inscrivez-vous au Forum des Territoires 2026 ou contactez-nous pour plus d'informations
-        </motion.p>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Contact Info */}
-          <motion.div variants={fadeInUp} className="lg:col-span-1">
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 space-y-6">
-              <div>
-                <h3 className="font-display font-semibold text-lg mb-4">Coordonnées</h3>
-                <div className="space-y-4">
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="flex items-center space-x-3 text-gray-700 hover:text-primary transition-colors"
-                  >
-                    <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-sm">{CONTACT_INFO.email}</span>
-                  </a>
-                  {CONTACT_INFO.phones.map((phone, index) => (
-                    <a
-                      key={index}
-                      href={`tel:${phone.replace(/\s/g, '')}`}
-                      className="flex items-center space-x-3 text-gray-700 hover:text-primary transition-colors"
-                    >
-                      <Phone className="w-5 h-5 text-primary" />
-                      <span className="text-sm">{phone}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
+          <motion.div variants={fadeInUp} className="mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 shadow-lg">
+              <MessageSquare className="w-10 h-10 text-white" />
             </div>
+            <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
+              Contact & Inscription
+            </h1>
+            <div className="w-32 h-1 bg-gradient-to-r from-white via-accent-orange to-white mx-auto mb-6"></div>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+              Inscrivez-vous au Forum des Territoires 2026 ou contactez-nous pour plus d'informations
+            </p>
           </motion.div>
+        </motion.div>
+        {/* Effets décoratifs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent-orange/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+      </section>
 
-          {/* Form */}
-          <motion.div variants={fadeInUp} className="lg:col-span-2">
-            {isSubmitted ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="bg-green-50 border-2 border-green-200 rounded-xl p-8 text-center"
-              >
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-display font-bold text-xl text-green-800 mb-2">
-                  Message envoyé avec succès !
-                </h3>
-                <p className="text-green-700">
-                  Nous vous répondrons dans les plus brefs délais.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-6 md:p-8 space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Civilité
-                    </label>
-                    <select
-                      name="civility"
-                      value={formData.civility}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+      {/* Section Contact Info & Form */}
+      <Section id="contact" background="default" padding="lg">
+        <motion.div
+          ref={refForm}
+          initial="initial"
+          animate={controlsForm}
+          variants={staggerContainer}
+          className="max-w-7xl mx-auto"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Contact Info Sidebar */}
+            <motion.div variants={fadeInLeft} className="lg:col-span-1 space-y-6">
+              {/* Coordonnées */}
+              <Card variant="default" className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 border-2 border-primary/20">
+                <div className="p-6">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-orange rounded-xl flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-display font-bold text-xl text-dark">Coordonnées</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <a
+                      href={`mailto:${CONTACT_INFO.email}`}
+                      className="flex items-start space-x-4 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
                     >
-                      <option value="">Sélectionner</option>
-                      <option value="M.">M.</option>
-                      <option value="Mme">Mme</option>
-                      <option value="Mlle">Mlle</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom complet <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
-                        errors.fullName ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      required
-                    />
-                    {errors.fullName && (
-                      <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Organisation / Entreprise <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="organization"
-                      value={formData.organization}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
-                        errors.organization ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      required
-                    />
-                    {errors.organization && (
-                      <p className="text-red-500 text-sm mt-1">{errors.organization}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Pays
-                    </label>
-                    <input
-                      type="text"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                    />
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent-orange rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                        <Mail className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-500 mb-1">Email</p>
+                        <p className="font-medium text-gray-900 break-all">{CONTACT_INFO.email}</p>
+                      </div>
+                    </a>
+                    {CONTACT_INFO.phones.map((phone, index) => (
+                      <a
+                        key={index}
+                        href={`tel:${phone.replace(/\s/g, '')}`}
+                        className="flex items-start space-x-4 p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
+                      >
+                        <div className="w-10 h-10 bg-gradient-to-br from-secondary to-secondary-dark rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+                          <Phone className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm text-gray-500 mb-1">Téléphone {index + 1}</p>
+                          <p className="font-medium text-gray-900">{phone}</p>
+                        </div>
+                      </a>
+                    ))}
                   </div>
                 </div>
+              </Card>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      required
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                    )}
+              {/* Réseaux sociaux */}
+              <Card variant="default" className="bg-gradient-to-br from-secondary/10 via-accent-orange/10 to-primary/10 border-2 border-secondary/20">
+                <div className="p-6">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center">
+                      <Globe className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-display font-bold text-xl text-dark">Réseaux sociaux</h3>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                    />
+                  <div className="grid grid-cols-2 gap-3">
+                    {SOCIAL_LINKS.map((social, index) => {
+                      const Icon = socialIcons[social.name.toLowerCase()];
+                      if (!Icon) return null;
+                      return (
+                        <a
+                          key={index}
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-col items-center justify-center p-4 bg-white rounded-xl hover:shadow-lg transition-all group"
+                        >
+                          <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform mb-2" />
+                          <span className="text-xs font-medium text-gray-700 capitalize">{social.name}</span>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
+              </Card>
+            </motion.div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Type de participation <span className="text-primary">*</span>
-                  </label>
-                  <select
-                    name="participationType"
-                    value={formData.participationType}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
-                      errors.participationType ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    required
-                  >
-                    <option value="">Sélectionner</option>
-                    <option value="territoire">Territoire</option>
-                    <option value="investisseur">Investisseur</option>
-                    <option value="partenaire">Partenaire</option>
-                    <option value="autre">Autre</option>
-                  </select>
-                  {errors.participationType && (
-                    <p className="text-red-500 text-sm mt-1">{errors.participationType}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message / Présentation du projet
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none"
-                    placeholder="Décrivez votre projet ou votre message..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  loading={isSubmitting}
-                  className="w-full"
+            {/* Form */}
+            <motion.div variants={fadeInRight} className="lg:col-span-2">
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-3xl p-8 md:p-12 text-center shadow-xl"
                 >
-                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
-                </Button>
-              </form>
-            )}
-          </motion.div>
-        </div>
-      </motion.div>
-    </Section>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                    className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  >
+                    <CheckCircle className="w-10 h-10 text-white" />
+                  </motion.div>
+                  <h3 className="font-display font-bold text-2xl text-green-800 mb-3">
+                    Message envoyé avec succès !
+                  </h3>
+                  <p className="text-green-700 text-lg mb-4">
+                    Nous vous répondrons dans les plus brefs délais.
+                  </p>
+                  <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto"></div>
+                </motion.div>
+              ) : (
+                <Card variant="default" className="shadow-2xl border-2 border-primary/10">
+                  <div className="p-6 md:p-8">
+                    <div className="mb-6">
+                      <h2 className="font-display font-bold text-2xl md:text-3xl mb-2 text-dark">
+                        Formulaire de contact
+                      </h2>
+                      <div className="w-16 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mb-4"></div>
+                      <p className="text-gray-600">
+                        Remplissez le formulaire ci-dessous et nous vous répondrons rapidement
+                      </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <User className="w-4 h-4 text-primary" />
+                            <span>Civilité</span>
+                          </label>
+                          <select
+                            name="civility"
+                            value={formData.civility}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                          >
+                            <option value="">Sélectionner</option>
+                            <option value="M.">M.</option>
+                            <option value="Mme">Mme</option>
+                            <option value="Mlle">Mlle</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <User className="w-4 h-4 text-primary" />
+                            <span>Nom complet <span className="text-primary">*</span></span>
+                          </label>
+                          <input
+                            type="text"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all ${
+                              errors.fullName ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            required
+                          />
+                          {errors.fullName && (
+                            <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <Building className="w-4 h-4 text-primary" />
+                            <span>Organisation / Entreprise <span className="text-primary">*</span></span>
+                          </label>
+                          <input
+                            type="text"
+                            name="organization"
+                            value={formData.organization}
+                            onChange={handleChange}
+                            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all ${
+                              errors.organization ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            required
+                          />
+                          {errors.organization && (
+                            <p className="text-red-500 text-sm mt-1">{errors.organization}</p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <Globe className="w-4 h-4 text-primary" />
+                            <span>Pays</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="country"
+                            value={formData.country}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <Mail className="w-4 h-4 text-primary" />
+                            <span>Email <span className="text-primary">*</span></span>
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all ${
+                              errors.email ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            required
+                          />
+                          {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                            <Phone className="w-4 h-4 text-primary" />
+                            <span>Téléphone</span>
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                          <User className="w-4 h-4 text-primary" />
+                          <span>Type de participation <span className="text-primary">*</span></span>
+                        </label>
+                        <select
+                          name="participationType"
+                          value={formData.participationType}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all ${
+                            errors.participationType ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                          required
+                        >
+                          <option value="">Sélectionner</option>
+                          <option value="territoire">Territoire</option>
+                          <option value="investisseur">Investisseur</option>
+                          <option value="partenaire">Partenaire</option>
+                          <option value="autre">Autre</option>
+                        </select>
+                        {errors.participationType && (
+                          <p className="text-red-500 text-sm mt-1">{errors.participationType}</p>
+                        )}
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
+                          <MessageSquare className="w-4 h-4 text-primary" />
+                          <span>Message / Présentation du projet</span>
+                        </label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={5}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary resize-none transition-all"
+                          placeholder="Décrivez votre projet ou votre message..."
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        size="lg"
+                        loading={isSubmitting}
+                        className="w-full group"
+                      >
+                        {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                        {!isSubmitting && (
+                          <Send className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
+                        )}
+                      </Button>
+                    </form>
+                  </div>
+                </Card>
+              )}
+            </motion.div>
+          </div>
+        </motion.div>
+      </Section>
+    </div>
   );
 };
 
 export default Contact;
-

@@ -140,8 +140,9 @@ export const STATS = [
 ];
 
 export const FOOTER_LINKS = [
-  { name: "SN KINSS", url: "#" },
-  { name: "Jeux d'EDEN", url: "#" },
-  { name: "Maam Ndoumbé", url: "#" }
+  { name: "SN KINSS", url: "https://snkinss.com/" },
+  { name: "Jeux d'EDEN", url: "https://lesjeuxdeden.fr/" },
+  { name: "UNCCIAS", url: "https://www.unccias.sn/" },
+  { name: "UAEL", url: "https://collectivitesterritoriales.sn/union-de-lassociation-des-elus-locaux/" }
 ];
 
