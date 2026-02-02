@@ -13,7 +13,7 @@ import { SPEAKERS_DATA } from '../../../services/speakersService';
  */
 const SpeakersInternationaux = () => {
   const { ref, controls } = useScrollAnimation();
-  
+
   // Afficher les 4 premiers speakers pour la page d'accueil
   const featuredSpeakers = SPEAKERS_DATA.slice(0, 4);
 
@@ -82,11 +82,11 @@ const SpeakersInternationaux = () => {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary"></div>
                   <h3 className="font-display font-bold text-lg md:text-xl mb-2 text-dark leading-tight">
                     {speaker.title} {speaker.name}
-                  </h3>
+                </h3>
                   <div className="flex items-center justify-center space-x-2 mb-3 text-primary">
                     <Briefcase className="w-4 h-4 flex-shrink-0" />
                     <p className="text-sm font-medium text-center leading-tight">{speaker.role}</p>
-                  </div>
+                </div>
                   {speaker.bio && (
                     <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
                       {speaker.bio}

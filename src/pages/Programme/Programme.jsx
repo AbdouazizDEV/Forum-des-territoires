@@ -23,7 +23,7 @@ const Programme = () => {
         {
           period: "14 h",
           title: "Visite de terrain",
-          activities: [
+      activities: [
             "Visite d'une cité caractéristique illustrant les enjeux de l'habitat, des services et des activités économiques territoriales",
             "Échanges techniques avec les acteurs locaux (collectivités, entreprises, promoteurs, structures d'appui)"
           ]
@@ -47,7 +47,7 @@ const Programme = () => {
         },
         {
           period: "Après-midi",
-          activities: [
+      activities: [
             "Panel 1: Habitat, territoires et développement économique",
             "Panel 2: Rôle du secteur privé et attractivité des investissements territoriaux",
             "Ouverture de l'espace exposition (territoires, entreprises, projets, partenaires)"
@@ -71,7 +71,7 @@ const Programme = () => {
         },
         {
           period: "Après-midi",
-          activities: [
+      activities: [
             "Visites auprès des structures économiques belges (chambres de commerce, institutions d'appui au secteur privé)",
             "Panels thématiques sur l'habitat, l'investissement et les partenariats économiques"
           ]
@@ -93,7 +93,7 @@ const Programme = () => {
         },
         {
           period: "Après-midi / Soirée",
-          activities: [
+      activities: [
             "Gala de clôture et networking de haut niveau (Célébrer la Culture des deux continents)"
           ]
         }
@@ -136,9 +136,9 @@ const Programme = () => {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <Calendar className="w-6 h-6 flex-shrink-0" />
-                      <div>
-                        <h2 className="font-display font-bold text-2xl mb-2">{day.day}</h2>
-                        <h3 className="text-xl font-semibold">{day.title}</h3>
+                    <div>
+                      <h2 className="font-display font-bold text-2xl mb-2">{day.day}</h2>
+                      <h3 className="text-xl font-semibold">{day.title}</h3>
                       </div>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -162,12 +162,12 @@ const Programme = () => {
                       </div>
                       <ul className="space-y-2.5 ml-7">
                         {section.activities.map((activity, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
+                      <li key={idx} className="flex items-start space-x-3">
                             <span className="text-primary mt-1.5 font-bold">•</span>
                             <span className="text-gray-700 leading-relaxed">{activity}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      </li>
+                    ))}
+                  </ul>
                     </div>
                   ))}
                 </div>

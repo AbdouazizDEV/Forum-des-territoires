@@ -51,13 +51,13 @@ const Partners = () => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-accent-orange to-secondary">
         <div className="absolute inset-0 bg-black/20"></div>
-        <motion.div
+      <motion.div
           ref={refHero}
-          initial="initial"
+        initial="initial"
           animate={controlsHero}
-          variants={staggerContainer}
+        variants={staggerContainer}
           className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center text-white"
-        >
+      >
           <motion.div variants={fadeInUp} className="mb-8">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 shadow-lg">
               <Handshake className="w-10 h-10 text-white" />
@@ -86,9 +86,9 @@ const Partners = () => {
           className="max-w-7xl mx-auto"
         >
           <motion.div
-            variants={fadeInUp}
+          variants={fadeInUp}
             className="text-center mb-12"
-          >
+        >
             <h2 className="font-display font-bold text-4xl md:text-5xl mb-6 text-dark">
               Catégories de partenaires
             </h2>
@@ -227,11 +227,11 @@ const Partners = () => {
                           <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>
-                    </div>
+                  </div>
 
                     {/* Accent en bas */}
                     <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.color} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-                  </Card>
+                </Card>
                 </motion.div>
               );
             })}
@@ -249,9 +249,9 @@ const Partners = () => {
           className="max-w-7xl mx-auto"
         >
           <motion.div
-            variants={fadeInUp}
+          variants={fadeInUp}
             className="text-center mb-16"
-          >
+        >
             <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
               Partenariats thématiques exclusifs
             </h2>
@@ -301,19 +301,19 @@ const Partners = () => {
                           <li key={bIndex} className="flex items-start space-x-2">
                             <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                             <span className="text-gray-700 text-sm">{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    </li>
+                  ))}
+                </ul>
                       <div className="mt-6">
                         <Link to="/reserver" className="block">
                           <Button variant="outline" size="md" className="w-full group">
-                            En savoir plus
+                  En savoir plus
                             <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
-                          </Button>
+                </Button>
                         </Link>
                       </div>
                     </div>
-                  </Card>
+              </Card>
                 </motion.div>
               );
             })}
@@ -331,9 +331,9 @@ const Partners = () => {
           className="max-w-4xl mx-auto"
         >
           <motion.div
-            variants={fadeInUp}
+          variants={fadeInUp}
             className="bg-gradient-to-br from-primary via-accent-orange to-secondary rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden"
-          >
+        >
             {/* Effets décoratifs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
@@ -352,9 +352,9 @@ const Partners = () => {
               </h2>
               <div className="w-24 h-1 bg-white/50 mx-auto mb-6"></div>
               <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-                Contactez-nous pour discuter des opportunités de partenariat et découvrir 
-                comment votre organisation peut contribuer au succès du Forum des Territoires.
-              </p>
+            Contactez-nous pour discuter des opportunités de partenariat et découvrir 
+            comment votre organisation peut contribuer au succès du Forum des Territoires.
+          </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/reserver" className="block">
                   <Button 
@@ -362,7 +362,7 @@ const Partners = () => {
                     size="lg" 
                     className="bg-white text-primary hover:bg-white/90 shadow-lg"
                   >
-                    Nous contacter
+            Nous contacter
                     <ArrowRight className="w-5 h-5 ml-2 inline" />
                   </Button>
                 </Link>
@@ -373,7 +373,7 @@ const Partners = () => {
                     className="border-2 border-white text-white hover:bg-white/10"
                   >
                     Appeler maintenant
-                  </Button>
+          </Button>
                 </a>
               </div>
               <div className="mt-8 pt-8 border-t border-white/20">
@@ -391,8 +391,8 @@ const Partners = () => {
               </div>
             </div>
           </motion.div>
-        </motion.div>
-      </Section>
+      </motion.div>
+    </Section>
     </div>
   );
 };

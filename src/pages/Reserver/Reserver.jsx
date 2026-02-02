@@ -247,20 +247,20 @@ const Reserver = () => {
                   <p className="text-red-500 text-sm mt-1">{errors.participationType}</p>
                 )}
               </div>
-            </div>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Nombre de personnes
-              </label>
-              <input
-                type="number"
-                name="numberOfPeople"
-                value={formData.numberOfPeople}
-                onChange={handleChange}
-                min="1"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-              />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Nombre de personnes
+                </label>
+                <input
+                  type="number"
+                  name="numberOfPeople"
+                  value={formData.numberOfPeople}
+                  onChange={handleChange}
+                  min="1"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                />
             </div>
 
             <Button

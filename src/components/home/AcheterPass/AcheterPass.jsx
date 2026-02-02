@@ -143,13 +143,13 @@ const AcheterPass = () => {
                     </div>
                     <div className="mt-8">
                       <Link to={`/reserver?package=${pkg.id}`} className="block">
-                        <Button 
+                      <Button 
                           variant={pkg.variant} 
-                          size="lg" 
-                          className="w-full"
-                        >
+                        size="lg" 
+                        className="w-full"
+                      >
                           Nous contacter
-                        </Button>
+                      </Button>
                       </Link>
                     </div>
                   </div>

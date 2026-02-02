@@ -115,15 +115,15 @@ const Header = () => {
                               transition={{ delay: index * 0.05 }}
                             >
                               <Link
-                                to={subItem.path}
-                                onClick={() => {
-                                  setOpenDropdown(null);
-                                  setTimeout(() => scrollToSection(subItem.path.split('#')[1] ? `#${subItem.path.split('#')[1]}` : ''), 100);
-                                }}
+                              to={subItem.path}
+                              onClick={() => {
+                                setOpenDropdown(null);
+                                setTimeout(() => scrollToSection(subItem.path.split('#')[1] ? `#${subItem.path.split('#')[1]}` : ''), 100);
+                              }}
                                 className="block px-4 py-2.5 text-sm font-medium text-dark hover:bg-primary/10 hover:text-primary transition-all duration-200 focus:outline-none focus:bg-primary/10 focus:text-primary rounded-md mx-1 whitespace-nowrap"
-                              >
-                                {subItem.label}
-                              </Link>
+                            >
+                              {subItem.label}
+                            </Link>
                             </motion.div>
                           ))}
                         </motion.div>
@@ -136,24 +136,24 @@ const Header = () => {
                     whileFocus={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Link
-                      to={link.path}
+                  <Link
+                    to={link.path}
                       className={`relative font-semibold text-base px-3 py-2 rounded-md transition-all duration-200 block whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                        location.pathname === link.path
-                          ? 'text-primary'
-                          : 'text-dark hover:text-primary'
-                      }`}
-                    >
-                      {link.label}
-                      {location.pathname === link.path && (
-                        <motion.div
-                          layoutId="activeTab"
+                      location.pathname === link.path
+                        ? 'text-primary'
+                        : 'text-dark hover:text-primary'
+                    }`}
+                  >
+                    {link.label}
+                    {location.pathname === link.path && (
+                      <motion.div
+                        layoutId="activeTab"
                           className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
-                          initial={false}
-                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                    </Link>
+                        initial={false}
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
                   </motion.div>
                 )}
               </div>
@@ -164,25 +164,25 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/reserver" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
-                <Button
-                  variant="primary"
-                  size="md"
+              <Button
+                variant="primary"
+                size="md"
                   className="px-6 transition-all duration-200"
-                >
-                  Reserver
-                </Button>
-              </Link>
+              >
+                Reserver
+              </Button>
+            </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/partenaires" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
-                <Button
-                  variant="outline"
-                  size="md"
+              <Button
+                variant="outline"
+                size="md"
                   className="px-6 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
-                >
-                  Devenir partenaire
-                </Button>
-              </Link>
+              >
+                Devenir partenaire
+              </Button>
+            </Link>
             </motion.div>
           </div>
 
@@ -198,8 +198,8 @@ const Header = () => {
             <motion.div
               animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
               transition={{ duration: 0.2 }}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.div>
           </motion.button>
         </div>
@@ -252,15 +252,15 @@ const Header = () => {
                                 transition={{ delay: subIndex * 0.05 }}
                               >
                                 <Link
-                                  to={subItem.path}
-                                  onClick={() => {
-                                    closeMobileMenu();
-                                    setTimeout(() => scrollToSection(subItem.path.split('#')[1] ? `#${subItem.path.split('#')[1]}` : ''), 100);
-                                  }}
+                                to={subItem.path}
+                                onClick={() => {
+                                  closeMobileMenu();
+                                  setTimeout(() => scrollToSection(subItem.path.split('#')[1] ? `#${subItem.path.split('#')[1]}` : ''), 100);
+                                }}
                                   className="block py-2.5 px-4 text-sm font-medium text-gray-600 hover:text-primary hover:bg-primary/5 rounded-md transition-all duration-200 focus:outline-none focus:bg-primary/5 focus:text-primary whitespace-nowrap"
-                                >
-                                  {subItem.label}
-                                </Link>
+                              >
+                                {subItem.label}
+                              </Link>
                               </motion.div>
                             ))}
                           </motion.div>
