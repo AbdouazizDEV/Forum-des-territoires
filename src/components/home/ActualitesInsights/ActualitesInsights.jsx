@@ -6,36 +6,14 @@ import Button from '../../common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { Newspaper, Calendar, ArrowRight } from 'lucide-react';
+import { getFeaturedActualites } from '../../../services/actualitesService';
 
 /**
  * Section Actualites & Insights
  */
 const ActualitesInsights = () => {
   const { ref, controls } = useScrollAnimation();
-
-  const actualites = [
-    {
-      id: 1,
-      title: "Lancement du Forum des Territoires 2026",
-      date: "15 Janvier 2026",
-      category: "Actualité",
-      excerpt: "Découvrez les nouveautés de cette édition et les opportunités d'investissement"
-    },
-    {
-      id: 2,
-      title: "Partenariats stratégiques annoncés",
-      date: "10 Janvier 2026",
-      category: "Partenariat",
-      excerpt: "Plusieurs conventions de coopération décentralisée déjà signées"
-    },
-    {
-      id: 3,
-      title: "Focus sur l'Habitat au cœur des Territoires",
-      date: "5 Janvier 2026",
-      category: "Thématique",
-      excerpt: "Le thème central de cette édition met l'accent sur le logement durable"
-    }
-  ];
+  const actualites = getFeaturedActualites().slice(0, 3);
 
   return (
     <Section id="actualites-insights" background="gradient" padding="lg">
@@ -65,29 +43,54 @@ const ActualitesInsights = () => {
               key={actualite.id}
               variants={fadeInUp}
               custom={index}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="relative"
+              className="relative group"
             >
-              <Card variant="default" className="h-full p-6 relative shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex items-center space-x-2 mb-4">
-                  <Newspaper className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-semibold text-primary">{actualite.category}</span>
+              <Card variant="default" className="h-full p-0 relative shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                  {actualite.image ? (
+                    <img 
+                      src={actualite.image} 
+                      alt={actualite.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                      <Newspaper className="w-16 h-16 text-primary/30" />
+                    </div>
+                  )}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold rounded-full shadow-md">
+                      {actualite.category}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="font-display font-bold text-xl mb-3 text-dark">
-                  {actualite.title}
-                </h3>
-                <div className="flex items-center space-x-2 mb-4 text-gray-600">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm">{actualite.date}</span>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center space-x-2 mb-3 text-gray-500">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm">{actualite.date}</span>
+                  </div>
+                  <h3 className="font-display font-bold text-xl mb-3 text-dark line-clamp-2 group-hover:text-primary transition-colors">
+                    {actualite.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {actualite.excerpt}
+                  </p>
+                  <Link 
+                    to={`/actualites/${actualite.id}`}
+                    className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors group/link"
+                  >
+                    Lire la suite
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  {actualite.excerpt}
-                </p>
-                <Link to="/actualites" className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors">
-                  Lire la suite
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
               </Card>
             </motion.div>
           ))}

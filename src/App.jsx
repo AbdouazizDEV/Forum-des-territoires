@@ -6,6 +6,7 @@ import Programme from './pages/Programme/Programme';
 import Speakers from './pages/Speakers/Speakers';
 import EditionsPrecedentes from './pages/EditionsPrecedentes/EditionsPrecedentes';
 import Actualites from './pages/Actualites/Actualites';
+import ActualiteDetail from './pages/ActualiteDetail/ActualiteDetail';
 import Partners from './pages/Partners/Partners';
 import Participer from './pages/Participer/Participer';
 import Reserver from './pages/Reserver/Reserver';
@@ -33,6 +34,7 @@ function App() {
           <Route path="/speakers" element={<Speakers />} />
           <Route path="/editions-precedentes" element={<EditionsPrecedentes />} />
           <Route path="/actualites" element={<Actualites />} />
+          <Route path="/actualites/:id" element={<ActualiteDetail />} />
           <Route path="/partenaires" element={<Partners />} />
           <Route path="/participer" element={<Participer />} />
           <Route path="/reserver" element={<Reserver />} />
