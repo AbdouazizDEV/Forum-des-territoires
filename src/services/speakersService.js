@@ -10,6 +10,19 @@ import MarieClaireMvumbImage from '../assets/images/Speakers/Marie-Claire Mvumbi
 import DiarraSowImage from '../assets/images/Speakers/Madame Diarra Sow.jpeg';
 import NabilMessaoudiImage from '../assets/images/Speakers/Nabil Messaoudi.jpeg';
 import SerigneMboupImage from '../assets/images/Speakers/serigne.png';
+import NdeyeAwaNdiayeImage from '../assets/images/Speakers/Ndeye Awa Ndiaye.jpeg';
+import OuryBailloDialloImage from '../assets/images/Speakers/Oury Baillo Diallo.jpeg';
+import BiraneDioufImage from '../assets/images/Speakers/Birane Diouf.jpeg';
+import AliounePouyeImage from '../assets/images/Speakers/Alioune Pouye.jpeg';
+import CheikhIbraNdiayeImage from '../assets/images/Speakers/Cheikh Ibra Ndiaye.jpeg';
+import SultanDiopImage from '../assets/images/Speakers/Sultan DIOP.jpeg';
+import AichaBachaImage from '../assets/images/Speakers/Aicha Bacha.jpeg';
+import SomayaKorkzineImage from '../assets/images/Speakers/ Somaya Korkzine.jpeg';
+import IdrissaDiopImage from '../assets/images/Speakers/Idrissa Diop.jpeg';
+import BiranDioufImage from '../assets/images/Speakers/Biran Diouf.jpeg';
+import CheikhAliouneBeyeImage from '../assets/images/Speakers/Cheikh Alioune BEYE.jpeg';
+import IbrahimaDiedhiouImage from '../assets/images/Speakers/Ibrahima Diedhiou.jpeg';
+import AlHassaneNiangImage from '../assets/images/Speakers/Al Hassane NiANG.jpeg';
 /**
  * Service contenant les données des speakers du Forum
  */
@@ -79,12 +92,12 @@ export const SPEAKERS_DATA = [
   },
   {
     id: 8,
-    name: "Birane Diouf",
+    name: "Biran Diouf",
     title: "Mr",
     role: "Directeur des Opérations de l'ADEPME",
     country: "Sénégal",
     bio: "Directeur des Opérations de l'Agence de Développement et d'Encadrement des Petites et Moyennes Entreprises",
-    image: null
+    image: BiraneDioufImage
   },
   {
     id: 9,
@@ -129,7 +142,7 @@ export const SPEAKERS_DATA = [
     role: "Maire de Thilmakha",
     country: "Sénégal",
     bio: "Maire de la commune de Thilmakha",
-    image: null
+    image: CheikhIbraNdiayeImage
   },
   {
     id: 14,
@@ -138,7 +151,7 @@ export const SPEAKERS_DATA = [
     role: "Maire de Sebikotane",
     country: "Sénégal",
     bio: "Maire de la commune de Sebikotane",
-    image: null
+    image: AliounePouyeImage
   },
   {
     id: 15,
@@ -151,12 +164,12 @@ export const SPEAKERS_DATA = [
   },
   {
     id: 16,
-    name: "Niang",
+    name: "Al Hassane NiANG",
     title: "Mr",
-    role: "Parrain de la 1ère édition du Forum",
+    role: "Directeur du Groupe GOPA, Ancien DG de B&s Europe,Expert en Gouvernance publique et reformes Institutionnelles",
     country: "Sénégal",
-    bio: "Parrain de la première édition du Forum des Territoires",
-    image: null
+    bio: "Parrains de la 1 ère édition",
+    image: AlHassaneNiangImage
   },
   {
     id: 17,
@@ -169,12 +182,12 @@ export const SPEAKERS_DATA = [
   },
   {
     id: 18,
-    name: "Représentant de l'Ambassadeur du Sénégal en Belgique",
-    title: "Mr",
-    role: "Représentant de l'Ambassadeur du Sénégal en Belgique",
-    country: "Belgique",
-    bio: "Représentant diplomatique du Sénégal en Belgique",
-    image: null
+    name: "Ndeye Awa Ndiaye",
+    title: "Mme",
+    role: "",
+    country: "Sénégal",
+    bio: "",
+    image: NdeyeAwaNdiayeImage
   },
   {
     id: 19,
@@ -210,7 +223,7 @@ export const SPEAKERS_DATA = [
     role: "Président UAEL",
     country: "Sénégal",
     bio: "Président de l'Union des Associations d'Élus Locaux",
-    image: null
+    image: OuryBailloDialloImage
   },
   {
     id: 23,
@@ -219,7 +232,61 @@ export const SPEAKERS_DATA = [
     role: "Secrétaire Général de l'UEAL",
     country: "Sénégal",
     bio: "Secrétaire Général de l'Union des Élus et Associations Locales",
-    image: null
+    image: IdrissaDiopImage
+  },
+  {
+    id: 24,
+    name: "Sultan DIOP",
+    title: "Mr",
+    role: "PDG de NOGA MINE SARL",
+    country: "Sénégal",
+    bio: "",
+    image: SultanDiopImage
+  },
+  {
+    id: 25,
+    name: "Aicha Bacha",
+    title: "Mme",
+    role: "Présidente fondatrice de l'ECDA",
+    country: "Sénégal",
+    bio: "",
+    image: AichaBachaImage
+  },
+  {
+    id: 26,
+    name: "Somaya Korkzine",
+    title: "Mme",
+    role: "Presidente Asbl SO GO UP",
+    country: "Sénégal",
+    bio: "",
+    image: SomayaKorkzineImage
+  },
+  {
+    id: 27,
+    name: "Biran Diouf",
+    title: "Mr",
+    role: "",
+    country: "Sénégal",
+    bio: "",
+    image: BiranDioufImage
+  },
+  {
+    id: 28,
+    name: "Cheikh Alioune BEYE",
+    title: "Mr",
+    role: "Maire de Sicap Mbao et PCA  du Conseil d’orientation des pôles urbains de Diamniadio et Lac Rose",
+    country: "Sénégal",
+    bio: "",
+    image: CheikhAliouneBeyeImage
+  },
+  {
+    id: 29,
+    name: "Ibrahima Diedhiou",
+    title: "Mr",
+    role: " maire de Bona",
+    country: "Sénégal",
+    bio: "",
+    image: IbrahimaDiedhiouImage
   }
 ];
 
