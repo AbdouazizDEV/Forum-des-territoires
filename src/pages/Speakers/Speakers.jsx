@@ -52,10 +52,12 @@ const Speakers = () => {
           animate={controlsSpeakers}
           variants={staggerContainer}
           className="max-w-7xl mx-auto"
+          style={{ opacity: 1 }}
         >
           <motion.div
             variants={fadeInUp}
             className="text-center mb-12"
+            style={{ opacity: 1 }}
           >
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent-orange rounded-2xl mb-6 shadow-lg">
               <Sparkles className="w-8 h-8 text-white" />
@@ -78,6 +80,7 @@ const Speakers = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 className="relative"
+                style={{ opacity: 1 }}
               >
                 <Card variant="default" className="h-full text-center relative overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-2xl">
                   {/* Photo placeholder avec gradient */}
@@ -98,10 +101,10 @@ const Speakers = () => {
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:from-black/20 transition-all"></div>
                     {/* Badge pays */}
-                    <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center space-x-1.5 shadow-lg group-hover:scale-110 transition-transform">
+                    {/* <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center space-x-1.5 shadow-lg group-hover:scale-110 transition-transform">
                       <Globe className="w-3.5 h-3.5 text-primary" />
                       <span className="text-xs font-bold text-gray-700">{speaker.country}</span>
-                    </div>
+                    </div> */}
                     {/* Badge titre si important */}
                     {(speaker.role.includes('Président') || speaker.role.includes('Ministre') || speaker.role.includes('Directeur')) && (
                       <div className="absolute top-3 left-3 bg-gradient-to-r from-accent-orange to-primary px-3 py-1.5 rounded-full shadow-lg">

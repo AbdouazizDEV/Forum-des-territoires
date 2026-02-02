@@ -1,3 +1,15 @@
+import orpheeKinssImage from '../assets/images/Speakers/Orphée initiateur du projet.jpeg';
+import bertinMampakaImage from '../assets/images/Speakers/Bertin Mampaka.jpeg';
+import christianLamoulineImage from '../assets/images/Speakers/Christian Lamouline.jpeg';
+import stevenRoyezImage from '../assets/images/Speakers/Steven Royez.jpeg';
+import WillaneImage from '../assets/images/Speakers/Willane.jpeg';
+import AliouneSarrImage from '../assets/images/Speakers/Alioune Sarr ancien ministre.jpeg';
+import ElhadjDialloImage from '../assets/images/Speakers/ Elhadj DIALLO.jpeg';
+import AndreFlhautImage from '../assets/images/Speakers/André FLAHAUT.jpeg';
+import MarieClaireMvumbImage from '../assets/images/Speakers/Marie-Claire Mvumbi.jpeg';
+import DiarraSowImage from '../assets/images/Speakers/Madame Diarra Sow.jpeg';
+import NabilMessaoudiImage from '../assets/images/Speakers/Nabil Messaoudi.jpeg';
+import SerigneMboupImage from '../assets/images/Speakers/serigne.png';
 /**
  * Service contenant les données des speakers du Forum
  */
@@ -9,46 +21,64 @@ export const SPEAKERS_DATA = [
     role: "Initiateur du Forum",
     country: "Belgique",
     bio: "Fondateur et initiateur du Forum des Territoires",
-    image: null
+    image: orpheeKinssImage
   },
   {
     id: 2,
-    name: "Président du Parlement Belge",
+    name: "Christian Lamouline",
     title: "Mr",
-    role: "Président du Parlement Belge",
+    role: "President de BRULOCALIS et  Bourgmestre de Berchem-Sainte-Agathe",
     country: "Belgique",
     bio: "Haut représentant institutionnel belge",
-    image: null
+    image: christianLamoulineImage
   },
   {
     id: 3,
+    name: "Bertin Mampaka",
+    title: "Mr",
+    role: "Président du parlement bruxellois",
+    country: "Belgique",
+    bio: "Haut représentant institutionnel belge",
+    image: bertinMampakaImage
+  },
+  {
+    id: 4,
+    name: "Steven Royez",
+    title: "Mr",
+    role: "Bourgmestre de Lobbes",
+    country: "Belgique",
+    bio: "Président d'IGRETEC et Administrateur de l'Union des villes et communes de Wallonie, asbl",
+    image: stevenRoyezImage
+  },
+  {
+    id: 5,
     name: "Diarra Sow",
     title: "Mme",
     role: "Directrice Générale OLAC",
     country: "Sénégal",
     bio: "Directrice Générale de l'Organisation pour le Logement et l'Aménagement des Collectivités",
-    image: null
+    image: DiarraSowImage
   },
   {
-    id: 4,
+    id: 6,
     name: "Abdoulaye Wilane",
     title: "Mr",
     role: "Président Conseil Régional Kaffrine",
     country: "Sénégal",
     bio: "Président du Conseil Régional de Kaffrine",
-    image: null
+    image: WillaneImage
   },
   {
-    id: 5,
+      id: 7,
     name: "Serigne Mboup",
     title: "Mr",
     role: "Président Chambre de commerce de Kaolack",
     country: "Sénégal",
     bio: "Président de la Chambre de commerce de Kaolack",
-    image: null
+    image: SerigneMboupImage
   },
   {
-    id: 6,
+    id: 8,
     name: "Birane Diouf",
     title: "Mr",
     role: "Directeur des Opérations de l'ADEPME",
@@ -57,7 +87,43 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 7,
+    id: 9,
+    name: "Elhadj DIALLO  ",
+    title: "Mr",
+    role: "Député au Parlement de la Région de Bruxelles-Capitale  ",
+    country: "Belgique",
+    bio: "Sénateur de Belgique",
+    image: ElhadjDialloImage
+  },
+  {
+    id: 10,
+    name: "André FLAHAUT",
+    title: "Mr",
+    role: "Ministre d’État, Ministre de la Défense de 1999 à 2008",
+    country: "Sénégal",
+    bio: " président de la Chambre des représentants (2010-2014) et occupé des fonctions ministérielles en Fédération Wallonie-Bruxelles",
+    image: AndreFlhautImage
+  },
+  {
+    id: 11,
+    name: "Marie Claire Mvumb",
+    title: "Mme",
+    role: "Sénatrice belge",
+    country: "Belgique",
+    bio: "sénatrice belge",
+    image: MarieClaireMvumbImage
+  },
+  {
+    id: 12,
+    name: "Nabil Messaoudi",
+    title: "Mr",
+    role: "Échevin des sports, Familles, Cohésion sociale, Jeunesse, Jumelages et Coopération internationale Ixelles.",
+    country: "Belgique",
+    bio: null,
+    image: NabilMessaoudiImage
+  },
+  {
+    id: 13,
     name: "Cheikh Ibra Ndiaye",
     title: "Mr",
     role: "Maire de Thilmakha",
@@ -66,7 +132,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 8,
+    id: 14,
     name: "Alioune Pouye",
     title: "Mr",
     role: "Maire de Sebikotane",
@@ -75,7 +141,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 9,
+    id: 15,
     name: "Abdoulaye Ly",
     title: "Mr",
     role: "Ancien Directeur des investissements",
@@ -84,7 +150,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 10,
+    id: 16,
     name: "Niang",
     title: "Mr",
     role: "Parrain de la 1ère édition du Forum",
@@ -93,7 +159,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 11,
+    id: 17,
     name: "Jamil Thiam",
     title: "Mr",
     role: "Président de l'Association des Sénégalais de la Belgique",
@@ -102,7 +168,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 12,
+    id: 18,
     name: "Représentant de l'Ambassadeur du Sénégal en Belgique",
     title: "Mr",
     role: "Représentant de l'Ambassadeur du Sénégal en Belgique",
@@ -111,7 +177,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 13,
+    id: 19,
     name: "Hakewijn Timmerman",
     title: "Mr",
     role: "Chef de projet Système Alimentaire Durable, de l'entrepreneuriat et du changement climatique",
@@ -120,16 +186,16 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 14,
+    id: 20,
     name: "Alioune Sarr",
     title: "Mr",
     role: "Ancien Ministre du Tourisme au Sénégal",
     country: "Sénégal",
     bio: "Ancien Ministre du Tourisme et des Transports aériens du Sénégal",
-    image: null
+    image: AliouneSarrImage
   },
   {
-    id: 15,
+    id: 21,
     name: "Mamadou Oury Barry",
     title: "Mr",
     role: "Secrétaire Général de l'UAL",
@@ -138,7 +204,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 16,
+    id: 22,
     name: "Oury Baillo Diallo",
     title: "Mr",
     role: "Président UAEL",
@@ -147,16 +213,7 @@ export const SPEAKERS_DATA = [
     image: null
   },
   {
-    id: 17,
-    name: "Serigne Mboup",
-    title: "Mr",
-    role: "Maire de Kaolack et Président de l'union des chambres de commerce du Sénégal",
-    country: "Sénégal",
-    bio: "Maire de Kaolack et Président de l'Union des Chambres de Commerce, d'Industrie et d'Agriculture du Sénégal",
-    image: null
-  },
-  {
-    id: 18,
+    id: 23,
     name: "Idrissa Diop",
     title: "Mr",
     role: "Secrétaire Général de l'UEAL",

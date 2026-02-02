@@ -1,7 +1,4 @@
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { fadeInUp } from '../../../utils/animations';
-import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 
 /**
  * Composant Section wrapper réutilisable
@@ -15,7 +12,6 @@ const Section = ({
   padding = 'default',
   ...props
 }) => {
-  const { ref, controls } = useScrollAnimation();
 
   const backgrounds = {
     default: 'bg-light',
@@ -33,19 +29,15 @@ const Section = ({
   };
 
   return (
-    <motion.section
+    <section
       id={id}
-      ref={ref}
-      initial="initial"
-      animate={controls}
-      variants={fadeInUp}
       className={`${backgrounds[background]} ${paddings[padding]} ${className}`}
       {...props}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {children}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

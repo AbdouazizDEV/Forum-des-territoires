@@ -73,11 +73,13 @@ const EditionsPrecedentes = () => {
           animate={controlsContent}
           variants={staggerContainer}
           className="max-w-7xl mx-auto"
+          style={{ opacity: 1 }}
         >
           {/* Header Édition */}
           <motion.div
             variants={fadeInUp}
             className="text-center mb-16"
+            style={{ opacity: 1 }}
           >
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-accent-orange rounded-2xl mb-6 shadow-lg">
               <Calendar className="w-10 h-10 text-white" />
@@ -101,6 +103,7 @@ const EditionsPrecedentes = () => {
           <motion.div
             variants={fadeInUp}
             className="mb-16"
+            style={{ opacity: 1 }}
           >
             <Card variant="default" className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 border-2 border-primary/20">
               <div className="p-8 md:p-12">
@@ -128,6 +131,7 @@ const EditionsPrecedentes = () => {
           <motion.div
             variants={fadeInUp}
             className="mb-16"
+            style={{ opacity: 1 }}
           >
             <div className="text-center mb-12">
               <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
@@ -142,6 +146,7 @@ const EditionsPrecedentes = () => {
                   key={panel.id}
                   variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
                   custom={index}
+                  style={{ opacity: 1 }}
                 >
                   <Card variant="default" className="overflow-hidden border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-2xl">
                     {/* Header Panel */}
@@ -216,6 +221,7 @@ const EditionsPrecedentes = () => {
           <motion.div
             variants={fadeInUp}
             className="mb-12"
+            style={{ opacity: 1 }}
           >
             <div className="text-center mb-8">
               <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
@@ -240,6 +246,7 @@ const EditionsPrecedentes = () => {
           <motion.div
             variants={fadeInUp}
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            style={{ opacity: 1 }}
           >
             {edition.highlights.map((highlight, idx) => (
               <motion.div

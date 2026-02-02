@@ -19,11 +19,13 @@ const ObjectifsSection = () => {
         animate={controls}
         variants={staggerContainer}
         className="max-w-7xl mx-auto"
+        style={{ opacity: 1 }}
       >
         {/* Header */}
         <motion.div
           variants={fadeInUp}
           className="text-center mb-16"
+          style={{ opacity: 1 }}
         >
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-secondary to-accent-orange rounded-2xl mb-6 shadow-lg">
             <motion.div

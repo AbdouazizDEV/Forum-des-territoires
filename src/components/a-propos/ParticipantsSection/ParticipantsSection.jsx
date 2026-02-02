@@ -20,11 +20,13 @@ const ParticipantsSection = () => {
         animate={controls}
         variants={staggerContainer}
         className="max-w-7xl mx-auto"
+        style={{ opacity: 1 }}
       >
         {/* Header */}
         <motion.div
           variants={fadeInUp}
           className="text-center mb-16"
+          style={{ opacity: 1 }}
         >
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
             Profils des participants

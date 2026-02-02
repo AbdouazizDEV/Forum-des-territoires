@@ -33,6 +33,40 @@ import galleryImage25 from '../../assets/images/img23.jpg';
 import galleryImage26 from '../../assets/images/img24.jpg';
 import galleryImage27 from '../../assets/images/img25.jpg';
 import galleryImage28 from '../../assets/images/img26.jpg';
+import galleryImage29 from '../../assets/images/img27.jpg';
+import galleryImage30 from '../../assets/images/img28.jpg';
+import galleryImage31 from '../../assets/images/img29.jpg';
+import galleryImage32 from '../../assets/images/img30.jpg';
+import galleryImage33 from '../../assets/images/img31.jpg';
+import galleryImage34 from '../../assets/images/img32.jpg';
+import galleryImage35 from '../../assets/images/img33.jpg';
+import galleryImage36 from '../../assets/images/img34.jpg';
+import galleryImage37 from '../../assets/images/img35.jpg';
+import galleryImage38 from '../../assets/images/img36.jpg';
+import galleryImage39 from '../../assets/images/img37.jpg';
+import galleryImage40 from '../../assets/images/img38.jpg';
+import galleryImage41 from '../../assets/images/img39.jpg';
+import galleryImage42 from '../../assets/images/img40.jpg';
+import galleryImage43 from '../../assets/images/img41.jpg';
+import galleryImage44 from '../../assets/images/img42.jpg';
+import galleryImage45 from '../../assets/images/img43.jpg';
+import galleryImage46 from '../../assets/images/img44.jpg';
+import galleryImage47 from '../../assets/images/img45.jpg';
+import galleryImage48 from '../../assets/images/img46.jpg';
+import galleryImage49 from '../../assets/images/img47.jpg';
+import galleryImage50 from '../../assets/images/img48.jpg';
+import galleryImage51 from '../../assets/images/img49.jpg';
+import galleryImage52 from '../../assets/images/img50.jpg';
+import galleryImage53 from '../../assets/images/img51.jpg';
+import galleryImage54 from '../../assets/images/img52.jpg';
+import galleryImage55 from '../../assets/images/img53.jpg';
+import galleryImage56 from '../../assets/images/img54.jpg';
+import galleryImage57 from '../../assets/images/img55.jpg';
+import galleryImage58 from '../../assets/images/img56.jpg';
+import galleryImage59 from '../../assets/images/img57.jpg';
+import galleryImage60 from '../../assets/images/img58.jpg';
+import galleryImage61 from '../../assets/images/img59.jpg';
+import galleryImage62 from '../../assets/images/img60.jpg';
 
 /**
  * Page Galerie - La meilleure galerie jamais vue
@@ -72,7 +106,41 @@ const Galerie = () => {
     galleryImage25,
     galleryImage26,
     galleryImage27,
-    galleryImage28
+    galleryImage28,
+    galleryImage29,
+    galleryImage30,
+    galleryImage31,
+    galleryImage32,
+    galleryImage33,
+    galleryImage34,
+    galleryImage35,
+    galleryImage36,
+    galleryImage37,
+    galleryImage38,
+    galleryImage39,
+    galleryImage40,
+    galleryImage41,
+    galleryImage42,
+    galleryImage43,
+    galleryImage44,
+    galleryImage45,
+    galleryImage46,
+    galleryImage47,
+    galleryImage48,
+    galleryImage49,
+    galleryImage50,
+    galleryImage51,
+    galleryImage52,
+    galleryImage53,
+    galleryImage54,
+    galleryImage55,
+    galleryImage56,
+    galleryImage57,
+    galleryImage58,
+    galleryImage59,
+    galleryImage60,
+    galleryImage61,
+    galleryImage62
   ];
 
   const openLightbox = (index) => {
