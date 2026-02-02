@@ -74,7 +74,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-5">
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
             {NAVIGATION_LINKS.map((link) => (
               <div key={link.path} className="relative" ref={link.submenu ? dropdownRef : null}>
                 {link.submenu ? (
@@ -84,7 +84,7 @@ const Header = () => {
                       whileHover={{ scale: 1.05 }}
                       whileFocus={{ scale: 1.05, outline: 'none' }}
                       whileTap={{ scale: 0.95 }}
-                      className={`relative font-semibold text-base px-2 py-2 rounded-md transition-all duration-200 flex items-center space-x-1.5 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      className={`relative font-semibold text-base px-1 py-2 rounded-md transition-all duration-200 flex items-center space-x-1.5 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
                         location.pathname === link.path || location.pathname.startsWith(link.path)
                           ? 'text-primary'
                           : 'text-dark hover:text-primary'
@@ -138,7 +138,7 @@ const Header = () => {
                   >
                   <Link
                     to={link.path}
-                      className={`relative font-semibold text-base px-2 py-2 rounded-md transition-all duration-200 block whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      className={`relative font-semibold text-base px-1 py-2 rounded-md transition-all duration-200 block whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
                       location.pathname === link.path
                         ? 'text-primary'
                         : 'text-dark hover:text-primary'
@@ -161,7 +161,7 @@ const Header = () => {
           </div>
 
           {/* CTA Buttons - Desktop */}
-          <div className="hidden lg:flex items-center space-x-3 ml-4">
+          <div className="hidden lg:flex items-center space-x-2 ml-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/reserver" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
               <Button
