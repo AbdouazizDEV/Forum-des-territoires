@@ -15,6 +15,7 @@ import Resources from './pages/Resources/Resources';
 import Format from './pages/Format/Format';
 import Lieu from './pages/Lieu/Lieu';
 import Gallery from './pages/Gallery/Gallery';
+import Galerie from './pages/Galerie/Galerie';
 import Contact from './pages/Contact/Contact';
 import SinscrirePanels from './pages/SinscrirePanels/SinscrirePanels';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/le-format" element={<Format />} />
           <Route path="/lieu-et-periode" element={<Lieu />} />
           <Route path="/gallerie" element={<Gallery />} />
+          <Route path="/galerie" element={<Galerie />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/edition-1" element={<EditionsPrecedentes />} />
         </Routes>

@@ -6,6 +6,8 @@ import Card from '../../components/common/Card/Card';
 import ObjectifsSection from '../../components/a-propos/ObjectifsSection/ObjectifsSection';
 import ParticipantsSection from '../../components/a-propos/ParticipantsSection/ParticipantsSection';
 import PartenairesSection from '../../components/a-propos/PartenairesSection/PartenairesSection';
+import ExpositionSection from '../../components/a-propos/ExpositionSection/ExpositionSection';
+import CommunicationSection from '../../components/a-propos/CommunicationSection/CommunicationSection';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { ChevronLeft, ChevronRight, Sparkles, Eye, Lightbulb, CircleDollarSign, DollarSign, Network, Link2, ShieldCheck, Building, TrendingUp, Handshake, Globe } from 'lucide-react';
@@ -596,6 +598,12 @@ const APropos = () => {
 
       {/* Section Partenaires */}
       <PartenairesSection />
+
+      {/* Section Espaces d'exposition */}
+      <ExpositionSection />
+
+      {/* Section Communication & Visibilité */}
+      <CommunicationSection />
     </div>
   );
 };

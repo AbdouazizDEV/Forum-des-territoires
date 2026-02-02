@@ -14,10 +14,10 @@ export const SITE_INFO = {
 };
 
 export const HERO_STATS = [
-  { id: 1, value: 12, suffix: "K+", label: "Participants" },
-  { id: 2, value: 120, suffix: "+", label: "Speakers" },
-  { id: 3, value: 60, suffix: "+", label: "Pays" },
-  { id: 4, value: 300, suffix: "+", label: "Partenaires" }
+  { id: 1, value: 800, suffix: "+", label: "Participants" },
+  { id: 2, value: 80, suffix: "", label: "Speakers" },
+  { id: 3, value: 20, suffix: "", label: "Pays représentés" },
+  { id: 4, value: 120, suffix: "", label: "Investisseurs & bailleurs" }
 ];
 
 export const CONTACT_INFO = {
@@ -133,10 +133,12 @@ export const RESOURCE_SECTORS = [
 ];
 
 export const STATS = [
-  { id: 1, value: 50, suffix: "+", label: "Territoires représentés" },
-  { id: 2, value: 100, suffix: "M€", label: "Investissements ciblés" },
-  { id: 3, value: 200, suffix: "+", label: "Projets présentés" },
-  { id: 4, value: 500, suffix: "+", label: "Participants attendus" }
+  { id: 1, value: 800, suffix: "+", label: "Participants" },
+  { id: 2, value: 20, suffix: "", label: "Pays représentés" },
+  { id: 3, value: 80, suffix: "", label: "Speakers" },
+  { id: 4, value: 120, suffix: "", label: "Investisseurs & bailleurs" },
+  { id: 5, value: 50, suffix: "+", label: "Projets présentés" },
+  { id: 6, value: 500, suffix: "+", label: "Milliards FCFA - Montant potentiel de projets" }
 ];
 
 export const FOOTER_LINKS = [

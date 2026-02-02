@@ -7,7 +7,7 @@ import { fadeInUp, staggerContainer, scaleIn } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { isValidEmail } from '../../utils/helpers';
 import { CheckCircle, Calendar, Clock, Users, Building } from 'lucide-react';
-import posterImage from '../../assets/images/WhatsApp-Image-2025-09-04-a-18.59.23_2b36ba93.jpg';
+import posterImage from '../../assets/images/img12.jpg';
 import countries from 'world-countries';
 
 /**

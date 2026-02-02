@@ -8,6 +8,7 @@ import SpeakersInternationaux from '../../components/home/SpeakersInternationaux
 import EditionsPrecedentes from '../../components/home/EditionsPrecedentes/EditionsPrecedentes';
 import ActualitesInsights from '../../components/home/ActualitesInsights/ActualitesInsights';
 import AcheterPass from '../../components/home/AcheterPass/AcheterPass';
+import PartenairesLogos from '../../components/home/PartenairesLogos/PartenairesLogos';
 
 /**
  * Page d'accueil du Forum des Territoires
@@ -24,6 +25,7 @@ const Home = () => {
       <EditionsPrecedentes />
       <ActualitesInsights />
       <AcheterPass />
+      <PartenairesLogos />
       <Stats />
     </>
   );

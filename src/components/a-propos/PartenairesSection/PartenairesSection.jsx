@@ -127,6 +127,144 @@ const PartenairesSection = () => {
           })}
         </div>
 
+        {/* Conditions de partenariat - Diagramme circulaire */}
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16 mb-12"
+        >
+          <div className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 rounded-3xl p-8 md:p-12 border-2 border-primary/20">
+            <h3 className="font-display font-bold text-2xl md:text-3xl text-dark mb-8 text-center">
+              Conditions de partenariat
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Diagramme circulaire animé */}
+              <motion.div
+                variants={fadeInLeft}
+                className="flex justify-center"
+              >
+                <div className="relative w-64 h-64 md:w-80 md:h-80">
+                  {/* Cercle de fond */}
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    {/* Cercle de fond gris */}
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      strokeWidth="8"
+                    />
+                    {/* Définitions des gradients */}
+                    <defs>
+                      <linearGradient id="gradient70" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#F54927" />
+                        <stop offset="100%" stopColor="#FEBF00" />
+                      </linearGradient>
+                      <linearGradient id="gradient30" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#61CE70" />
+                        <stop offset="100%" stopColor="#2A9D8F" />
+                      </linearGradient>
+                    </defs>
+                    {/* Segment 70% - Primary */}
+                    <motion.circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="url(#gradient70)"
+                      strokeWidth="8"
+                      strokeLinecap="round"
+                      strokeDasharray={`${283}`}
+                      initial={{ strokeDashoffset: 283 }}
+                      whileInView={{ strokeDashoffset: 283 * 0.3 }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                    />
+                    {/* Segment 30% - Accent (commence après 70% = 252 degrés) */}
+                    <motion.circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="url(#gradient30)"
+                      strokeWidth="8"
+                      strokeLinecap="round"
+                      strokeDasharray={`${85} ${283}`}
+                      initial={{ strokeDashoffset: 85 }}
+                      whileInView={{ strokeDashoffset: 0 }}
+                      transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+                      style={{ transform: 'rotate(252deg)', transformOrigin: '50% 50%' }}
+                    />
+                  </svg>
+                  
+                  {/* Contenu au centre */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      transition={{ delay: 1, type: "spring", stiffness: 200 }}
+                      className="text-center"
+                    >
+                      <div className="text-4xl md:text-5xl font-bold text-primary mb-2">70%</div>
+                      <div className="text-sm md:text-base text-gray-600 font-medium">À la signature</div>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Légende et détails */}
+              <motion.div
+                variants={fadeInRight}
+                className="space-y-6"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-orange rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">70%</span>
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-dark mb-1">
+                        À la signature du partenariat
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        Paiement initial pour confirmer votre engagement
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md">
+                    <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">30%</span>
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-dark mb-1">
+                        Au plus tard 30 jours avant l'événement
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        Solde du partenariat avant le début du Forum
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-primary/5 to-accent-orange/5 rounded-xl border-2 border-primary/20">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-orange rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-bold text-lg text-dark mb-1">
+                        Partenariats sur mesure
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        Possibilités de partenariats personnalisés sur demande
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* CTA Section */}
         <motion.div
           variants={fadeInUp}
