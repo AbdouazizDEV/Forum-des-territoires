@@ -135,12 +135,12 @@ const Participer = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/reserver">
-              <Button variant="secondary" size="lg" className="bg-white text-black shadow-lg hover:bg-white/90">
+              <Button variant="secondary" size="lg" className="bg-white text-black hover:bg-white/90">
                 Reserver ma place
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg" className="border-white text-white shadow-lg hover:bg-white hover:text-primary">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
                 Nous contacter
               </Button>
             </Link>
