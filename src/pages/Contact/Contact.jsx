@@ -7,7 +7,7 @@ import Button from '../../components/common/Button/Button';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { isValidEmail } from '../../utils/helpers';
-import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/constants';
+import { CONTACT_INFO, SOCIAL_LINKS, API_BASE_URL } from '../../utils/constants';
 import { Mail, Phone, Send, MessageSquare, User, Building, Globe, ArrowRight, CheckCircle, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 /**
@@ -62,26 +62,68 @@ const Contact = () => {
 
     setIsSubmitting(true);
     
-    // Simuler l'envoi du formulaire
-    // TODO: Intégrer EmailJS ou Formspree
-    setTimeout(() => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          civility: formData.civility,
+          fullName: formData.fullName,
+          organization: formData.organization,
+          country: formData.country,
+          email: formData.email,
+          phone: formData.phone,
+          participationType: formData.participationType,
+          message: formData.message
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            civility: '',
+            fullName: '',
+            organization: '',
+            country: '',
+            email: '',
+            phone: '',
+            participationType: '',
+            message: ''
+          });
+        }, 3000);
+      } else {
+        // Gérer les erreurs de validation du backend
+        if (data.errors && Array.isArray(data.errors)) {
+          const backendErrors = {};
+          data.errors.forEach(error => {
+            if (error.includes('email')) {
+              backendErrors.email = error;
+            } else if (error.includes('message')) {
+              backendErrors.message = error;
+            } else if (error.includes('fullName')) {
+              backendErrors.fullName = error;
+            } else if (error.includes('organization')) {
+              backendErrors.organization = error;
+            }
+          });
+          setErrors(prev => ({ ...prev, ...backendErrors }));
+        } else {
+          setErrors({ submit: data.message || 'Une erreur est survenue lors de l\'envoi du message' });
+        }
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du formulaire:', error);
+      setErrors({ submit: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          civility: '',
-          fullName: '',
-          organization: '',
-          country: '',
-          email: '',
-          phone: '',
-          participationType: '',
-          message: ''
-        });
-      }, 3000);
-    }, 1500);
+    }
   };
 
   const socialIcons = {
@@ -394,6 +436,12 @@ const Contact = () => {
                     placeholder="Décrivez votre projet ou votre message..."
                   />
                 </div>
+
+                {errors.submit && (
+                  <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
+                    <p className="text-red-600 text-sm font-medium">{errors.submit}</p>
+                  </div>
+                )}
 
                 <Button
                   type="submit"

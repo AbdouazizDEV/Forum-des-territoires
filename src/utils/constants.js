@@ -29,6 +29,8 @@ export const CONTACT_INFO = {
   email: "forumdesterritoires2024@gmail.com"
 };
 
+export const API_BASE_URL = "https://envoie-de-mail-node-6cpnderi1-abdou-aziz-diops-projects.vercel.app";
+
 export const NAVIGATION_LINKS = [
   { 
     path: "/a-propos", 

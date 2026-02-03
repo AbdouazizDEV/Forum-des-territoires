@@ -7,7 +7,7 @@ import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { isValidEmail } from '../../utils/helpers';
 import { CheckCircle, Mail, Phone, Facebook, Instagram, Youtube, Linkedin, Globe } from 'lucide-react';
-import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/constants';
+import { CONTACT_INFO, SOCIAL_LINKS, API_BASE_URL } from '../../utils/constants';
 
 /**
  * Page Reserver - Formulaire de réservation
@@ -67,22 +67,70 @@ const Reserver = () => {
 
     setIsSubmitting(true);
     
-    setTimeout(() => {
+    try {
+      // Trouver le nom du package à partir de l'ID
+      const selectedPackage = packages.find(pkg => pkg.id === formData.package);
+      const packageName = selectedPackage ? selectedPackage.name : formData.package;
+
+      const response = await fetch(`${API_BASE_URL}/api/reservation`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          organization: formData.organization,
+          participationType: formData.participationType,
+          package: packageName,
+          numberOfPeople: formData.numberOfPeople
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            fullName: '',
+            email: '',
+            phone: '',
+            organization: '',
+            participationType: '',
+            package: '',
+            numberOfPeople: '1'
+          });
+        }, 3000);
+      } else {
+        // Gérer les erreurs de validation du backend
+        if (data.errors && Array.isArray(data.errors)) {
+          const backendErrors = {};
+          data.errors.forEach(error => {
+            if (error.includes('email')) {
+              backendErrors.email = error;
+            } else if (error.includes('fullName')) {
+              backendErrors.fullName = error;
+            } else if (error.includes('participationType')) {
+              backendErrors.participationType = error;
+            } else if (error.includes('package')) {
+              backendErrors.package = error;
+            }
+          });
+          setErrors(prev => ({ ...prev, ...backendErrors }));
+        } else {
+          setErrors({ submit: data.message || 'Une erreur est survenue lors de la réservation' });
+        }
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi de la réservation:', error);
+      setErrors({ submit: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          organization: '',
-          participationType: '',
-          package: '',
-          numberOfPeople: '1'
-        });
-      }, 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -262,6 +310,12 @@ const Reserver = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
                 />
             </div>
+
+            {errors.submit && (
+              <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
+                <p className="text-red-600 text-sm font-medium">{errors.submit}</p>
+              </div>
+            )}
 
             <Button
               type="submit"
