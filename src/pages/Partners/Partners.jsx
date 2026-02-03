@@ -360,7 +360,7 @@ const Partners = () => {
                   <Button 
                     variant="secondary" 
                     size="lg" 
-                    className="bg-white text-black hover:bg-white/90 shadow-lg"
+                    className="bg-white !text-black !hover:bg-white/90 shadow-lg"
                   >
             Nous contacter
                     <ArrowRight className="w-5 h-5 ml-2 inline" />

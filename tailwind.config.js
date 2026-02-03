@@ -4,6 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    // Classes avec !important pour surcharger les styles par défaut
+    '!text-black',
+    '!text-white',
+    '!text-dark',
+    '!hover:bg-white/90',
+    '!hover:bg-white',
+    '!hover:text-black',
+    'hover:!text-white',
+  ],
   theme: {
     extend: {
       colors: {
