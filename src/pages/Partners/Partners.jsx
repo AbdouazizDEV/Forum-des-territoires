@@ -166,7 +166,7 @@ const Partners = () => {
                   custom={index}
                   whileHover={{ scale: isPlatinum ? 1.02 : 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className={`relative ${isPlatinum ? 'lg:-mt-4 lg:-mb-4' : ''}`}
+                  className={`relative ${isPlatinum ? ' ': ''}`}
                 >
                   {isPlatinum && (
                     <motion.div
@@ -182,17 +182,17 @@ const Partners = () => {
                     className={`h-full relative overflow-hidden group border-2 ${pkg.borderColor} ${isPlatinum ? 'shadow-2xl' : 'shadow-lg hover:shadow-2xl'} transition-all duration-300`}
                   >
                     {/* Header avec gradient */}
-                    <div className={`bg-gradient-to-br ${pkg.color} p-8 relative`}>
+                    <div className={`bg-gradient-to-br ${pkg.color} p-8 relative h-[240px] flex items-center`}>
                       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-orange via-white/50 to-accent-orange"></div>
-                      <div className="text-center text-white">
-                        <div className="w-20 h-20 mx-auto mb-4 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg border-2 border-white/30">
+                      <div className="text-center text-white w-full flex flex-col justify-center">
+                        <div className="w-20 h-20 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg border-2 border-white/30">
                           <Icon className="w-10 h-10 text-white" />
                         </div>
-                        <h3 className="font-display font-bold text-2xl md:text-3xl mb-2">
+                        <h4 className="font-display font-bold text-xl md:text-2xl mb-2 leading-tight">
                           {pkg.name}
-                        </h3>
-                        <div className="w-16 h-0.5 bg-white/50 mx-auto mb-4"></div>
-                        <p className="text-sm text-white/90 font-medium">
+                        </h4>
+                        <div className="w-16 h-0.5 bg-white/50 mx-auto mb-3"></div>
+                        <p className="text-sm text-white/90 font-medium px-2 h-[48px] flex items-center justify-center leading-tight">
                           {pkg.dimension}
                         </p>
                       </div>
@@ -360,7 +360,7 @@ const Partners = () => {
                   <Button 
                     variant="secondary" 
                     size="lg" 
-                    className="bg-white text-primary hover:bg-white/90 shadow-lg"
+                    className="bg-white text-black hover:bg-white/90 shadow-lg"
                   >
             Nous contacter
                     <ArrowRight className="w-5 h-5 ml-2 inline" />

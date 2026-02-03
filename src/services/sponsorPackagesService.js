@@ -8,7 +8,7 @@ export const SPONSOR_PACKAGES = [
     id: 'platinum',
     name: 'SPONSOR PLATINUM',
     icon: Trophy,
-    dimension: 'Financement & Gouvernance de l\'Habitat',
+    dimension: 'Financement & Gouvernance',
     description: 'Le Sponsor Platinum est associé à la dimension stratégique du financement, de la gouvernance territoriale et des politiques publiques de l\'habitat, cœur des décisions structurantes internationale.',
     color: 'from-gray-800 via-gray-700 to-gray-900',
     badgeColor: 'bg-gradient-to-br from-gray-700 to-gray-900',
