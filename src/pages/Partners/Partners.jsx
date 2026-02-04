@@ -217,7 +217,7 @@ const Partners = () => {
                           );
                         })}
                       </div>
-                      <Link to="/reserver" className="block">
+                      <Link to="/contact" className="block">
                         <Button 
                           variant="primary" 
                           size="lg" 
@@ -305,7 +305,7 @@ const Partners = () => {
                   ))}
                 </ul>
                       <div className="mt-6">
-                        <Link to="/reserver" className="block">
+                        <Link to="/contact" className="block">
                           <Button variant="outline" size="md" className="w-full group">
                   En savoir plus
                             <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
@@ -356,7 +356,7 @@ const Partners = () => {
             comment votre organisation peut contribuer au succès du Forum des Territoires.
           </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/reserver" className="block">
+                <Link to="/contact" className="block">
                   <Button 
                     variant="secondary" 
                     size="lg" 

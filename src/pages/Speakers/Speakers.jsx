@@ -84,12 +84,12 @@ const Speakers = () => {
               >
                 <Card variant="default" className="h-full text-center relative overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-2xl">
                   {/* Photo placeholder avec gradient */}
-                  <div className="relative h-56 bg-gradient-to-br from-primary via-accent-orange to-secondary overflow-hidden">
+                  <div className="relative h-56 bg-gradient-to-br from-primary via-accent-orange to-secondary overflow-hidden rounded-t-2xl">
                     {speaker.image ? (
                       <img 
                         src={speaker.image} 
                         alt={speaker.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 rounded-t-2xl"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">

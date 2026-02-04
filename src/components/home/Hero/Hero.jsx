@@ -26,7 +26,7 @@ const Hero = () => {
               variants={fadeInUp}
               className="font-display font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 leading-snug md:leading-tight text-white"
             >
-              L'habitat comme écosystème de vie, d'activités <br />
+              L'habitat comme écosystème de vie,  d'activités <br />
               économiques et d'investissement territorial
             </motion.h1>
 

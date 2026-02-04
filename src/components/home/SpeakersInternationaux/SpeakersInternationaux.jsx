@@ -49,17 +49,17 @@ const SpeakersInternationaux = () => {
               variants={fadeInUp}
               custom={index}
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3 }}  
               className="relative"
             >
               <Card variant="default" className="h-full text-center relative overflow-hidden group border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-2xl">
                 {/* Photo placeholder avec gradient */}
-                <div className="relative h-48 bg-gradient-to-br from-primary via-accent-orange to-secondary overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-br from-primary via-accent-orange to-secondary overflow-hidden rounded-t-2xl">
                   {speaker.image ? (
                     <img 
                       src={speaker.image} 
                       alt={speaker.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-t-2xl"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -73,7 +73,7 @@ const SpeakersInternationaux = () => {
                   {/* Badge pays */}
                   <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center space-x-1 shadow-lg">
                     <Globe className="w-3 h-3 text-primary" />
-                    <span className="text-xs font-semibold text-gray-700">{speaker.country}</span>
+                    {/* <span className="text-xs font-semibold text-gray-700">{speaker.country}</span> */}
                   </div>
                 </div>
 

@@ -385,7 +385,7 @@ const APropos = () => {
                   >
                     <div className="relative pl-6 border-l-4 border-accent-orange">
                       <h4 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
-                        « L'habitat comme écosystème de vie, d'activités économiques et d'investissement territorial »
+                        « L’habitat comme écosystème de vie, d’activités économiques et d’investissement territorial »
                       </h4>
                     </div>
                   </motion.div>
