@@ -24,9 +24,10 @@ const Hero = () => {
             {/* Main Title */}
             <motion.h1
               variants={fadeInUp}
-              className="font-display font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight text-white"
+              className="font-display font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 leading-snug md:leading-tight text-white"
             >
-              L'Habitat au coeur<br />des Territoires
+              L'habitat comme écosystème de vie, d'activités <br />
+              économiques et d'investissement territorial
             </motion.h1>
 
             {/* Subtitle */}

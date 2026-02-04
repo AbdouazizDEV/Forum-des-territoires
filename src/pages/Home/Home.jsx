@@ -8,7 +8,9 @@ import SpeakersInternationaux from '../../components/home/SpeakersInternationaux
 import EditionsPrecedentes from '../../components/home/EditionsPrecedentes/EditionsPrecedentes';
 import ActualitesInsights from '../../components/home/ActualitesInsights/ActualitesInsights';
 import AcheterPass from '../../components/home/AcheterPass/AcheterPass';
+import CallToActionReservation from '../../components/home/CallToActionReservation/CallToActionReservation';
 import PartenairesLogos from '../../components/home/PartenairesLogos/PartenairesLogos';
+import CallToActionPartners from '../../components/home/CallToActionPartners/CallToActionPartners';
 
 /**
  * Page d'accueil du Forum des Territoires
@@ -25,7 +27,9 @@ const Home = () => {
       <EditionsPrecedentes />
       <ActualitesInsights />
       <AcheterPass />
+      <CallToActionReservation />
       <PartenairesLogos />
+      <CallToActionPartners />
       <Stats />
     </>
   );
