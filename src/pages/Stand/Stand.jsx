@@ -15,6 +15,7 @@ const Stand = () => {
 
   const standPackages = [
     {
+      id: "standard",
       name: "Standard",
       price: "2 500€",
       features: [
@@ -27,6 +28,7 @@ const Stand = () => {
       icon: Package
     },
     {
+      id: "premium",
       name: "Premium",
       price: "5 000€",
       features: [
@@ -41,6 +43,7 @@ const Stand = () => {
       popular: true
     },
     {
+      id: "vip",
       name: "VIP",
       price: "Sur devis",
       features: [
@@ -104,7 +107,7 @@ const Stand = () => {
                   </div>
                   <h3 className="font-display font-bold text-2xl text-center mb-2">{pkg.name}</h3>
                   <div className="text-center mb-6">
-                    <span className="text-3xl font-bold text-primary">{pkg.price}</span>
+                    {/* <span className="text-3xl font-bold text-primary">{pkg.price}</span> */}
                   </div>
                   <ul className="space-y-3 mb-6">
                     {pkg.features.map((feature, idx) => (
@@ -114,13 +117,22 @@ const Stand = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="block">
+                  <Link 
+                    to={{
+                      pathname: "/reserver",
+                      search: new URLSearchParams({
+                        package: pkg.id,
+                        participationType: "exposant"
+                      }).toString()
+                    }}
+                    className="block"
+                  >
                     <Button
                       variant={pkg.popular ? "primary" : "outline"}
                       size="lg"
                       className="w-full"
                     >
-                      Choisir ce stand
+                      Réserver ce stand
                     </Button>
                   </Link>
                 </Card>

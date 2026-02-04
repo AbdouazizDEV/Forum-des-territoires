@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import Section from '../../components/common/Section/Section';
@@ -16,11 +16,20 @@ const Reserver = () => {
   const { ref, controls } = useScrollAnimation();
   const [searchParams] = useSearchParams();
   const packageIdFromUrl = searchParams.get('package');
+  const participationTypeFromUrl = searchParams.get('participationType');
 
-  const packages = [
+  // Packages pour les participants
+  const participantPackages = [
     { id: '1', name: 'Package Teranga' },
     { id: '2', name: 'Package Silver' },
     { id: '3', name: 'Package Gold' }
+  ];
+
+  // Packages pour les exposants (stands)
+  const standPackages = [
+    { id: 'standard', name: 'Stand Standard' },
+    { id: 'premium', name: 'Stand Premium' },
+    { id: 'vip', name: 'Stand VIP' }
   ];
 
   const [formData, setFormData] = useState({
@@ -28,17 +37,41 @@ const Reserver = () => {
     email: '',
     phone: '',
     organization: '',
-    participationType: '',
+    participationType: participationTypeFromUrl || '',
     package: packageIdFromUrl || '',
     numberOfPeople: '1'
   });
+
+  // Pré-remplir les champs depuis l'URL
+  useEffect(() => {
+    if (participationTypeFromUrl) {
+      setFormData(prev => ({ ...prev, participationType: participationTypeFromUrl }));
+    }
+    if (packageIdFromUrl) {
+      setFormData(prev => ({ ...prev, package: packageIdFromUrl }));
+    }
+  }, [participationTypeFromUrl, packageIdFromUrl]);
+
+  // Déterminer si le champ package doit être affiché (uniquement pour les exposants)
+  const showPackageField = formData.participationType === 'exposant';
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Si le type de participation change, réinitialiser le package
+    if (name === 'participationType') {
+      setFormData(prev => ({ 
+        ...prev, 
+        [name]: value,
+        package: value === 'exposant' ? prev.package : '' // Garder le package si on reste exposant
+      }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+    
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -54,7 +87,10 @@ const Reserver = () => {
       newErrors.email = 'Email invalide';
     }
     if (!formData.participationType) newErrors.participationType = 'Le type de participation est requis';
-    if (!formData.package) newErrors.package = 'Le package est requis';
+    // Le package est requis uniquement pour les exposants
+    if (formData.participationType === 'exposant' && !formData.package) {
+      newErrors.package = 'Le stand est requis';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -69,8 +105,23 @@ const Reserver = () => {
     
     try {
       // Trouver le nom du package à partir de l'ID
-      const selectedPackage = packages.find(pkg => pkg.id === formData.package);
-      const packageName = selectedPackage ? selectedPackage.name : formData.package;
+      let packageName = '';
+      
+      if (formData.package) {
+        if (formData.participationType === 'exposant') {
+          const selectedPackage = standPackages.find(pkg => pkg.id === formData.package);
+          packageName = selectedPackage ? selectedPackage.name : formData.package;
+        } else if (formData.participationType === 'participant') {
+          const selectedPackage = participantPackages.find(pkg => pkg.id === formData.package);
+          packageName = selectedPackage ? selectedPackage.name : formData.package;
+        } else {
+          packageName = formData.package;
+        }
+      }
+      // Pour les participants sans package, envoyer une chaîne vide ou "Non spécifié"
+      else if (formData.participationType === 'participant') {
+        packageName = ''; // Le backend peut gérer une chaîne vide
+      }
 
       const response = await fetch(`${API_BASE_URL}/api/reservation`, {
         method: 'POST',
@@ -246,31 +297,33 @@ const Reserver = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Package <span className="text-primary">*</span>
-                </label>
-                <select
-                  name="package"
-                  value={formData.package}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
-                    errors.package ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  required
-                >
-                  <option value="">Sélectionner un package</option>
-                  {packages.map((pkg) => (
-                    <option key={pkg.id} value={pkg.id}>
-                      {pkg.name}
-                    </option>
-                  ))}
-                </select>
-                {errors.package && (
-                  <p className="text-red-500 text-sm mt-1">{errors.package}</p>
-                )}
-              </div>
+            <div className={`grid grid-cols-1 ${showPackageField ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-6`}>
+              {showPackageField && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Stand <span className="text-primary">*</span>
+                  </label>
+                  <select
+                    name="package"
+                    value={formData.package}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
+                      errors.package ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                    required={showPackageField}
+                  >
+                    <option value="">Sélectionner un stand</option>
+                    {standPackages.map((pkg) => (
+                      <option key={pkg.id} value={pkg.id}>
+                        {pkg.name}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.package && (
+                    <p className="text-red-500 text-sm mt-1">{errors.package}</p>
+                  )}
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">

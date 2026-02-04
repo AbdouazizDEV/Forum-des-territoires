@@ -6,6 +6,7 @@ import Card from '../../components/common/Card/Card';
 import { fadeInUp, staggerContainer, scaleIn } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { isValidEmail } from '../../utils/helpers';
+import { API_BASE_URL } from '../../utils/constants';
 import { CheckCircle, Calendar, Clock, Users, Building } from 'lucide-react';
 import posterImage from '../../assets/images/img12.jpg';
 import countries from 'world-countries';
@@ -140,31 +141,86 @@ const SinscrirePanels = () => {
 
     setIsSubmitting(true);
     
-    setTimeout(() => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/panels-inscription`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          organization: formData.organization,
+          role: formData.role,
+          country: formData.country,
+          validationCode: formData.validationCode,
+          remarks: formData.remarks,
+          sessions: formData.sessions
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            organization: '',
+            role: '',
+            country: '',
+            validationCode: '',
+            remarks: '',
+            sessions: {
+              rappel: [],
+              jour1: [],
+              jour2: [],
+              jour3: [],
+              jour4: []
+            }
+          });
+        }, 5000);
+      } else {
+        // Gérer les erreurs de validation du backend
+        if (data.errors && Array.isArray(data.errors)) {
+          const backendErrors = {};
+          data.errors.forEach(error => {
+            if (error.includes('firstName')) {
+              backendErrors.firstName = error;
+            } else if (error.includes('lastName')) {
+              backendErrors.lastName = error;
+            } else if (error.includes('email')) {
+              backendErrors.email = error;
+            } else if (error.includes('phone')) {
+              backendErrors.phone = error;
+            } else if (error.includes('organization')) {
+              backendErrors.organization = error;
+            } else if (error.includes('role')) {
+              backendErrors.role = error;
+            } else if (error.includes('country')) {
+              backendErrors.country = error;
+            } else if (error.includes('session')) {
+              backendErrors.sessions = error;
+            }
+          });
+          setErrors(prev => ({ ...prev, ...backendErrors }));
+        } else {
+          setErrors({ submit: data.message || 'Une erreur est survenue lors de l\'inscription' });
+        }
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi de l\'inscription:', error);
+      setErrors({ submit: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          organization: '',
-          role: '',
-          country: '',
-          validationCode: '',
-          remarks: '',
-          sessions: {
-            rappel: [],
-            jour1: [],
-            jour2: [],
-            jour3: [],
-            jour4: []
-          }
-        });
-      }, 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -265,7 +321,7 @@ const SinscrirePanels = () => {
             <Card variant="default" className="text-center p-6">
               <Calendar className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-display font-bold text-lg mb-2">Dates</h3>
-              <p className="text-gray-600">Du 1er au 05 Octobre 2025</p>
+              <p className="text-gray-600">Du 3 au 6 juin 2026</p>
             </Card>
             <Card variant="default" className="text-center p-6">
               <Building className="w-8 h-8 text-secondary mx-auto mb-3" />
@@ -618,7 +674,7 @@ const SinscrirePanels = () => {
               </Card>
 
               {/* Code de validation */}
-              <Card variant="default" className="p-8">
+              {/* <Card variant="default" className="p-8">
                 <h2 className="font-display font-bold text-xl mb-4 text-dark">Code de Validation <span className="text-primary">*</span></h2>
                 <input
                   type="text"
@@ -634,7 +690,14 @@ const SinscrirePanels = () => {
                 {errors.validationCode && (
                   <p className="text-red-500 text-sm mt-1">{errors.validationCode}</p>
                 )}
-              </Card>
+              </Card> */}
+
+              {/* Erreur de soumission */}
+              {errors.submit && (
+                <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
+                  <p className="text-red-600 text-sm font-medium">{errors.submit}</p>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div className="flex justify-center">

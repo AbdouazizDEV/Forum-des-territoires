@@ -24,7 +24,9 @@ const Participer = () => {
         "Documentation complète",
         "Certificat de participation"
       ],
-      price: "Gratuit"
+      price: "",
+      redirectTo: "/reserver",
+      redirectParams: { participationType: "participant" }
     },
     {
       icon: Building,
@@ -36,7 +38,9 @@ const Participer = () => {
         "Documentation marketing",
         "Accès VIP"
       ],
-      price: "Sur devis"
+      price: "Sur devis",
+      redirectTo: "/reserver",
+      redirectParams: { participationType: "exposant" }
     },
     {
       icon: Handshake,
@@ -48,7 +52,9 @@ const Participer = () => {
         "Stand premium",
         "Invitations VIP"
       ],
-      price: "Sur devis"
+      price: "Sur devis",
+      redirectTo: "/contact",
+      redirectParams: {}
     },
     {
       icon: Target,
@@ -60,7 +66,9 @@ const Participer = () => {
         "Accès VIP complet",
         "Networking privilégié"
       ],
-      price: "Sur invitation"
+      price: "Sur invitation",
+      redirectTo: "/contact",
+      redirectParams: {}
     }
   ];
 
@@ -112,7 +120,12 @@ const Participer = () => {
                   </ul>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                     <span className="font-bold text-xl text-primary">{type.price}</span>
-                    <Link to="/contact">
+                    <Link 
+                      to={{
+                        pathname: type.redirectTo,
+                        search: new URLSearchParams(type.redirectParams).toString()
+                      }}
+                    >
                       <Button variant="primary" size="md">
                         S'inscrire
                       </Button>
