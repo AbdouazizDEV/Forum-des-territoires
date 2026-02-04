@@ -133,7 +133,7 @@ const Footer = () => {
             © {new Date().getFullYear()} {SITE_INFO.name}. Tous droits réservés.
           </p>
           <p className="text-gray-400 text-sm">
-            Propulsé par <span className="text-primary font-semibold">KAHFI SN</span>
+            Propulsé par <a href="https://kahfisn.netlify.app/" target="_blank" rel="noopener noreferrer"><span className="text-primary font-semibold">KAHFI SN</span></a>
           </p>
         </motion.div>
       </div>
