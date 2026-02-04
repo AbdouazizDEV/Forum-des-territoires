@@ -253,9 +253,9 @@ export const SPEAKERS_DATA = [
     id: 25,
     name: "Idrissa Diop",
     title: "Mr",
-    role: "Secrétaire Général de l'UEAL",
+    role: "Secrétaire Général de l'UAEL - Union des Associations des Elus Locaux du Sénégal",
     country: "Sénégal",
-    bio: "Secrétaire Général de l'Union des Élus et Associations Locales",
+    bio: "Maire de Labgar",
     image: IdrissaDiopImage
   },
   {
