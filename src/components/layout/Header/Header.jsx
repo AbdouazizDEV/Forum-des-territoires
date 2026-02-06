@@ -64,7 +64,7 @@ const Header = () => {
               alt="Forum des Territoires"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain -ml-[10px]"
               transition={{ duration: 0.2 }}
               loading="eager"
               onError={(e) => {
@@ -290,12 +290,12 @@ const Header = () => {
                   )}
                 </div>
               ))}
-              <div className="px-4 pt-4 space-y-3 border-t border-gray-200 mt-4">
+              <div className="px-4 pt-4 space-y-5 border-t border-gray-200 mt-4">
                 <Link to="/reserver" onClick={closeMobileMenu}>
                   <Button
                     variant="primary"
                     size="md"
-                    className="w-full"
+                    className="w-full mb-2"
                   >
                     Reserver
                   </Button>
