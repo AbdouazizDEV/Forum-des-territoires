@@ -43,7 +43,7 @@ const ActualitesInsights = () => {
               key={actualite.id}
               variants={fadeInUp}
               custom={index}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="relative group"
             >

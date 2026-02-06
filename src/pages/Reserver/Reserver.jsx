@@ -139,6 +139,10 @@ const Reserver = () => {
         })
       });
 
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
+
       const data = await response.json();
 
       if (data.success) {
@@ -178,7 +182,7 @@ const Reserver = () => {
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi de la réservation:', error);
-      setErrors({ submit: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+      setErrors({ submit: error.message || 'Une erreur est survenue. Veuillez réessayer plus tard.' });
     } finally {
       setIsSubmitting(false);
     }

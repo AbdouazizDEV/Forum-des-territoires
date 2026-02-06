@@ -122,7 +122,7 @@ const SinscrirePanels = () => {
     if (!formData.organization.trim()) newErrors.organization = 'L\'organisation est requise';
     if (!formData.role.trim()) newErrors.role = 'La fonction est requise';
     if (!formData.country) newErrors.country = 'Le pays est requis';
-    if (!formData.validationCode.trim()) newErrors.validationCode = 'Le code de validation est requis';
+    // validationCode n'est plus requis (champ commenté)
     
     // Vérifier qu'au moins une session est sélectionnée
     const hasSessions = Object.values(formData.sessions).some(arr => arr.length > 0);
@@ -155,11 +155,15 @@ const SinscrirePanels = () => {
           organization: formData.organization,
           role: formData.role,
           country: formData.country,
-          validationCode: formData.validationCode,
+          ...(formData.validationCode.trim() && { validationCode: formData.validationCode }),
           remarks: formData.remarks,
           sessions: formData.sessions
         })
       });
+
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
 
       const data = await response.json();
 
@@ -206,8 +210,10 @@ const SinscrirePanels = () => {
               backendErrors.role = error;
             } else if (error.includes('country')) {
               backendErrors.country = error;
-            } else if (error.includes('session')) {
+            } else if (error.includes('session') || error.includes('simultan')) {
               backendErrors.sessions = error;
+            } else if (error.includes('validationCode')) {
+              backendErrors.validationCode = error;
             }
           });
           setErrors(prev => ({ ...prev, ...backendErrors }));
@@ -217,7 +223,7 @@ const SinscrirePanels = () => {
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi de l\'inscription:', error);
-      setErrors({ submit: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+      setErrors({ submit: error.message || 'Une erreur est survenue. Veuillez réessayer plus tard.' });
     } finally {
       setIsSubmitting(false);
     }

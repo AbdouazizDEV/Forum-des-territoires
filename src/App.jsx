@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout/Layout';
+import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 import Home from './pages/Home/Home';
 import APropos from './pages/APropos/APropos';
 import Programme from './pages/Programme/Programme';
@@ -26,6 +27,7 @@ import SinscrirePanels from './pages/SinscrirePanels/SinscrirePanels';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
