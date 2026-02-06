@@ -104,7 +104,7 @@ export const SPEAKERS_DATA = [
     bio: "Parrains de la 1 ère édition",
     image: AlHassaneNiangImage
   },
-  {
+  /* {
     id: 9,
     name: "HALEWIJN ENABEL",
     title: "Mr",
@@ -112,7 +112,7 @@ export const SPEAKERS_DATA = [
     country: "Belgique",
     bio: "",
     image: HalewijnEnabelImage
-  },
+  }, */
   {
     id: 10,
     name: "Diarra Sow",
@@ -166,7 +166,7 @@ export const SPEAKERS_DATA = [
     role: "Directeur des Opérations de l'ADEPME",
     country: "Sénégal",
     bio: "Directeur des Opérations de l'Agence de Développement et d'Encadrement des Petites et Moyennes Entreprises",
-    image: BiraneDioufImage
+    image: BiranDioufImage
   },
   {
     id: 16,
@@ -238,7 +238,7 @@ export const SPEAKERS_DATA = [
     role: "Chef de projet Système Alimentaire Durable, de l'entrepreneuriat et du changement climatique",
     country: "Belgique",
     bio: "Expert en systèmes alimentaires durables et entrepreneuriat",
-    image: null
+    image: HalewijnEnabelImage
   },
   {
     id: 24,
@@ -285,7 +285,7 @@ export const SPEAKERS_DATA = [
     bio: "",
     image: SomayaKorkzineImage
   },
-  {
+  /* {
     id: 29,
     name: "Biran Diouf",
     title: "Mr",
@@ -293,7 +293,7 @@ export const SPEAKERS_DATA = [
     country: "Sénégal",
     bio: "",
     image: BiranDioufImage
-  },
+  }, */
   {
     id: 30,
     name: "Cheikh Alioune BEYE",

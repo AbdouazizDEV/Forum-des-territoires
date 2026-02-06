@@ -6,6 +6,9 @@ import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { HERO_STATS } from '../../../utils/constants';
 import AnimatedCounter from '../../common/AnimatedCounter/AnimatedCounter';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import heroImage1 from '../../../assets/images/1000319723.jpg';
+import heroImage2 from '../../../assets/images/théme.jpg';
+import heroImage3 from '../../../assets/images/ima3.jpg';
 
 /**
  * Composant Hero - Carrousel avec 3 slides
@@ -23,7 +26,7 @@ const Hero = () => {
       title: "L'habitat comme écosystème de vie, d'activités",
       title2: "économiques et d'investissement territorial",
       subtitle: "Batir ensemble les villes et territoires de demain - Bruxelles, 3-6 Juin 2026",
-      gradient: "from-yellow-400 via-orange-500 to-red-600",
+      backgroundImage: heroImage1,
       showStats: true,
       buttons: [
         { text: "Reserver ma place", link: "/reserver", variant: "secondary", className: "bg-white border-2 border-primary !text-black hover:bg-primary hover:!text-white" },
@@ -35,7 +38,7 @@ const Hero = () => {
       title: "Réservez votre place dès maintenant",
       title2: "et participez à l'événement de l'année",
       subtitle: "Rejoignez des centaines de participants pour échanger, apprendre et construire l'avenir des territoires ensemble",
-      gradient: "from-red-600 via-orange-500 to-yellow-400",
+      backgroundImage: heroImage2,
       showStats: false,
       highlight: "Places limitées",
       buttons: [
@@ -47,7 +50,7 @@ const Hero = () => {
       title: "Devenez partenaire du Forum",
       title2: "et valorisez votre entreprise",
       subtitle: "Profitez d'une visibilité exceptionnelle auprès d'un public ciblé et participez à un événement d'envergure internationale",
-      gradient: "from-yellow-400 via-orange-500 to-red-600",
+      backgroundImage: heroImage3,
       showStats: false,
       highlight: "Opportunités exclusives",
       buttons: [
@@ -61,7 +64,7 @@ const Hero = () => {
     const interval = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // Change toutes les 6 secondes
+    }, 30000); // Change toutes les 30 secondes
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -102,7 +105,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-8 sm:py-12 md:py-16 lg:py-0">
-      {/* Background avec gradient animé */}
+      {/* Background avec image animée */}
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={currentSlide}
@@ -115,25 +118,38 @@ const Hero = () => {
             x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.5 }
           }}
-          className={`absolute inset-0 bg-gradient-to-r ${currentSlideData.gradient}`}
+          className="absolute inset-0"
         >
+          {/* Image de fond */}
+          <motion.img
+            src={currentSlideData.backgroundImage}
+            alt="Hero background"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
+          
+          {/* Overlay sombre pour la lisibilité du texte */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/60"></div>
+          
           {/* Effets décoratifs animés */}
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
+              opacity: [0.2, 0.3, 0.2],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"
+            className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
               scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.15, 0.25, 0.15],
             }}
             transition={{
               duration: 10,
@@ -141,7 +157,7 @@ const Hero = () => {
               ease: "easeInOut",
               delay: 1
             }}
-            className="absolute bottom-0 left-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"
+            className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
           />
         </motion.div>
       </AnimatePresence>
@@ -232,7 +248,7 @@ const Hero = () => {
               className="lg:flex justify-end order-1 lg:order-2"
             >
               {currentSlideData.showStats ? (
-                <div className="bg-orange-500/90 backdrop-blur-sm rounded-xl p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl w-full max-w-full lg:max-w-none border border-white/20">
+                <div className="bg-orange-500/40 backdrop-blur-md rounded-xl p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl w-full max-w-full lg:max-w-none border-2 border-orange-200/50">
                   <div className="grid grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                     {HERO_STATS.map((stat, index) => (
                       <motion.div
@@ -297,17 +313,17 @@ const Hero = () => {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Cachées en mobile */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-2 sm:p-3 transition-all duration-300 group"
+        className="hidden md:flex absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-2 sm:p-3 transition-all duration-300 group items-center justify-center"
         aria-label="Slide précédent"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-2 sm:p-3 transition-all duration-300 group"
+        className="hidden md:flex absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full p-2 sm:p-3 transition-all duration-300 group items-center justify-center"
         aria-label="Slide suivant"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform" />
