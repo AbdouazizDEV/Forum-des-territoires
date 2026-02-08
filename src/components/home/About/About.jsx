@@ -32,7 +32,7 @@ const About = () => {
           className="prose prose-lg max-w-none"
         >
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Lancée en réponse aux défis et opportunités liés à l'Acte III de la Décentralisation au Sénégal, 
+            Lancée en réponse aux défis et opportunités de la Décentralisation au Sénégal, 
             la première édition du Forum des Territoires Sénégal–Belgique–Luxembourg a marqué une étape déterminante 
             dans la mise en visibilité des potentiels économiques, culturels et environnementaux des territoires 
             africains. Elle a permis d'initier des dynamiques structurantes de coopération décentralisée et 

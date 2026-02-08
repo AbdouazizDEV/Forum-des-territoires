@@ -1,6 +1,37 @@
+# Types MIME pour les fichiers JavaScript et autres assets
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType application/json .json
+  AddType text/css .css
+  AddType image/jpeg .jpg .jpeg
+  AddType image/png .png
+  AddType image/gif .gif
+  AddType image/svg+xml .svg
+</IfModule>
+
 RewriteEngine On
 RewriteBase /
+
+# Ne JAMAIS réécrire les fichiers qui existent réellement
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Ne JAMAIS réécrire les dossiers qui existent réellement
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Ne JAMAIS réécrire les fichiers dans le dossier assets
+RewriteCond %{REQUEST_URI} ^/assets/
+RewriteRule ^ - [L]
+
+# Ne JAMAIS réécrire les fichiers avec des extensions
+RewriteCond %{REQUEST_URI} \.(js|css|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|json)$ [NC]
+RewriteRule ^ - [L]
+
+# Redirection pour index.html
 RewriteRule ^index\.html$ - [L]
+
+# Redirection pour toutes les autres routes vers index.html (pour React Router)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]

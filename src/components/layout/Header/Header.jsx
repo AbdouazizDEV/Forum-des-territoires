@@ -174,7 +174,7 @@ const Header = () => {
             </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/partenaires" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
+              <Link to="/contact?participationType=partenaire" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
               <Button
                 variant="outline"
                 size="md"
@@ -300,7 +300,7 @@ const Header = () => {
                     Reserver
                   </Button>
                 </Link>
-                <Link to="/partenaires" onClick={closeMobileMenu}>
+                <Link to="/contact?participationType=partenaire" onClick={closeMobileMenu}>
                   <Button
                     variant="outline"
                     size="md"

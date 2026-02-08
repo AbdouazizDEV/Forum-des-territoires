@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
@@ -16,6 +16,9 @@ import { Mail, Phone, Send, MessageSquare, User, Building, Globe, ArrowRight, Ch
 const Contact = () => {
   const { ref: refHero, controls: controlsHero } = useScrollAnimation();
   const { ref: refForm, controls: controlsForm } = useScrollAnimation();
+  const [searchParams] = useSearchParams();
+  const participationTypeFromUrl = searchParams.get('participationType') || searchParams.get('type');
+  
   const [formData, setFormData] = useState({
     civility: '',
     fullName: '',
@@ -23,9 +26,17 @@ const Contact = () => {
     country: '',
     email: '',
     phone: '',
-    participationType: '',
+    participationType: participationTypeFromUrl || '',
     message: ''
   });
+
+  // Pré-remplir le type de participation depuis l'URL
+  useEffect(() => {
+    const typeParam = searchParams.get('type') || searchParams.get('participationType');
+    if (typeParam && ['territoire', 'investisseur', 'partenaire', 'autre'].includes(typeParam)) {
+      setFormData(prev => ({ ...prev, participationType: typeParam }));
+    }
+  }, [searchParams]);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

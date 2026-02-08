@@ -27,6 +27,10 @@ import AbdoulayeLyImage from '../assets/images/Speakers/AbdoulayeLy.jpeg';
 import SteveRoyezImage from '../assets/images/Speakers/SteveRoyez.jpeg';
 import ElHadjMoussaDialloImage from '../assets/images/Speakers/ElHadjMoussaDiallo.jpeg';
 import KalvinSoiresseNjallImage from '../assets/images/Speakers/KalvinSoiresseNjall.jpeg';
+import JamilThiamImage from '../assets/images/Speakers/JamilThiam.jpeg';
+import MamadouDiopImage from '../assets/images/Speakers/MamadouDiop.jpeg';
+import DenisMathenImage from '../assets/images/Speakers/DenisMathen.jpg';
+import FrankWillemansImage from '../assets/images/Speakers/FrankWillemans.jpeg';
 /**
  * Service contenant les données des speakers du Forum
  */
@@ -43,7 +47,7 @@ export const SPEAKERS_DATA = [
   },
   {
     id: 2,
-    name: "Oury Baillo Diallo",
+    name: "MAMADOU OURY BAILO DIALLO",
     title: "Mr",
     role: "Président UAEL Sénégal",
     country: "Sénégal",
@@ -67,6 +71,15 @@ export const SPEAKERS_DATA = [
     country: "Sénégal",
     bio: "Président de l'UNCCIAS et Maire de Kaolack",
     image: SerigneMboupImage
+  },
+  {
+    id: 24,
+    name: "Denis Mathen",
+    title: "Mr",
+    role: "GOUVERNEUR de la Province de Namur",
+    country: "Sénégal",
+    bio: "",
+    image: DenisMathenImage
   },
   {
     id: 5,
@@ -104,15 +117,15 @@ export const SPEAKERS_DATA = [
     bio: "Parrains de la 1 ère édition",
     image: AlHassaneNiangImage
   },
-  /* {
-    id: 9,
-    name: "HALEWIJN ENABEL",
+  {
+    id: 33,
+    name: "Frank Willemans",
     title: "Mr",
-    role: "",
+    role: "Conseiller en coopération internationale",
     country: "Belgique",
     bio: "",
-    image: HalewijnEnabelImage
-  }, */
+    image: FrankWillemansImage
+  },
   {
     id: 10,
     name: "Diarra Sow",
@@ -220,13 +233,13 @@ export const SPEAKERS_DATA = [
     role: "Président de l'Association des Sénégalais de la Belgique",
     country: "Belgique",
     bio: "Président de l'Association des Sénégalais de la Belgique",
-    image: null
+    image: JamilThiamImage
   },
   {
     id: 22,
     name: "Ndeye Awa Ndiaye",
     title: "Mme",
-    role: "",
+    role: "DG TRANXPERT LOGISTIQUE",
     country: "Sénégal",
     bio: "",
     image: NdeyeAwaNdiayeImage
@@ -242,13 +255,13 @@ export const SPEAKERS_DATA = [
   },
   {
     id: 24,
-    name: "Mamadou Oury Barry",
+    name: "Denis Mathen",
     title: "Mr",
-    role: "Secrétaire Général de l'UAL",
+    role: "GOUVERNEUR de la Province de Namur",
     country: "Sénégal",
-    bio: "Secrétaire Général de l'Union des Associations de Logement",
-    image: null
-  },
+    bio: "",
+    image: DenisMathenImage
+  }, 
   {
     id: 25,
     name: "Idrissa Diop",
@@ -285,15 +298,15 @@ export const SPEAKERS_DATA = [
     bio: "",
     image: SomayaKorkzineImage
   },
-  /* {
+   {
     id: 29,
-    name: "Biran Diouf",
+    name: "Mamadou Diop",
     title: "Mr",
-    role: "",
+    role: "Président de Senebel",
     country: "Sénégal",
     bio: "",
-    image: BiranDioufImage
-  }, */
+    image: MamadouDiopImage
+  }, 
   {
     id: 30,
     name: "Cheikh Alioune BEYE",
@@ -322,4 +335,3 @@ export const SPEAKERS_DATA = [
     image: ElHadjMoussaDialloImage
   }
 ];
-

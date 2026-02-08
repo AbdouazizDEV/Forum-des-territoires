@@ -61,7 +61,7 @@ import galleryImage53 from '../../assets/images/img51.jpg';
 import galleryImage54 from '../../assets/images/img52.jpg';
 import galleryImage55 from '../../assets/images/img53.jpg';
 import galleryImage56 from '../../assets/images/img54.jpg';
-import galleryImage57 from '../../assets/images/img55.jpg';
+
 import galleryImage58 from '../../assets/images/img56.jpg';
 import galleryImage59 from '../../assets/images/img57.jpg';
 import galleryImage60 from '../../assets/images/img58.jpg';
@@ -135,7 +135,6 @@ const Galerie = () => {
     galleryImage54,
     galleryImage55,
     galleryImage56,
-    galleryImage57,
     galleryImage58,
     galleryImage59,
     galleryImage60,

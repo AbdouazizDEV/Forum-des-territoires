@@ -128,7 +128,14 @@ const Hero = () => {
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
+            onError={(e) => {
+              console.error('Erreur de chargement de l\'image:', currentSlideData.backgroundImage);
+              // Fallback vers un gradient si l'image ne charge pas
+              e.target.style.display = 'none';
+            }}
           />
+          {/* Fallback gradient si l'image ne charge pas */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600" style={{ display: 'none' }} id="gradient-fallback"></div>
           
           {/* Overlay sombre pour la lisibilité du texte */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/60"></div>
