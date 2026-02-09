@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { MessageSquare, Building2, Handshake } from 'lucide-react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
@@ -10,6 +11,7 @@ import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
  * Section "Pourquoi ce Forum ?" - Les 3 piliers
  */
 const Pillars = () => {
+  const { t } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
   const iconMap = {
@@ -30,20 +32,21 @@ const Pillars = () => {
           variants={fadeInUp}
           className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 text-dark"
         >
-          Pourquoi ce Forum ?
+          {t('pillars.title')}
         </motion.h2>
         <motion.p
           variants={fadeInUp}
           className="text-center !text-dark text-lg mb-12 max-w-2xl mx-auto"
         >
-          Face aux enjeux de décentralisation, d’attractivité territoriale et de financement du développement local, le Forum des Territoires propose une réponse pragmatique, structurée et orientée vers l’action.
+          {t('pillars.subtitle')}
           <br />
-          <strong className="text-primary">Trois piliers fondamentaux pour une coopération territoriale efficace et durable</strong>
+          <strong className="text-primary">{t('pillars.subtitleBold')}</strong>
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {PILLARS.map((pillar, index) => {
             const Icon = iconMap[pillar.icon];
+            const pillarKey = `pillar${pillar.id}`;
             return (
               <motion.div
                 key={pillar.id}
@@ -59,10 +62,10 @@ const Pillars = () => {
                     <Icon className="w-8 h-8 text-white" />
                   </motion.div>
                   <h3 className="font-display font-bold text-xl mb-4 text-dark">
-                    {pillar.title}
+                    {t(`pillars.${pillarKey}.title`)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {pillar.description}
+                    {t(`pillars.${pillarKey}.description`)}
                   </p>
                 </Card>
               </motion.div>

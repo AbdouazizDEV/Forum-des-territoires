@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Section from '../../common/Section/Section';
 import Button from '../../common/Button/Button';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../../utils/animations';
@@ -10,28 +11,29 @@ import { Handshake, TrendingUp, Eye, Users, Award, Target, ArrowRight, Sparkles 
  * Section Call-to-Action pour inciter les entreprises à devenir partenaires
  */
 const CallToActionPartners = () => {
+  const { t } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
   const advantages = [
     {
       icon: Eye,
-      title: "Visibilité exceptionnelle",
-      description: "Votre logo sur tous les supports de communication et une présence forte pendant l'événement"
+      title: t('ctaPartners.advantages.visibility.title'),
+      description: t('ctaPartners.advantages.visibility.description')
     },
     {
       icon: Users,
-      title: "Réseautage premium",
-      description: "Accès exclusif aux sessions VIP et rencontres avec les décideurs et investisseurs"
+      title: t('ctaPartners.advantages.networking.title'),
+      description: t('ctaPartners.advantages.networking.description')
     },
     {
       icon: TrendingUp,
-      title: "Opportunités business",
-      description: "Mise en relation directe avec les territoires et projets structurants"
+      title: t('ctaPartners.advantages.business.title'),
+      description: t('ctaPartners.advantages.business.description')
     },
     {
       icon: Award,
-      title: "Image de marque",
-      description: "Positionnement en tant qu'acteur engagé du développement territorial"
+      title: t('ctaPartners.advantages.brand.title'),
+      description: t('ctaPartners.advantages.brand.description')
     }
   ];
 
@@ -71,12 +73,11 @@ const CallToActionPartners = () => {
             <Handshake className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Devenez Partenaire du Forum
+            {t('ctaPartners.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'une visibilité exceptionnelle 
-            et d'opportunités business uniques
+            {t('ctaPartners.subtitle')}
           </p>
         </motion.div>
 
@@ -120,7 +121,7 @@ const CallToActionPartners = () => {
         >
           <div className="text-center mb-8">
             <h3 className="font-display font-bold text-2xl md:text-3xl mb-4 text-dark">
-              Nos Packages de Partenariat
+              {t('ctaPartners.packagesTitle')}
             </h3>
             <div className="w-16 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto"></div>
           </div>
@@ -164,11 +165,10 @@ const CallToActionPartners = () => {
             </motion.div>
             
             <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-white">
-              Prêt à devenir partenaire ?
+              {t('ctaPartners.ready')}
             </h3>
             <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Contactez-nous pour discuter des opportunités de partenariat et découvrir 
-              comment votre organisation peut contribuer au succès du Forum des Territoires.
+              {t('ctaPartners.description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -178,7 +178,7 @@ const CallToActionPartners = () => {
                   size="lg"
                   className="bg-white !text-black hover:bg-white/90 shadow-xl px-10 py-6 text-lg font-bold group"
                 >
-                  Découvrir les packages
+                  {t('ctaPartners.discoverPackages')}
                   <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -188,7 +188,7 @@ const CallToActionPartners = () => {
                   size="lg"
                   className="border-2 border-white !text-white hover:bg-white/10 shadow-xl px-10 py-6 text-lg font-bold group"
                 >
-                  Nous contacter
+                  {t('ctaPartners.contactUs')}
                   <Sparkles className="w-5 h-5 ml-2 inline group-hover:rotate-12 transition-transform" />
                 </Button>
               </Link>

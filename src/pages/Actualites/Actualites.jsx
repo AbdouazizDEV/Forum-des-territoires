@@ -1,18 +1,26 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Calendar, ArrowRight, Newspaper } from 'lucide-react';
 import { getAllActualites } from '../../services/actualitesService';
+import { translateActualites } from '../../utils/actualiteTranslations';
 
 /**
  * Page Actualités
  */
 const Actualites = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
-  const actualites = getAllActualites();
+  
+  // Traduire les actualités
+  const actualites = useMemo(() => {
+    return translateActualites(getAllActualites(), t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="actualites" background="default" padding="lg">
@@ -27,14 +35,14 @@ const Actualites = () => {
           variants={fadeInUp}
           className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark text-center"
         >
-          Actualités
+          {t('actualites.pageTitle')}
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
           className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto"
         >
-          Restez informé des dernières nouvelles et annonces du Forum des Territoires
+          {t('actualites.pageSubtitle')}
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -74,7 +82,7 @@ const Actualites = () => {
                   {actu.featured && (
                     <div className="absolute top-4 right-4">
                       <span className="px-3 py-1.5 bg-accent-orange/95 backdrop-blur-sm text-white text-xs font-semibold rounded-full shadow-lg">
-                        À la une
+                        {t('actualites.featured')}
                       </span>
                     </div>
                   )}
@@ -96,7 +104,7 @@ const Actualites = () => {
                     to={`/actualites/${actu.id}`}
                     className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors font-medium group/link"
                   >
-                    <span>Lire la suite</span>
+                    <span>{t('actualites.readMoreLabel')}</span>
                     <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>

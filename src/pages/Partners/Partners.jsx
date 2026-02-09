@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
@@ -9,39 +11,52 @@ import { SPONSOR_PACKAGES } from '../../services/sponsorPackagesService';
 import { THEMATIC_PARTNERSHIPS } from '../../services/thematicPartnershipsService';
 import { Building2, DollarSign, MapPin, Radio, Sparkles, Check, ArrowRight, Handshake } from 'lucide-react';
 import { CONTACT_INFO } from '../../utils/constants';
+import { translateSponsorPackages } from '../../utils/sponsorTranslations';
+import { translateThematicPartnerships } from '../../utils/thematicPartnershipsTranslations';
 
 /**
  * Page Partenaires - Style magnifique avec packages de sponsoring
  */
 const Partners = () => {
+  const { t, i18n } = useTranslation();
   const { ref: refHero, controls: controlsHero } = useScrollAnimation();
   const { ref: refPackages, controls: controlsPackages } = useScrollAnimation();
   const { ref: refThematic, controls: controlsThematic } = useScrollAnimation();
   const { ref: refCTA, controls: controlsCTA } = useScrollAnimation();
 
+  // Traduire les packages de sponsoring
+  const sponsorPackages = useMemo(() => {
+    return translateSponsorPackages(SPONSOR_PACKAGES, t, i18n);
+  }, [t, i18n]);
+
+  // Traduire les partenariats thématiques
+  const thematicPartnerships = useMemo(() => {
+    return translateThematicPartnerships(THEMATIC_PARTNERSHIPS, t, i18n);
+  }, [t, i18n]);
+
   const partnerCategories = [
     {
       icon: Building2,
-      title: "Partenaires institutionnels",
-      description: "Institutions publiques, collectivités territoriales, organisations internationales",
+      title: t('partners.institutional.title'),
+      description: t('partners.institutional.description'),
       color: "from-primary to-primary-dark"
     },
     {
       icon: DollarSign,
-      title: "Partenaires financiers",
-      description: "Banques de développement, fonds d'investissement, institutions financières",
+      title: t('partners.financial.title'),
+      description: t('partners.financial.description'),
       color: "from-secondary to-secondary-dark"
     },
     {
       icon: MapPin,
-      title: "Territoires participants",
-      description: "Collectivités territoriales africaines et européennes",
+      title: t('partners.territories.title'),
+      description: t('partners.territories.description'),
       color: "from-accent-orange to-primary"
     },
     {
       icon: Radio,
-      title: "Partenaires médias",
-      description: "Médias nationaux et internationaux couvrant l'événement",
+      title: t('partners.media.title'),
+      description: t('partners.media.description'),
       color: "from-accent-teal to-secondary"
     }
   ];
@@ -63,12 +78,11 @@ const Partners = () => {
               <Handshake className="w-10 h-10 text-white" />
             </div>
             <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
-              Devenez Partenaire
+              {t('partners.pageTitle')}
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-white via-accent-orange to-white mx-auto mb-6"></div>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
-              Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'une visibilité exceptionnelle 
-              et d'opportunités business uniques
+              {t('partners.pageSubtitle')}
             </p>
           </motion.div>
         </motion.div>
@@ -90,11 +104,11 @@ const Partners = () => {
             className="text-center mb-12"
         >
             <h2 className="font-display font-bold text-4xl md:text-5xl mb-6 text-dark">
-              Catégories de partenaires
+              {t('partners.categoriesTitle')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Différents types de partenariats pour répondre à vos objectifs stratégiques
+              {t('partners.categoriesSubtitle')}
             </p>
           </motion.div>
 
@@ -147,16 +161,16 @@ const Partners = () => {
               <Sparkles className="w-10 h-10 text-white" />
             </div>
             <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-              Offres de sponsoring
+              {t('partners.sponsoringTitle')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choisissez le package qui correspond à vos objectifs stratégiques et bénéficiez d'avantages exclusifs
+              {t('partners.sponsoringSubtitle')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            {SPONSOR_PACKAGES.map((pkg, index) => {
+            {sponsorPackages.map((pkg, index) => {
               const Icon = pkg.icon;
               const isPlatinum = pkg.id === 'platinum';
               return (
@@ -174,7 +188,7 @@ const Partners = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-700 to-gray-900 text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl z-20"
                     >
-                      Premium
+                      {t('partners.premium')}
                     </motion.div>
                   )}
                   <Card 
@@ -217,13 +231,19 @@ const Partners = () => {
                           );
                         })}
                       </div>
-                      <Link to="/contact" className="block">
+                      <Link 
+                        to={{
+                          pathname: "/contact",
+                          search: new URLSearchParams({ participationType: "partenaire" }).toString()
+                        }}
+                        className="block"
+                      >
                         <Button 
                           variant="primary" 
                           size="lg" 
                           className="w-full group"
                         >
-                          Nous contacter
+                          {t('partners.contactUs')}
                           <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>
@@ -253,16 +273,16 @@ const Partners = () => {
             className="text-center mb-16"
         >
             <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-              Partenariats thématiques exclusifs
+              {t('partners.thematicTitle')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-secondary via-accent-orange to-primary mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Chaque partenariat inclut une exclusivité sectorielle et une visibilité ciblée
+              {t('partners.thematicSubtitle')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {THEMATIC_PARTNERSHIPS.map((partnership, index) => {
+            {thematicPartnerships.map((partnership, index) => {
               const Icon = partnership.icon;
               return (
                 <motion.div
@@ -294,7 +314,7 @@ const Partners = () => {
                     <div className="p-6 bg-white relative">
                       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-secondary to-accent-orange"></div>
                       <h4 className="font-display font-semibold text-lg mb-4 text-dark">
-                        Avantages exclusifs
+                        {t('partners.exclusiveBenefits')}
                       </h4>
                       <ul className="space-y-2">
                         {partnership.benefits.map((benefit, bIndex) => (
@@ -305,11 +325,17 @@ const Partners = () => {
                   ))}
                 </ul>
                       <div className="mt-6">
-                        <Link to="/contact" className="block">
+                        <Link 
+                          to={{
+                            pathname: "/contact",
+                            search: new URLSearchParams({ participationType: "partenaire" }).toString()
+                          }}
+                          className="block"
+                        >
                           <Button variant="outline" size="md" className="w-full group">
-                  En savoir plus
+                            {t('partners.learnMore')}
                             <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
-                </Button>
+                          </Button>
                         </Link>
                       </div>
                     </div>
@@ -348,21 +374,26 @@ const Partners = () => {
                 <Handshake className="w-10 h-10 text-white" />
               </motion.div>
               <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-                Devenir partenaire
+                {t('partners.becomePartner')}
               </h2>
               <div className="w-24 h-1 bg-white/50 mx-auto mb-6"></div>
               <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-            Contactez-nous pour discuter des opportunités de partenariat et découvrir 
-            comment votre organisation peut contribuer au succès du Forum des Territoires.
-          </p>
+                {t('partners.becomePartnerDescription')}
+              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/contact" className="block">
+                <Link 
+                  to={{
+                    pathname: "/contact",
+                    search: new URLSearchParams({ participationType: "partenaire" }).toString()
+                  }}
+                  className="block"
+                >
                   <Button 
                     variant="secondary" 
                     size="lg" 
                     className="bg-white !text-black !hover:bg-white/90 shadow-lg"
                   >
-            Nous contacter
+                    {t('partners.contactUs')}
                     <ArrowRight className="w-5 h-5 ml-2 inline" />
                   </Button>
                 </Link>
@@ -372,12 +403,12 @@ const Partners = () => {
                     size="lg" 
                     className="border-2 border-white text-white hover:bg-white/10"
                   >
-                    Appeler maintenant
-          </Button>
+                    {t('partners.callNow')}
+                  </Button>
                 </a>
               </div>
               <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-white/80 text-sm mb-2">Contactez-nous également par :</p>
+                <p className="text-white/80 text-sm mb-2">{t('partners.contactAlso')}</p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm">
                   <a href={`mailto:${CONTACT_INFO.email}`} className="text-white/90 hover:text-white underline">
                     {CONTACT_INFO.email}

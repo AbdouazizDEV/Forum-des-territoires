@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Sprout, MapPin, Zap, Building, Waves, Smartphone, Users } from 'lucide-react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
@@ -11,6 +12,7 @@ import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
  * Section "Ressources Territoriales"
  */
 const Resources = () => {
+  const { t } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
   const iconMap = {
@@ -35,19 +37,19 @@ const Resources = () => {
           variants={fadeInUp}
           className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-center mb-4 text-dark"
         >
-          Ressources Territoriales
+          {t('resources.title')}
         </motion.h2>
         <motion.p
           variants={fadeInUp}
           className="text-center !text-dark text-lg mb-4 max-w-3xl mx-auto"
         >
-          Le Sénégal demeure un pilier central du Forum, notamment à travers ses six pôles de développement (Sine Saloum, Casamance, Sénégal Oriental, Dakar/Thiès, Triangle Touba–Louga, Delta du Fleuve Sénégal). Cependant, cette deuxième édition ouvrira la parole à d’autres pays africains qui présenteront, eux aussi, leurs potentialités sectorielles leurs stratégies territoriales et leurs projets bankables.
+          {t('resources.paragraph1')}
         </motion.p>
         <motion.p
           variants={fadeInUp}
           className="text-center !text-dark text-lg mb-12 max-w-3xl mx-auto"
         >
-          Découvrez les secteurs d'opportunités porteurs de croissance et de développement durable
+          {t('resources.paragraph2')}
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

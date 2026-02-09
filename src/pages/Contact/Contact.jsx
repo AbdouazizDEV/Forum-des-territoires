@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
@@ -14,6 +15,7 @@ import { Mail, Phone, Send, MessageSquare, User, Building, Globe, ArrowRight, Ch
  * Page Contact / Inscription - Style magnifique
  */
 const Contact = () => {
+  const { t } = useTranslation();
   const { ref: refHero, controls: controlsHero } = useScrollAnimation();
   const { ref: refForm, controls: controlsForm } = useScrollAnimation();
   const [searchParams] = useSearchParams();
@@ -53,14 +55,14 @@ const Contact = () => {
   const validate = () => {
     const newErrors = {};
     
-    if (!formData.fullName.trim()) newErrors.fullName = 'Le nom complet est requis';
+    if (!formData.fullName.trim()) newErrors.fullName = t('contact.errors.fullNameRequired');
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = t('contact.errors.emailRequired');
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Email invalide';
+      newErrors.email = t('contact.errors.emailInvalid');
     }
-    if (!formData.organization.trim()) newErrors.organization = 'L\'organisation est requise';
-    if (!formData.participationType) newErrors.participationType = 'Le type de participation est requis';
+    if (!formData.organization.trim()) newErrors.organization = t('contact.errors.organizationRequired');
+    if (!formData.participationType) newErrors.participationType = t('contact.errors.participationTypeRequired');
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -130,7 +132,7 @@ const Contact = () => {
           });
           setErrors(prev => ({ ...prev, ...backendErrors }));
         } else {
-          setErrors({ submit: data.message || 'Une erreur est survenue lors de l\'envoi du message' });
+          setErrors({ submit: data.message || t('contact.errors.submitError') });
         }
       }
     } catch (error) {
@@ -165,11 +167,11 @@ const Contact = () => {
               <MessageSquare className="w-10 h-10 text-white" />
             </div>
             <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
-          Contact & Inscription
+          {t('contact.title')}
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-white via-accent-orange to-white mx-auto mb-6"></div>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
-          Inscrivez-vous au Forum des Territoires 2026 ou contactez-nous pour plus d'informations
+          {t('contact.subtitle')}
             </p>
           </motion.div>
         </motion.div>
@@ -197,7 +199,7 @@ const Contact = () => {
                     <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-orange rounded-xl flex items-center justify-center">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="font-display font-bold text-xl text-dark">Coordonnées</h3>
+                    <h3 className="font-display font-bold text-xl text-dark">{t('contact.coordinates')}</h3>
                   </div>
                 <div className="space-y-4">
                   <a
@@ -279,10 +281,10 @@ const Contact = () => {
                     <CheckCircle className="w-10 h-10 text-white" />
                   </motion.div>
                   <h3 className="font-display font-bold text-2xl text-green-800 mb-3">
-                  Message envoyé avec succès !
+                  {t('contact.successTitle')}
                 </h3>
                   <p className="text-green-700 text-lg mb-4">
-                  Nous vous répondrons dans les plus brefs délais.
+                  {t('contact.successMessage')}
                 </p>
                   <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto"></div>
               </motion.div>
@@ -291,11 +293,11 @@ const Contact = () => {
                   <div className="p-6 md:p-8">
                     <div className="mb-6">
                       <h2 className="font-display font-bold text-2xl md:text-3xl mb-2 text-dark">
-                        Formulaire de contact
+                        {t('contact.formTitle')}
                       </h2>
                       <div className="w-16 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mb-4"></div>
                       <p className="text-gray-600">
-                        Remplissez le formulaire ci-dessous et nous vous répondrons rapidement
+                        {t('contact.formSubtitle')}
                       </p>
                     </div>
 
@@ -304,7 +306,7 @@ const Contact = () => {
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <User className="w-4 h-4 text-primary" />
-                            <span>Civilité</span>
+                            <span>{t('contact.civility')}</span>
                     </label>
                     <select
                       name="civility"
@@ -312,17 +314,17 @@ const Contact = () => {
                       onChange={handleChange}
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all"
                     >
-                      <option value="">Sélectionner</option>
-                      <option value="M.">M.</option>
-                      <option value="Mme">Mme</option>
-                      <option value="Mlle">Mlle</option>
+                      <option value="">{t('common.select')}</option>
+                      <option value="M.">{t('contact.civilityOptions.mr')}</option>
+                      <option value="Mme">{t('contact.civilityOptions.mrs')}</option>
+                      <option value="Mlle">{t('contact.civilityOptions.miss')}</option>
                     </select>
                   </div>
 
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <User className="w-4 h-4 text-primary" />
-                            <span>Nom complet <span className="text-primary">*</span></span>
+                            <span>{t('common.fullName')} <span className="text-primary">*</span></span>
                     </label>
                     <input
                       type="text"
@@ -344,7 +346,7 @@ const Contact = () => {
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <Building className="w-4 h-4 text-primary" />
-                            <span>Organisation / Entreprise <span className="text-primary">*</span></span>
+                            <span>{t('common.organization')} <span className="text-primary">*</span></span>
                     </label>
                     <input
                       type="text"
@@ -364,7 +366,7 @@ const Contact = () => {
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <Globe className="w-4 h-4 text-primary" />
-                            <span>Pays</span>
+                            <span>{t('common.country')}</span>
                     </label>
                     <input
                       type="text"
@@ -380,7 +382,7 @@ const Contact = () => {
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <Mail className="w-4 h-4 text-primary" />
-                            <span>Email <span className="text-primary">*</span></span>
+                            <span>{t('common.email')} <span className="text-primary">*</span></span>
                     </label>
                     <input
                       type="email"
@@ -400,7 +402,7 @@ const Contact = () => {
                   <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                             <Phone className="w-4 h-4 text-primary" />
-                            <span>Téléphone</span>
+                            <span>{t('common.phone')}</span>
                     </label>
                     <input
                       type="tel"
@@ -415,7 +417,7 @@ const Contact = () => {
                 <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                           <User className="w-4 h-4 text-primary" />
-                          <span>Type de participation <span className="text-primary">*</span></span>
+                          <span>{t('contact.participationType')} <span className="text-primary">*</span></span>
                   </label>
                   <select
                     name="participationType"
@@ -426,11 +428,11 @@ const Contact = () => {
                     }`}
                     required
                   >
-                    <option value="">Sélectionner</option>
-                    <option value="territoire">Territoire</option>
-                    <option value="investisseur">Investisseur</option>
-                    <option value="partenaire">Partenaire</option>
-                    <option value="autre">Autre</option>
+                    <option value="">{t('common.select')}</option>
+                    <option value="territoire">{t('contact.participationTypes.territory')}</option>
+                    <option value="investisseur">{t('contact.participationTypes.investor')}</option>
+                    <option value="partenaire">{t('contact.participationTypes.partner')}</option>
+                    <option value="autre">{t('contact.participationTypes.other')}</option>
                   </select>
                   {errors.participationType && (
                     <p className="text-red-500 text-sm mt-1">{errors.participationType}</p>
@@ -440,7 +442,7 @@ const Contact = () => {
                 <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center space-x-2">
                           <MessageSquare className="w-4 h-4 text-primary" />
-                          <span>Message / Présentation du projet</span>
+                          <span>{t('contact.projectPresentation')}</span>
                   </label>
                   <textarea
                     name="message"
@@ -448,7 +450,7 @@ const Contact = () => {
                     onChange={handleChange}
                     rows={5}
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary resize-none transition-all"
-                    placeholder="Décrivez votre projet ou votre message..."
+                    placeholder={t('contact.projectPlaceholder')}
                   />
                 </div>
 
@@ -465,7 +467,7 @@ const Contact = () => {
                   loading={isSubmitting}
                         className="w-full group"
                 >
-                        {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                        {isSubmitting ? t('common.sending') : t('contact.sendMessage')}
                         {!isSubmitting && (
                           <Send className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
                         )}

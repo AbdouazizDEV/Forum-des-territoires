@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Section from '../../components/common/Section/Section';
 import Button from '../../components/common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
@@ -13,6 +14,7 @@ import { CONTACT_INFO, SOCIAL_LINKS, API_BASE_URL } from '../../utils/constants'
  * Page Reserver - Formulaire de réservation
  */
 const Reserver = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
   const [searchParams] = useSearchParams();
   const packageIdFromUrl = searchParams.get('package');
@@ -20,16 +22,16 @@ const Reserver = () => {
 
   // Packages pour les participants
   const participantPackages = [
-    { id: '1', name: 'Package Teranga' },
-    { id: '2', name: 'Package Silver' },
-    { id: '3', name: 'Package Gold' }
+    { id: '1', name: i18n.language === 'en' ? 'Teranga Package' : 'Package Teranga' },
+    { id: '2', name: i18n.language === 'en' ? 'Silver Package' : 'Package Silver' },
+    { id: '3', name: i18n.language === 'en' ? 'Gold Package' : 'Package Gold' }
   ];
 
   // Packages pour les exposants (stands)
   const standPackages = [
-    { id: 'standard', name: 'Stand Standard' },
-    { id: 'premium', name: 'Stand Premium' },
-    { id: 'vip', name: 'Stand VIP' }
+    { id: 'standard', name: i18n.language === 'en' ? 'Standard Stand' : 'Stand Standard' },
+    { id: 'premium', name: i18n.language === 'en' ? 'Premium Stand' : 'Stand Premium' },
+    { id: 'vip', name: i18n.language === 'en' ? 'VIP Stand' : 'Stand VIP' }
   ];
 
   const [formData, setFormData] = useState({
@@ -80,16 +82,16 @@ const Reserver = () => {
   const validate = () => {
     const newErrors = {};
     
-    if (!formData.fullName.trim()) newErrors.fullName = 'Le nom complet est requis';
+    if (!formData.fullName.trim()) newErrors.fullName = t('reserver.errors.fullNameRequired');
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = t('reserver.errors.emailRequired');
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Email invalide';
+      newErrors.email = t('reserver.errors.emailInvalid');
     }
-    if (!formData.participationType) newErrors.participationType = 'Le type de participation est requis';
+    if (!formData.participationType) newErrors.participationType = t('reserver.errors.participationTypeRequired');
     // Le package est requis uniquement pour les exposants
     if (formData.participationType === 'exposant' && !formData.package) {
-      newErrors.package = 'Le stand est requis';
+      newErrors.package = t('reserver.errors.packageRequired');
     }
 
     setErrors(newErrors);
@@ -177,12 +179,12 @@ const Reserver = () => {
           });
           setErrors(prev => ({ ...prev, ...backendErrors }));
         } else {
-          setErrors({ submit: data.message || 'Une erreur est survenue lors de la réservation' });
+          setErrors({ submit: data.message || t('reserver.errors.submitError') });
         }
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi de la réservation:', error);
-      setErrors({ submit: error.message || 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+      setErrors({ submit: error.message || t('reserver.errors.submitErrorGeneric') });
     } finally {
       setIsSubmitting(false);
     }
@@ -201,14 +203,14 @@ const Reserver = () => {
           variants={fadeInUp}
           className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark text-center"
         >
-          Reserver ma place
+          {t('reserver.title')}
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
           className="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto"
         >
-          Réservez votre place au Forum des Territoires 2026 et participez à cet événement exceptionnel
+          {t('reserver.subtitle')}
         </motion.p>
 
         {isSubmitted ? (
@@ -221,10 +223,10 @@ const Reserver = () => {
               <CheckCircle className="w-8 h-8 text-white" />
             </div>
             <h3 className="font-display font-bold text-xl text-green-800 mb-2">
-              Réservation confirmée !
+              {t('reserver.reservationConfirmed')}
             </h3>
             <p className="text-green-700">
-              Vous recevrez un email de confirmation dans les prochaines minutes.
+              {t('reserver.confirmationEmail')}
             </p>
           </motion.div>
         ) : (
@@ -236,7 +238,7 @@ const Reserver = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Nom complet <span className="text-primary">*</span>
+                  {t('reserver.fullName')} <span className="text-primary">{t('reserver.required')}</span>
                 </label>
                 <input
                   type="text"
@@ -255,7 +257,7 @@ const Reserver = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email <span className="text-primary">*</span>
+                  {t('reserver.email')} <span className="text-primary">{t('reserver.required')}</span>
                 </label>
                 <input
                   type="email"
@@ -276,7 +278,7 @@ const Reserver = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Téléphone
+                  {t('reserver.phone')}
                 </label>
                 <input
                   type="tel"
@@ -289,7 +291,7 @@ const Reserver = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Organisation
+                  {t('reserver.organization')}
                 </label>
                 <input
                   type="text"
@@ -305,7 +307,7 @@ const Reserver = () => {
               {showPackageField && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stand <span className="text-primary">*</span>
+                    {t('reserver.package')} <span className="text-primary">{t('reserver.required')}</span>
                   </label>
                   <select
                     name="package"
@@ -316,7 +318,7 @@ const Reserver = () => {
                     }`}
                     required={showPackageField}
                   >
-                    <option value="">Sélectionner un stand</option>
+                    <option value="">{t('reserver.selectPackage')}</option>
                     {standPackages.map((pkg) => (
                       <option key={pkg.id} value={pkg.id}>
                         {pkg.name}
@@ -331,7 +333,7 @@ const Reserver = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Type de participation <span className="text-primary">*</span>
+                  {t('reserver.participationType')} <span className="text-primary">{t('reserver.required')}</span>
                 </label>
                 <select
                   name="participationType"
@@ -342,11 +344,11 @@ const Reserver = () => {
                   }`}
                   required
                 >
-                  <option value="">Sélectionner</option>
-                  <option value="participant">Participant</option>
-                  <option value="exposant">Exposant</option>
-                  <option value="partenaire">Partenaire</option>
-                  <option value="speaker">Speaker</option>
+                  <option value="">{t('reserver.selectParticipation')}</option>
+                  <option value="participant">{t('participer.participant.title')}</option>
+                  <option value="exposant">{t('participer.exposant.title')}</option>
+                  <option value="partenaire">{t('participer.partenaire.title')}</option>
+                  <option value="speaker">{t('participer.speaker.title')}</option>
                 </select>
                 {errors.participationType && (
                   <p className="text-red-500 text-sm mt-1">{errors.participationType}</p>
@@ -356,7 +358,7 @@ const Reserver = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Nombre de personnes
+                  {t('reserver.numberOfPeople')}
                 </label>
                 <input
                   type="number"
@@ -381,7 +383,7 @@ const Reserver = () => {
               loading={isSubmitting}
               className="w-full"
             >
-              {isSubmitting ? 'Traitement...' : 'Confirmer la réservation'}
+              {isSubmitting ? t('reserver.processing') : t('reserver.confirmReservation')}
             </Button>
           </motion.form>
         )}
@@ -393,7 +395,7 @@ const Reserver = () => {
         >
           <div className="bg-gradient-to-br from-primary/5 via-accent-orange/5 to-secondary/5 rounded-2xl p-8 md:p-12 border border-primary/10">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-8 text-dark text-center">
-              Contactez-nous
+              {t('reserver.contactUs')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -403,7 +405,7 @@ const Reserver = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg text-dark">Téléphone</h3>
+                  <h3 className="font-semibold text-lg text-dark">{t('reserver.phoneLabel')}</h3>
                 </div>
                 <div className="space-y-3">
                   {CONTACT_INFO.phones.map((phone, index) => (
@@ -425,7 +427,7 @@ const Reserver = () => {
                   <div className="w-12 h-12 bg-accent-orange/10 rounded-lg flex items-center justify-center">
                     <Mail className="w-6 h-6 text-accent-orange" />
                   </div>
-                  <h3 className="font-semibold text-lg text-dark">Email</h3>
+                  <h3 className="font-semibold text-lg text-dark">{t('reserver.emailLabel')}</h3>
                 </div>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
@@ -443,7 +445,7 @@ const Reserver = () => {
                 <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
                   <Globe className="w-6 h-6 text-secondary" />
                 </div>
-                <h3 className="font-semibold text-lg text-dark">Suivez-nous</h3>
+                <h3 className="font-semibold text-lg text-dark">{t('reserver.followUs')}</h3>
               </div>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {SOCIAL_LINKS.map((social) => {

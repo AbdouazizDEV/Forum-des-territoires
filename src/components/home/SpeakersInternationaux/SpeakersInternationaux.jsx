@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
@@ -7,15 +9,24 @@ import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { User, Globe, Briefcase, Award } from 'lucide-react';
 import { SPEAKERS_DATA } from '../../../services/speakersService';
+import { translateSpeakerRole, translateSpeakerBio, translateSpeakerTitle } from '../../../utils/speakerTranslations';
 
 /**
  * Section Speakers Internationaux - Affiche les 4 premiers speakers
  */
 const SpeakersInternationaux = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
-  // Afficher les 4 premiers speakers pour la page d'accueil
-  const featuredSpeakers = SPEAKERS_DATA.slice(0, 4);
+  // Afficher les 4 premiers speakers pour la page d'accueil avec traductions
+  const featuredSpeakers = useMemo(() => {
+    return SPEAKERS_DATA.slice(0, 4).map(speaker => ({
+      ...speaker,
+      translatedTitle: translateSpeakerTitle(speaker.title, t),
+      translatedRole: translateSpeakerRole(speaker.role, t, i18n),
+      translatedBio: speaker.bio ? translateSpeakerBio(speaker.bio, t, i18n) : ''
+    }));
+  }, [t, i18n]);
 
   return (
     <Section id="speakers-internationaux" background="gradient" padding="lg">
@@ -34,11 +45,11 @@ const SpeakersInternationaux = () => {
             <Award className="w-8 h-8 text-white" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-dark">
-            Speakers Internationaux
+            {t('speakers.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Rencontrez les experts et décideurs qui façonneront l'avenir des territoires
+            {t('speakers.subtitle')}
           </p>
         </motion.div>
 
@@ -81,15 +92,15 @@ const SpeakersInternationaux = () => {
                 <div className="p-6 bg-white relative">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary"></div>
                   <h3 className="font-display font-bold text-lg md:text-xl mb-2 text-dark leading-tight">
-                    {speaker.title} {speaker.name}
+                    {speaker.translatedTitle} {speaker.name}
                 </h3>
                   <div className="flex items-center justify-center space-x-2 mb-3 text-primary">
                     <Briefcase className="w-4 h-4 flex-shrink-0" />
-                    <p className="text-sm font-medium text-center leading-tight">{speaker.role}</p>
+                    <p className="text-sm font-medium text-center leading-tight">{speaker.translatedRole}</p>
                 </div>
-                  {speaker.bio && (
+                  {speaker.translatedBio && (
                     <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
-                      {speaker.bio}
+                      {speaker.translatedBio}
                     </p>
                   )}
                 </div>
@@ -107,7 +118,7 @@ const SpeakersInternationaux = () => {
         >
           <Link to="/speakers">
             <Button variant="secondary" size="lg" className="px-8 group">
-              Voir tous les speakers
+              {t('speakers.seeAll')}
               <Globe className="w-5 h-5 ml-2 inline group-hover:rotate-12 transition-transform" />
             </Button>
           </Link>

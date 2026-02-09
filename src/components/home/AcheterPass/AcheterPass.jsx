@@ -1,71 +1,79 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { Check, Star, Building2, Package } from 'lucide-react';
+import { translatePackages } from '../../../utils/packageTranslations';
 
 /**
  * Section Packages Participants
  */
 const AcheterPass = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
-  const packages = [
-    {
-      id: 1,
-      title: "Package Teranga",
-      description: "Package de base pour participer au Forum",
-      features: [
-        "Accès Forum (01 badges)",
-        "Lettre d'Invitation pour participant",
-        "Repas & Collation pendant les activités du Forum",
-        "Proposition liste de 5 hôtels partenaires pour réservation selon votre convenance",
-        "Educ tour (visite des lieux stratégiques de Bruxelles)",
-        "Accès à la Soirée de Gala",
-        "Option: Suites hôtel 5*"
-      ],
-      variant: "primary",
-      icon: Package
-    },
-    {
-      id: 2,
-      title: "Package Silver",
-      description: "Package avec hébergement chambre standard",
-      features: [
-        "Accès Forum (01 badges)",
-        "Lettre d'Invitation pour participant",
-        "Hébergement Chambre Standard Hôtel 5* (4 nuitées)",
-        "Demi-pension",
-        "Transport aéroport Zaventem-hôtel A/R",
-        "Transport interne pour les activités du forum",
-        "Educ tour (visite des lieux stratégiques de Bruxelles)",
-        "Accès à la Soirée de Gala"
-      ],
-      variant: "primary",
-      icon: Star,
-      popular: true
-    },
-    {
-      id: 3,
-      title: "Package Gold",
-      description: "Package premium avec hébergement chambre exécutive",
-      features: [
-        "Accès Forum (01 badges)",
-        "Lettre d'Invitation pour participant",
-        "Hébergement Chambre Exécutive Hôtel 5* (4 nuitées)",
-        "Demi-pension",
-        "Transport aéroport Zaventem-hôtel A/R",
-        "Transport interne pour les activités du forum",
-        "Educ tour (visite des lieux stratégiques de Bruxelles)",
-        "Accès à la Soirée de Gala"
-      ],
-      variant: "primary",
-      icon: Building2
-    }
-  ];
+  // Traduire les packages
+  const packages = useMemo(() => {
+    const packagesRaw = [
+      {
+        id: 1,
+        title: "Package Teranga",
+        description: "Package de base pour participer au Forum",
+        features: [
+          "Accès Forum (01 badges)",
+          "Lettre d'Invitation pour participant",
+          "Repas & Collation pendant les activités du Forum",
+          "Proposition liste de 5 hôtels partenaires pour réservation selon votre convenance",
+          "Educ tour (visite des lieux stratégiques de Bruxelles)",
+          "Accès à la Soirée de Gala",
+          "Option: Suites hôtel 5*"
+        ],
+        variant: "primary",
+        icon: Package
+      },
+      {
+        id: 2,
+        title: "Package Silver",
+        description: "Package avec hébergement chambre standard",
+        features: [
+          "Accès Forum (01 badges)",
+          "Lettre d'Invitation pour participant",
+          "Hébergement Chambre Standard Hôtel 5* (4 nuitées)",
+          "Demi-pension",
+          "Transport aéroport Zaventem-hôtel A/R",
+          "Transport interne pour les activités du forum",
+          "Educ tour (visite des lieux stratégiques de Bruxelles)",
+          "Accès à la Soirée de Gala"
+        ],
+        variant: "primary",
+        icon: Star,
+        popular: true
+      },
+      {
+        id: 3,
+        title: "Package Gold",
+        description: "Package premium avec hébergement chambre exécutive",
+        features: [
+          "Accès Forum (01 badges)",
+          "Lettre d'Invitation pour participant",
+          "Hébergement Chambre Exécutive Hôtel 5* (4 nuitées)",
+          "Demi-pension",
+          "Transport aéroport Zaventem-hôtel A/R",
+          "Transport interne pour les activités du forum",
+          "Educ tour (visite des lieux stratégiques de Bruxelles)",
+          "Accès à la Soirée de Gala"
+        ],
+        variant: "primary",
+        icon: Building2
+      }
+    ];
+    return translatePackages(packagesRaw, t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="acheter-pass" background="default" padding="lg">
@@ -81,11 +89,11 @@ const AcheterPass = () => {
           className="text-center mb-12"
         >
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-dark">
-            Packages Participants
+            {t('packages.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Choisissez le package qui correspond à vos besoins et participez au Forum des Territoires 2026
+            {t('packages.subtitle')}
           </p>
         </motion.div>
 
@@ -104,7 +112,7 @@ const AcheterPass = () => {
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                     <span className="bg-gradient-to-r from-accent-orange to-primary text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                      Populaire
+                      {t('packages.popular')}
                     </span>
                   </div>
                 )}
@@ -148,7 +156,7 @@ const AcheterPass = () => {
                         size="lg" 
                         className="w-full"
                       >
-                          Nous contacter
+                          {t('packages.contactUs')}
                       </Button>
                       </Link>
                     </div>

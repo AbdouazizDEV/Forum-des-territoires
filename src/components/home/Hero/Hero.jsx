@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Button from '../../common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { HERO_STATS } from '../../../utils/constants';
@@ -17,47 +18,85 @@ import heroImage3 from '../../../assets/images/ima3.jpg';
  * Slide 3: Incitation à devenir partenaire
  */
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [language, setLanguage] = useState(i18n.language);
 
-  const slides = [
+  // Écouter les changements de langue pour forcer le re-render
+  useEffect(() => {
+    const handleLanguageChange = (lng) => {
+      setLanguage(lng);
+    };
+    i18n.on('languageChanged', handleLanguageChange);
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
+  // Traductions simples pour les labels des statistiques selon la langue
+  const getStatLabel = useMemo(() => {
+    const translations = {
+      fr: {
+        1: 'Participants',
+        2: 'Speakers',
+        3: 'Pays représentés',
+        4: 'Investisseurs & bailleurs'
+      },
+      en: {
+        1: 'Participants',
+        2: 'Speakers',
+        3: 'Countries represented',
+        4: 'Investors & funders'
+      }
+    };
+    
+    return (statId) => {
+      const currentLang = language || i18n.language || 'fr';
+      const langTranslations = translations[currentLang] || translations.fr;
+      return langTranslations[statId] || 'Participants';
+    };
+  }, [language, i18n.language]);
+
+  // Utiliser useMemo pour recréer les slides quand la langue change
+  const slides = useMemo(() => [
     {
       id: 0,
-      title: "L'habitat comme écosystème de vie, d'activités",
-      title2: "économiques et d'investissement territorial",
-      subtitle: "Batir ensemble les villes et territoires de demain - Bruxelles, 3-6 Juin 2026",
+      title: t('hero.title1'),
+      title2: t('hero.title2'),
+      subtitle: t('hero.subtitle'),
       backgroundImage: heroImage1,
       showStats: true,
       buttons: [
-        { text: "Reserver ma place", link: "/reserver", variant: "secondary", className: "bg-white border-2 border-primary !text-black hover:bg-primary hover:!text-white" },
-        { text: "Prendre un stand", link: "/stand", variant: "outline", className: "bg-amber-700 border-2 border-white text-white hover:bg-amber-800 hover:border-white" }
+        { text: t('hero.reservePlace'), link: "/reserver", variant: "secondary", className: "bg-white border-2 border-primary !text-black hover:bg-primary hover:!text-white" },
+        { text: t('hero.takeStand'), link: "/stand", variant: "outline", className: "bg-amber-700 border-2 border-white text-white hover:bg-amber-800 hover:border-white" }
       ]
     },
     {
       id: 1,
-      title: "Réservez votre place dès maintenant",
-      title2: "et participez à l'événement de l'année",
-      subtitle: "Rejoignez des centaines de participants pour échanger, apprendre et construire l'avenir des territoires ensemble",
+      title: t('hero.reserveNow'),
+      title2: t('hero.reserveSubtitle'),
+      subtitle: t('hero.reserveDescription'),
       backgroundImage: heroImage2,
       showStats: false,
-      highlight: "Places limitées",
+      highlight: t('hero.limitedPlaces'),
       buttons: [
-        { text: "Reserver ma place", link: "/reserver", variant: "secondary", className: "bg-white border-2 border-white !text-blue-600 hover:bg-blue-50 hover:!text-blue-700 shadow-xl" }
+        { text: t('hero.reservePlace'), link: "/reserver", variant: "secondary", className: "bg-white border-2 border-white !text-blue-600 hover:bg-blue-50 hover:!text-blue-700 shadow-xl" }
       ]
     },
     {
       id: 2,
-      title: "Devenez partenaire du Forum",
-      title2: "et valorisez votre entreprise",
-      subtitle: "Profitez d'une visibilité exceptionnelle auprès d'un public ciblé et participez à un événement d'envergure internationale",
+      title: t('hero.becomePartnerTitle'),
+      title2: t('hero.becomePartnerSubtitle'),
+      subtitle: t('hero.becomePartnerDescription'),
       backgroundImage: heroImage3,
       showStats: false,
-      highlight: "Opportunités exclusives",
+      highlight: t('hero.exclusiveOpportunities'),
       buttons: [
-        { text: "Devenir partenaire", link: "/partenaires", variant: "secondary", className: "bg-white border-2 border-white !text-emerald-600 hover:bg-emerald-50 hover:!text-emerald-700 shadow-xl" }
+        { text: t('common.becomePartner'), link: "/contact?participationType=partenaire", variant: "secondary", className: "bg-white border-2 border-white !text-emerald-600 hover:bg-emerald-50 hover:!text-emerald-700 shadow-xl" }
       ]
     }
-  ];
+  ], [t, language]);
 
   // Auto-play carrousel
   useEffect(() => {
@@ -257,32 +296,34 @@ const Hero = () => {
               {currentSlideData.showStats ? (
                 <div className="bg-orange-500/40 backdrop-blur-md rounded-xl p-6 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl w-full max-w-full lg:max-w-none border-2 border-orange-200/50">
                   <div className="grid grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                    {HERO_STATS.map((stat, index) => (
-                      <motion.div
-                        key={stat.id}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5 + index * 0.1 }}
-                        className="text-center"
-                      >
-                        <div className="mb-1 sm:mb-2">
-                          {stat.suffix.includes('K') ? (
-                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white block">
-                              {stat.value}K+
-                            </span>
-                          ) : (
-                            <AnimatedCounter
-                              value={stat.value}
-                              suffix={stat.suffix}
-                              className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-                            />
-                          )}
-                        </div>
-                        <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-tight sm:leading-normal">
-                          {stat.label}
-                        </p>
-                      </motion.div>
-                    ))}
+                    {HERO_STATS.map((stat, index) => {
+                      return (
+                        <motion.div
+                          key={stat.id}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5 + index * 0.1 }}
+                          className="text-center"
+                        >
+                          <div className="mb-1 sm:mb-2">
+                            {stat.suffix.includes('K') ? (
+                              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white block">
+                                {stat.value}K+
+                              </span>
+                            ) : (
+                              <AnimatedCounter
+                                value={stat.value}
+                                suffix={stat.suffix}
+                                className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+                              />
+                            )}
+                          </div>
+                          <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium leading-tight sm:leading-normal">
+                            {getStatLabel(stat.id)}
+                          </p>
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
               ) : (
@@ -305,12 +346,12 @@ const Hero = () => {
                   >
                     <div className="text-6xl sm:text-7xl md:text-8xl mb-4">✨</div>
                     <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
-                      {currentSlide === 1 ? "Rejoignez-nous !" : "Partenairez avec nous !"}
+                      {currentSlide === 1 ? t('hero.joinUs') : t('hero.partnerWithUs')}
                     </h3>
                     <p className="text-white/90 text-sm sm:text-base">
                       {currentSlide === 1 
-                        ? "Ne manquez pas cette opportunité unique" 
-                        : "Bénéficiez d'une visibilité maximale"}
+                        ? t('hero.dontMiss')
+                        : t('hero.maxVisibility')}
                     </p>
                   </motion.div>
                 </motion.div>

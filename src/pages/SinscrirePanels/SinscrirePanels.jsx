@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Section from '../../components/common/Section/Section';
 import Button from '../../components/common/Button/Button';
 import Card from '../../components/common/Card/Card';
@@ -10,11 +11,13 @@ import { API_BASE_URL } from '../../utils/constants';
 import { CheckCircle, Calendar, Clock, Users, Building } from 'lucide-react';
 import posterImage from '../../assets/images/img12.jpg';
 import countries from 'world-countries';
+import { translateSessions } from '../../utils/sessionsTranslations';
 
 /**
  * Page S'inscrire pour les Panels - Formulaire d'inscription très stylé
  */
 const SinscrirePanels = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
   const [formData, setFormData] = useState({
     firstName: '',
@@ -38,34 +41,38 @@ const SinscrirePanels = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const sessions = {
-    rappel: [
-      { id: 'rappel-1', label: '1ère Session de 10h à 18h', note: 'Repas non inclus - Visiteurs libres' }
-    ],
-    jour1: [
-      { id: 'j1-1', label: 'Cérémonie d\'Ouverture', time: '09:00 - 10:30' },
-      { id: 'j1-2', label: 'Gouvernance locale participative', time: '11:00 - 12:30' },
-      { id: 'j1-3', label: 'Financement des projets territoriaux', time: '14:00 - 15:30' },
-      { id: 'j1-4', label: 'Transition écologique et développement durable', time: '16:00 - 17:30' }
-    ],
-    jour2: [
-      { id: 'j2-1', label: 'Agro-business et sécurité alimentaire', time: '09:00 - 10:30' },
-      { id: 'j2-2', label: 'Tourisme et patrimoine', time: '11:00 - 12:30' },
-      { id: 'j2-3', label: 'Innovation territoriale', time: '14:00 - 15:30' },
-      { id: 'j2-4', label: 'Rencontres B to B et B to C', time: '16:00 - 18:00' }
-    ],
-    jour3: [
-      { id: 'j3-1', label: 'Panel 1: Habitat et aménagement urbain', time: '09:00 - 11:00' },
-      { id: 'j3-2', label: 'Panel 2: Énergies renouvelables', time: '09:00 - 11:00' },
-      { id: 'j3-3', label: 'Panel 3: Économie numérique', time: '14:00 - 16:00' },
-      { id: 'j3-4', label: 'Panel 4: Coopération décentralisée', time: '14:00 - 16:00' }
-    ],
-    jour4: [
-      { id: 'j4-1', label: 'Synthèse et recommandations', time: '09:00 - 11:00' },
-      { id: 'j4-2', label: 'Signature de partenariats', time: '11:30 - 13:00' },
-      { id: 'j4-3', label: 'Dîner de Gala', time: '19:00 - 23:00' }
-    ]
-  };
+  // Traduire les sessions
+  const sessions = useMemo(() => {
+    const sessionsRaw = {
+      rappel: [
+        { id: 'rappel-1', label: '1ère Session de 10h à 18h', note: 'Repas non inclus - Visiteurs libres' }
+      ],
+      jour1: [
+        { id: 'j1-1', label: 'Cérémonie d\'Ouverture', time: '09:00 - 10:30' },
+        { id: 'j1-2', label: 'Gouvernance locale participative', time: '11:00 - 12:30' },
+        { id: 'j1-3', label: 'Financement des projets territoriaux', time: '14:00 - 15:30' },
+        { id: 'j1-4', label: 'Transition écologique et développement durable', time: '16:00 - 17:30' }
+      ],
+      jour2: [
+        { id: 'j2-1', label: 'Agro-business et sécurité alimentaire', time: '09:00 - 10:30' },
+        { id: 'j2-2', label: 'Tourisme et patrimoine', time: '11:00 - 12:30' },
+        { id: 'j2-3', label: 'Innovation territoriale', time: '14:00 - 15:30' },
+        { id: 'j2-4', label: 'Rencontres B to B et B to C', time: '16:00 - 18:00' }
+      ],
+      jour3: [
+        { id: 'j3-1', label: 'Panel 1: Habitat et aménagement urbain', time: '09:00 - 11:00' },
+        { id: 'j3-2', label: 'Panel 2: Énergies renouvelables', time: '09:00 - 11:00' },
+        { id: 'j3-3', label: 'Panel 3: Économie numérique', time: '14:00 - 16:00' },
+        { id: 'j3-4', label: 'Panel 4: Coopération décentralisée', time: '14:00 - 16:00' }
+      ],
+      jour4: [
+        { id: 'j4-1', label: 'Synthèse et recommandations', time: '09:00 - 11:00' },
+        { id: 'j4-2', label: 'Signature de partenariats', time: '11:30 - 13:00' },
+        { id: 'j4-3', label: 'Dîner de Gala', time: '19:00 - 23:00' }
+      ]
+    };
+    return translateSessions(sessionsRaw, t, i18n);
+  }, [t, i18n]);
 
   // Liste complète des pays avec support multilingue
   const countriesList = useMemo(() => {
@@ -111,23 +118,23 @@ const SinscrirePanels = () => {
   const validate = () => {
     const newErrors = {};
     
-    if (!formData.firstName.trim()) newErrors.firstName = 'Le prénom est requis';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Le nom est requis';
+    if (!formData.firstName.trim()) newErrors.firstName = t('panelsInscription.errors.firstNameRequired');
+    if (!formData.lastName.trim()) newErrors.lastName = t('panelsInscription.errors.lastNameRequired');
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = t('panelsInscription.errors.emailRequired');
     } else if (!isValidEmail(formData.email)) {
-      newErrors.email = 'Email invalide';
+      newErrors.email = t('panelsInscription.errors.emailInvalid');
     }
-    if (!formData.phone.trim()) newErrors.phone = 'Le téléphone est requis';
-    if (!formData.organization.trim()) newErrors.organization = 'L\'organisation est requise';
-    if (!formData.role.trim()) newErrors.role = 'La fonction est requise';
-    if (!formData.country) newErrors.country = 'Le pays est requis';
+    if (!formData.phone.trim()) newErrors.phone = t('panelsInscription.errors.phoneRequired');
+    if (!formData.organization.trim()) newErrors.organization = t('panelsInscription.errors.organizationRequired');
+    if (!formData.role.trim()) newErrors.role = t('panelsInscription.errors.roleRequired');
+    if (!formData.country) newErrors.country = t('panelsInscription.errors.countryRequired');
     // validationCode n'est plus requis (champ commenté)
     
     // Vérifier qu'au moins une session est sélectionnée
     const hasSessions = Object.values(formData.sessions).some(arr => arr.length > 0);
     if (!hasSessions) {
-      newErrors.sessions = 'Veuillez sélectionner au moins une session';
+      newErrors.sessions = t('panelsInscription.errors.sessionsRequired');
     }
 
     setErrors(newErrors);
@@ -218,12 +225,12 @@ const SinscrirePanels = () => {
           });
           setErrors(prev => ({ ...prev, ...backendErrors }));
         } else {
-          setErrors({ submit: data.message || 'Une erreur est survenue lors de l\'inscription' });
+          setErrors({ submit: data.message || t('panelsInscription.errors.submitError') });
         }
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi de l\'inscription:', error);
-      setErrors({ submit: error.message || 'Une erreur est survenue. Veuillez réessayer plus tard.' });
+      setErrors({ submit: error.message || t('panelsInscription.errors.submitErrorGeneric') });
     } finally {
       setIsSubmitting(false);
     }
@@ -267,7 +274,7 @@ const SinscrirePanels = () => {
             className="text-center mb-12"
           >
             <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-4 text-dark">
-              Participez activement aux panels du Forum des Territoires 2026
+              {t('panelsInscription.title')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent-orange mx-auto mb-6"></div>
           </motion.div>
@@ -280,13 +287,10 @@ const SinscrirePanels = () => {
               className="order-2 lg:order-1"
             >
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-                Rejoignez les décideurs, experts et acteurs institutionnels pour des échanges stratégiques 
-                sur la coopération décentralisée, le financement des projets, la transition écologique 
-                et l'innovation territoriale.
+                {t('panelsInscription.description1')}
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Réservez dès maintenant votre place dans les panels thématiques 
-                qui façonneront l'avenir des territoires.
+                {t('panelsInscription.description2')}
               </p>
             </motion.div>
 
@@ -326,18 +330,18 @@ const SinscrirePanels = () => {
           >
             <Card variant="default" className="text-center p-6">
               <Calendar className="w-8 h-8 text-primary mx-auto mb-3" />
-              <h3 className="font-display font-bold text-lg mb-2">Dates</h3>
-              <p className="text-gray-600">Du 3 au 6 juin 2026</p>
+              <h3 className="font-display font-bold text-lg mb-2">{t('panelsInscription.dates')}</h3>
+              <p className="text-gray-600">{t('panelsInscription.datesValue')}</p>
             </Card>
             <Card variant="default" className="text-center p-6">
               <Building className="w-8 h-8 text-secondary mx-auto mb-3" />
-              <h3 className="font-display font-bold text-lg mb-2">Lieu</h3>
-              <p className="text-gray-600">DoubleTree by Hilton Brussels City</p>
+              <h3 className="font-display font-bold text-lg mb-2">{t('panelsInscription.location')}</h3>
+              <p className="text-gray-600">{t('panelsInscription.locationValue')}</p>
             </Card>
             <Card variant="default" className="text-center p-6">
               <Users className="w-8 h-8 text-accent-orange mx-auto mb-3" />
-              <h3 className="font-display font-bold text-lg mb-2">Cérémonie</h3>
-              <p className="text-gray-600">Au Parlement Bruxellois</p>
+              <h3 className="font-display font-bold text-lg mb-2">{t('panelsInscription.ceremony')}</h3>
+              <p className="text-gray-600">{t('panelsInscription.ceremonyValue')}</p>
             </Card>
           </motion.div>
         </motion.div>
@@ -361,11 +365,10 @@ const SinscrirePanels = () => {
                 <CheckCircle className="w-10 h-10 text-white" />
               </div>
               <h3 className="font-display font-bold text-2xl text-green-800 mb-3">
-                Inscription confirmée !
+                {t('panelsInscription.confirmed')}
               </h3>
               <p className="text-green-700 text-lg">
-                Votre inscription aux panels a été enregistrée avec succès. 
-                Vous recevrez un email de confirmation dans les prochaines minutes.
+                {t('panelsInscription.confirmationMessage')}
               </p>
             </motion.div>
           ) : (
@@ -374,12 +377,12 @@ const SinscrirePanels = () => {
               <Card variant="default" className="p-8">
                 <h2 className="font-display font-bold text-2xl mb-6 text-primary flex items-center">
                   <Users className="w-6 h-6 mr-2" />
-                  Informations personnelles
+                  {t('panelsInscription.personalInfo')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Prénom <span className="text-primary">*</span>
+                      {t('panelsInscription.firstName')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -397,7 +400,7 @@ const SinscrirePanels = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom <span className="text-primary">*</span>
+                      {t('panelsInscription.lastName')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -415,7 +418,7 @@ const SinscrirePanels = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      E-mail <span className="text-primary">*</span>
+                      {t('panelsInscription.email')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="email"
@@ -433,7 +436,7 @@ const SinscrirePanels = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Téléphone <span className="text-primary">*</span>
+                      {t('panelsInscription.phone')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="tel"
@@ -456,12 +459,12 @@ const SinscrirePanels = () => {
               <Card variant="default" className="p-8">
                 <h2 className="font-display font-bold text-2xl mb-6 text-primary flex items-center">
                   <Building className="w-6 h-6 mr-2" />
-                  Informations professionnelles
+                  {t('panelsInscription.professionalInfo')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Organisation / Entreprise <span className="text-primary">*</span>
+                      {t('panelsInscription.organization')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -479,7 +482,7 @@ const SinscrirePanels = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Fonction / Rôle <span className="text-primary">*</span>
+                      {t('panelsInscription.role')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -497,7 +500,7 @@ const SinscrirePanels = () => {
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Pays de résidence <span className="text-primary">*</span>
+                      {t('panelsInscription.country')} <span className="text-primary">{t('panelsInscription.required')}</span>
                     </label>
                     <select
                       name="country"
@@ -508,7 +511,7 @@ const SinscrirePanels = () => {
                       }`}
                       required
                     >
-                      <option value="">Sélectionner un pays</option>
+                      <option value="">{t('panelsInscription.selectCountry')}</option>
                       {countriesList.map(country => (
                         <option key={country.code} value={country.name}>
                           {country.name}
@@ -526,12 +529,12 @@ const SinscrirePanels = () => {
               <Card variant="default" className="p-8">
                 <h2 className="font-display font-bold text-2xl mb-6 text-primary flex items-center">
                   <Calendar className="w-6 h-6 mr-2" />
-                  Choix de participation
+                  {t('panelsInscription.participationChoice')}
                 </h2>
                 
                 {/* Rappel */}
                 <div className="mb-8">
-                  <h3 className="font-semibold text-lg mb-4 text-dark">Rappel - Forum des Territoires 2023</h3>
+                  <h3 className="font-semibold text-lg mb-4 text-dark">{t('panelsInscription.reminder')}</h3>
                   {sessions.rappel.map(session => (
                     <label key={session.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
                       <input
@@ -552,7 +555,7 @@ const SinscrirePanels = () => {
 
                 {/* Jour 1 */}
                 <div className="mb-8">
-                  <h3 className="font-semibold text-lg mb-4 text-dark">Choix de participation (Jour 1) <span className="text-primary">*</span></h3>
+                  <h3 className="font-semibold text-lg mb-4 text-dark">{t('panelsInscription.day1')} <span className="text-primary">{t('panelsInscription.required')}</span></h3>
                   <div className="space-y-3">
                     {sessions.jour1.map(session => (
                       <label key={session.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
@@ -580,7 +583,7 @@ const SinscrirePanels = () => {
 
                 {/* Jour 2 */}
                 <div className="mb-8">
-                  <h3 className="font-semibold text-lg mb-4 text-dark">Choix de participation (Jour 2) <span className="text-primary">*</span></h3>
+                  <h3 className="font-semibold text-lg mb-4 text-dark">{t('panelsInscription.day2')} <span className="text-primary">{t('panelsInscription.required')}</span></h3>
                   <div className="space-y-3">
                     {sessions.jour2.map(session => (
                       <label key={session.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
@@ -608,7 +611,7 @@ const SinscrirePanels = () => {
 
                 {/* Jour 3 */}
                 <div className="mb-8">
-                  <h3 className="font-semibold text-lg mb-4 text-dark">Choix de participation (Jour 3 - Panels thématiques simultanés) <span className="text-primary">*</span></h3>
+                  <h3 className="font-semibold text-lg mb-4 text-dark">{t('panelsInscription.day3')} <span className="text-primary">{t('panelsInscription.required')}</span></h3>
                   <div className="space-y-3">
                     {sessions.jour3.map(session => (
                       <label key={session.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
@@ -636,7 +639,7 @@ const SinscrirePanels = () => {
 
                 {/* Jour 4 */}
                 <div className="mb-8">
-                  <h3 className="font-semibold text-lg mb-4 text-dark">Choix de participation (Jour 4) <span className="text-primary">*</span></h3>
+                  <h3 className="font-semibold text-lg mb-4 text-dark">{t('panelsInscription.day4')} <span className="text-primary">{t('panelsInscription.required')}</span></h3>
                   <div className="space-y-3">
                     {sessions.jour4.map(session => (
                       <label key={session.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
@@ -668,14 +671,14 @@ const SinscrirePanels = () => {
 
               {/* Remarques */}
               <Card variant="default" className="p-8">
-                <h2 className="font-display font-bold text-xl mb-4 text-dark">Remarques / demandes spéciales</h2>
+                <h2 className="font-display font-bold text-xl mb-4 text-dark">{t('panelsInscription.remarks')}</h2>
                 <textarea
                   name="remarks"
                   value={formData.remarks}
                   onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none"
-                  placeholder="Vos remarques ou demandes spéciales..."
+                  placeholder={t('panelsInscription.remarksPlaceholder')}
                 />
               </Card>
 
@@ -714,7 +717,7 @@ const SinscrirePanels = () => {
                   loading={isSubmitting}
                   className="px-12 py-4 text-lg"
                 >
-                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                  {isSubmitting ? t('panelsInscription.submitting') : t('panelsInscription.submit')}
                 </Button>
               </div>
             </form>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import LanguageSwitcher from '../../common/LanguageSwitcher/LanguageSwitcher';
 import { pageVariants, pageTransition } from '../../../utils/animations';
 
 /**
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
         {children}
       </motion.main>
       <Footer />
+      <LanguageSwitcher />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Facebook, Instagram, Youtube, Linkedin, Mail, Phone } from 'lucide-react';
 import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_LINKS, SITE_INFO } from '../../../utils/constants';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
@@ -9,6 +10,7 @@ import logoImage from '../../../assets/images/Logo Forum 1.png';
  * Composant Footer avec toutes les informations et liens
  */
 const Footer = () => {
+  const { t } = useTranslation();
   const socialIcons = {
     facebook: Facebook,
     instagram: Instagram,
@@ -38,16 +40,16 @@ const Footer = () => {
               />
             </Link>
             <p className="text-gray-300 text-sm mb-4">
-              {SITE_INFO.tagline}
+              {t('site.tagline')}
             </p>
             <div className="flex items-center space-x-2 mb-2">
-              <span className="text-sm font-medium">{SITE_INFO.fullLocation}</span>
+              <span className="text-sm font-medium">{t('site.fullLocation')}</span>
             </div>
           </motion.div>
 
           {/* Quick Links */}
           <motion.div variants={fadeInUp}>
-            <h4 className="font-display font-semibold text-lg mb-4">Liens utiles</h4>
+            <h4 className="font-display font-semibold text-lg mb-4">{t('footer.usefulLinks')}</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.name}>
@@ -64,7 +66,7 @@ const Footer = () => {
 
           {/* Contact */}
           <motion.div variants={fadeInUp}>
-            <h4 className="font-display font-semibold text-lg mb-4">Contact</h4>
+            <h4 className="font-display font-semibold text-lg mb-4">{t('common.contact')}</h4>
             <div className="space-y-3">
               <a
                 href={`mailto:${CONTACT_INFO.email}`}
@@ -88,7 +90,7 @@ const Footer = () => {
 
           {/* Newsletter & Social */}
           <motion.div variants={fadeInUp}>
-            <h4 className="font-display font-semibold text-lg mb-4">Suivez-nous</h4>
+            <h4 className="font-display font-semibold text-lg mb-4">{t('footer.followUs')}</h4>
             <div className="flex space-x-4 mb-6">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = socialIcons[social.icon];
@@ -109,15 +111,15 @@ const Footer = () => {
               })}
             </div>
             <div>
-              <p className="text-sm text-gray-300 mb-2">Newsletter</p>
+              <p className="text-sm text-gray-300 mb-2">{t('footer.newsletter')}</p>
               <div className="flex">
                 <input
                   type="email"
-                  placeholder="Votre email"
+                  placeholder={t('footer.yourEmail')}
                   className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <button className="px-4 py-2 bg-primary hover:bg-primary-dark rounded-r-lg transition-colors text-sm font-medium">
-                  S'inscrire
+                  {t('footer.subscribe')}
                 </button>
               </div>
             </div>
@@ -130,10 +132,10 @@ const Footer = () => {
           className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
         >
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} {SITE_INFO.name}. Tous droits réservés.
+            © {new Date().getFullYear()} {t('site.name')}. {t('common.allRightsReserved')}.
           </p>
           <p className="text-gray-400 text-sm">
-            Propulsé par <a href="https://abdouazizdiop.com/" target="_blank" rel="noopener noreferrer"><span className="text-primary font-semibold">KAHFI SN</span></a>
+            {t('common.poweredBy')} <a href="https://abdouazizdiop.com/" target="_blank" rel="noopener noreferrer"><span className="text-primary font-semibold">KAHFI SN</span></a>
           </p>
         </motion.div>
       </div>

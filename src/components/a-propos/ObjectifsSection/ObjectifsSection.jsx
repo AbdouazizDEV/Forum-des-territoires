@@ -1,15 +1,23 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { OBJECTIFS_DATA } from '../../../services/objectifsService';
+import { translateObjectifs } from '../../../utils/objectifsTranslations';
 
 /**
  * Section Objectifs du Forum - Style vert et jaune
  */
 const ObjectifsSection = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
+
+  const objectifs = useMemo(() => {
+    return translateObjectifs(OBJECTIFS_DATA, t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="objectifs" background="default" padding="lg">
@@ -37,11 +45,11 @@ const ObjectifsSection = () => {
             </motion.div>
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Objectifs du Forum
+            {t('objectifs.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Nos objectifs stratégiques pour un développement territorial durable
+            {t('objectifs.subtitle')}
           </p>
         </motion.div>
 
@@ -49,7 +57,7 @@ const ObjectifsSection = () => {
         <div className="space-y-8">
           {/* Première rangée : 3 objectifs */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {OBJECTIFS_DATA.slice(0, 3).map((objectif, index) => {
+            {objectifs.slice(0, 3).map((objectif, index) => {
               const Icon = objectif.icon;
               return (
                 <motion.div
@@ -88,7 +96,7 @@ const ObjectifsSection = () => {
 
           {/* Deuxième rangée : 2 objectifs centrés */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {OBJECTIFS_DATA.slice(3, 5).map((objectif, index) => {
+            {objectifs.slice(3, 5).map((objectif, index) => {
               const Icon = objectif.icon;
               return (
                 <motion.div

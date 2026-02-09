@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { EXPOSITION_SPACES } from '../../../services/expositionSpacesService';
+import { translateExpositionSpaces } from '../../../utils/expositionTranslations';
 import { Check, Award, Sparkles } from 'lucide-react';
 import visibiliteImage from '../../../assets/images/visibilité.jpg';
 
@@ -11,7 +14,12 @@ import visibiliteImage from '../../../assets/images/visibilité.jpg';
  * Section Espaces d'exposition - Style magnifique avec image
  */
 const ExpositionSection = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
+
+  const spaces = useMemo(() => {
+    return translateExpositionSpaces(EXPOSITION_SPACES, t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="exposition" background="default" padding="lg">
@@ -33,11 +41,11 @@ const ExpositionSection = () => {
             <Award className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Espaces d'exposition
+            {t('exposition.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Offrez à votre marque la visibilité qu'elle mérite !
+            {t('exposition.subtitle')}
           </p>
         </motion.div>
 
@@ -67,10 +75,10 @@ const ExpositionSection = () => {
                   transition={{ duration: 0.8 }}
                 >
                   <h3 className="font-display font-bold text-3xl md:text-4xl mb-4">
-                    Maximisez votre visibilité
+                    {t('exposition.maximizeVisibility')}
                   </h3>
                   <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                    Choisissez l'espace d'exposition qui correspond à vos besoins et bénéficiez d'une visibilité exceptionnelle
+                    {t('exposition.maximizeDescription')}
                   </p>
                 </motion.div>
               </div>
@@ -84,7 +92,7 @@ const ExpositionSection = () => {
 
         {/* Packages d'exposition */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {EXPOSITION_SPACES.map((space, index) => {
+          {spaces.map((space, index) => {
             const Icon = space.icon;
             const isPremium = space.id === 'premium';
             return (
@@ -102,7 +110,7 @@ const ExpositionSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-700 to-gray-900 text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl z-20"
                   >
-                    Premium
+                    {t('exposition.premium')}
                   </motion.div>
                 )}
                 <Card 
@@ -133,7 +141,7 @@ const ExpositionSection = () => {
                   <div className="p-6 bg-white relative">
                     <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent-orange"></div>
                     <h4 className="font-display font-semibold text-lg mb-4 text-dark text-center">
-                      Inclus
+                      {t('exposition.included')}
                     </h4>
                     <div className="space-y-3 mb-6">
                       {space.included.map((item, itemIndex) => {

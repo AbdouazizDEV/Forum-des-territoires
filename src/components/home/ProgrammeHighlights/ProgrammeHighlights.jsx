@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
@@ -11,58 +13,60 @@ import { Calendar, Clock, MapPin, Users, Sun, Moon, Building2, Handshake, Award 
  * Section Programme Highlights - Basé sur le programme réel
  */
 const ProgrammeHighlights = () => {
+  const { t } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
-  const highlights = [
+  // Utiliser useMemo pour recréer les highlights quand la langue change
+  const highlights = useMemo(() => [
     {
       id: 1,
-      title: "Pré-Forum",
-      subtitle: "Visite de terrain",
-      date: "03 Juin 2026",
-      day: "Mercredi",
-      time: "14h",
-      location: "Bruxelles",
-      description: "Visite d'une cité caractéristique illustrant les enjeux de l'habitat, des services et des activités économiques territoriales",
+      title: t('programmeHighlights.preForum'),
+      subtitle: t('programmeHighlights.fieldVisit'),
+      date: t('programmeHighlights.dates.june3'),
+      day: t('programmeHighlights.days.wednesday'),
+      time: t('programmeHighlights.time.14h'),
+      location: t('programmeHighlights.location'),
+      description: t('programmeHighlights.descriptions.preForum'),
       icon: Building2,
       color: "from-primary to-primary-dark"
     },
     {
       id: 2,
-      title: "Ouverture officielle",
-      subtitle: "Cérémonie d'ouverture",
-      date: "04 Juin 2026",
-      day: "Jeudi",
-      time: "Journée complète",
-      location: "Bruxelles",
-      description: "Cérémonie officielle d'ouverture, allocutions institutionnelles, panels sur l'habitat et le développement économique",
+      title: t('programmeHighlights.opening'),
+      subtitle: t('programmeHighlights.openingCeremony'),
+      date: t('programmeHighlights.dates.june4'),
+      day: t('programmeHighlights.days.thursday'),
+      time: t('programmeHighlights.fullDay'),
+      location: t('programmeHighlights.location'),
+      description: t('programmeHighlights.descriptions.opening'),
       icon: Award,
       color: "from-accent-orange to-primary"
     },
     {
       id: 3,
-      title: "Journée économique",
-      subtitle: "Coopération & rencontres",
-      date: "05 Juin 2026",
-      day: "Vendredi",
-      time: "Journée complète",
-      location: "Bruxelles",
-      description: "Demi-journée économique Enabel, sessions B2B/B2G/B2I, rencontres avec les structures économiques belges",
+      title: t('programmeHighlights.economicDay'),
+      subtitle: t('programmeHighlights.cooperation'),
+      date: t('programmeHighlights.dates.june5'),
+      day: t('programmeHighlights.days.friday'),
+      time: t('programmeHighlights.fullDay'),
+      location: t('programmeHighlights.location'),
+      description: t('programmeHighlights.descriptions.economicDay'),
       icon: Handshake,
       color: "from-secondary to-secondary-dark"
     },
     {
       id: 4,
-      title: "Engagements & clôture",
-      subtitle: "Gala de clôture",
-      date: "06 Juin 2026",
-      day: "Samedi",
-      time: "Journée complète",
-      location: "Bruxelles",
-      description: "Session de restitution, présentation des engagements et partenariats, gala de clôture et networking de haut niveau",
+      title: t('programmeHighlights.commitments'),
+      subtitle: t('programmeHighlights.closingGala'),
+      date: t('programmeHighlights.dates.june6'),
+      day: t('programmeHighlights.days.saturday'),
+      time: t('programmeHighlights.fullDay'),
+      location: t('programmeHighlights.location'),
+      description: t('programmeHighlights.descriptions.commitments'),
       icon: Users,
       color: "from-accent-teal to-secondary"
     }
-  ];
+  ], [t]);
 
   return (
     <Section id="programme-highlights" background="default" padding="lg">
@@ -78,11 +82,11 @@ const ProgrammeHighlights = () => {
           className="text-center mb-12"
         >
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-dark">
-            Programme Highlights
+            {t('programmeHighlights.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Découvrez les moments forts du Forum des Territoires 2026
+            {t('programmeHighlights.subtitle')}
           </p>
         </motion.div>
 
@@ -154,7 +158,7 @@ const ProgrammeHighlights = () => {
         >
           <Link to="/programme">
             <Button variant="primary" size="lg" className="px-8 group">
-              Voir le programme complet
+              {t('programmeHighlights.seeFullProgram')}
               <Calendar className="w-5 h-5 ml-2 inline group-hover:scale-110 transition-transform" />
             </Button>
           </Link>

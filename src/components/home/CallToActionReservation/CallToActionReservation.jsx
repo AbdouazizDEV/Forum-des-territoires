@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Section from '../../common/Section/Section';
 import Button from '../../common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
@@ -10,13 +11,14 @@ import { Calendar, Users, Award, ArrowRight, Sparkles, CheckCircle } from 'lucid
  * Section Call-to-Action pour inciter à réserver sa place
  */
 const CallToActionReservation = () => {
+  const { t } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
   const benefits = [
-    { icon: Calendar, text: "Accès à tous les panels et conférences" },
-    { icon: Users, text: "Réseautage avec 800+ participants" },
-    { icon: Award, text: "Certificat de participation" },
-    { icon: Sparkles, text: "Accès à la soirée de gala" }
+    { icon: Calendar, text: t('ctaReservation.benefits.access') },
+    { icon: Users, text: t('ctaReservation.benefits.networking') },
+    { icon: Award, text: t('ctaReservation.benefits.certificate') },
+    { icon: Sparkles, text: t('ctaReservation.benefits.gala') }
   ];
 
   return (
@@ -51,7 +53,7 @@ const CallToActionReservation = () => {
 
               {/* Titre */}
               <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl mb-6 text-white">
-                Réservez votre place dès maintenant
+                {t('ctaReservation.title')}
               </h2>
               
               {/* Ligne décorative */}
@@ -59,9 +61,7 @@ const CallToActionReservation = () => {
 
               {/* Description */}
               <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-                Ne manquez pas cette opportunité unique de participer au Forum des Territoires 2026. 
-                Rejoignez des centaines de participants, investisseurs et décideurs pour construire ensemble 
-                l'avenir des territoires.
+                {t('ctaReservation.description')}
               </p>
             </motion.div>
 
@@ -103,7 +103,7 @@ const CallToActionReservation = () => {
                   size="lg"
                   className="bg-white !text-black hover:bg-white/90 shadow-xl px-12 py-6 text-lg font-bold group"
                 >
-                  Réserver ma place
+                  {t('ctaReservation.reservePlace')}
                   <ArrowRight className="w-6 h-6 ml-3 inline group-hover:translate-x-2 transition-transform" />
                 </Button>
               </Link>
@@ -111,7 +111,7 @@ const CallToActionReservation = () => {
               {/* Texte secondaire */}
               <p className="text-white/80 text-sm mt-6 flex items-center justify-center gap-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>Réservation sécurisée • Annulation gratuite jusqu'à 30 jours avant l'événement</span>
+                <span>{t('ctaReservation.secureReservation')}</span>
               </p>
             </motion.div>
           </div>

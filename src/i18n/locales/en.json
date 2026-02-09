@@ -1,0 +1,654 @@
+{
+  "common": {
+    "reserve": "Reserve",
+    "becomePartner": "Become a partner",
+    "contact": "Contact",
+    "learnMore": "Learn more",
+    "subscribe": "Subscribe",
+    "send": "Send",
+    "sending": "Sending...",
+    "select": "Select",
+    "required": "Required",
+    "optional": "Optional",
+    "name": "Name",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "organization": "Organization / Company",
+    "country": "Country",
+    "message": "Message",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "allRightsReserved": "All rights reserved",
+    "poweredBy": "Powered by"
+  },
+  "header": {
+    "navigation": {
+      "about": "About",
+      "presentation": "Presentation",
+      "objectives": "Objectives",
+      "participants": "Participants",
+      "program": "Program",
+      "speakers": "Speakers",
+      "previousEditions": "Previous editions",
+      "news": "News",
+      "partners": "Partners",
+      "participate": "Participate"
+    }
+  },
+  "footer": {
+    "usefulLinks": "Useful links",
+    "followUs": "Follow us",
+    "newsletter": "Newsletter",
+    "yourEmail": "Your email",
+    "subscribe": "Subscribe"
+  },
+  "hero": {
+    "title1": "Housing as an ecosystem of life, economic activities",
+    "title2": "and territorial investment",
+    "subtitle": "Building together the cities and territories of tomorrow - Brussels, June 3-6, 2026",
+    "reservePlace": "Reserve my place",
+    "takeStand": "Take a stand",
+    "reserveNow": "Reserve your place now",
+    "reserveSubtitle": "and participate in the event of the year",
+    "reserveDescription": "Join hundreds of participants to exchange, learn and build the future of territories together",
+    "limitedPlaces": "Limited places",
+    "becomePartnerTitle": "Become a partner of the Forum",
+    "becomePartnerSubtitle": "and enhance your company",
+    "becomePartnerDescription": "Enjoy exceptional visibility with a targeted audience and participate in an international-scale event",
+    "exclusiveOpportunities": "Exclusive opportunities",
+    "joinUs": "Join us!",
+    "partnerWithUs": "Partner with us!",
+    "dontMiss": "Don't miss this unique opportunity",
+    "maxVisibility": "Enjoy maximum visibility"
+  },
+  "stats": {
+    "participants": "Participants",
+    "speakers": "Speakers",
+    "countries": "Countries represented",
+    "investors": "Investors & funders",
+    "projects": "Projects presented",
+    "potentialAmount": "Billions FCFA - Potential project amount"
+  },
+  "about": {
+    "title": "Justification and Context",
+    "paragraph1": "Launched in response to the challenges and opportunities of Decentralization in Senegal, the first edition of the Senegal-Belgium-Luxembourg Territories Forum marked a decisive step in making visible the economic, cultural and environmental potential of African territories. It enabled the initiation of structuring dynamics of decentralized cooperation and investment between West Africa and Europe.",
+    "paragraph2": "Faced with growing interest expressed by several African countries, the Forum has expanded its scope and becomes",
+    "paragraph2Link": "the Territories Forum",
+    "paragraph2End": ", a transnational platform dedicated to dialogue, sharing experiences and connecting public and private actors around concrete investment opportunities. This evolution reflects the ambition to consolidate a multilateral, inclusive space for exchange that is resolutely action-oriented."
+  },
+  "participer": {
+    "title": "Participate",
+    "subtitle": "Choose the participation formula that suits your needs",
+    "participant": {
+      "title": "Participant",
+      "description": "Attend conferences, panels and networking sessions",
+      "benefits": {
+        "access": "Access to all panels and conferences",
+        "networking": "Networking sessions",
+        "documentation": "Complete documentation",
+        "certificate": "Certificate of participation"
+      }
+    },
+    "exposant": {
+      "title": "Exhibitor",
+      "description": "Present your projects and solutions at the exhibition",
+      "benefits": {
+        "stand": "Exhibition stand",
+        "visibility": "Increased visibility",
+        "marketing": "Marketing documentation",
+        "vip": "VIP access"
+      },
+      "price": "On quote"
+    },
+    "partenaire": {
+      "title": "Partner",
+      "description": "Join us as a strategic partner",
+      "benefits": {
+        "visibility": "Premium visibility",
+        "intervention": "Intervention in panels",
+        "stand": "Premium stand",
+        "invitations": "VIP invitations"
+      },
+      "price": "On quote"
+    },
+    "speaker": {
+      "title": "Speaker",
+      "description": "Share your expertise at conferences",
+      "benefits": {
+        "intervention": "Intervention in the program",
+        "media": "Media visibility",
+        "vip": "Full VIP access",
+        "networking": "Privileged networking"
+      },
+      "price": "By invitation"
+    },
+    "readyToParticipate": "Ready to participate?",
+    "readyDescription": "Join us at the Territories Forum 2026 and help build together the cities and territories of tomorrow.",
+    "reservePlace": "Reserve my place",
+    "contactUs": "Contact us"
+  },
+  "contact": {
+    "title": "Contact & Registration",
+    "subtitle": "Register for the Territories Forum 2026 or contact us for more information",
+    "formTitle": "Contact form",
+    "formSubtitle": "Fill out the form below and we will respond quickly",
+    "civility": "Civility",
+    "civilityOptions": {
+      "mr": "Mr.",
+      "mrs": "Mrs.",
+      "miss": "Miss"
+    },
+    "participationType": "Type of participation",
+    "participationTypes": {
+      "territory": "Territory",
+      "investor": "Investor",
+      "partner": "Partner",
+      "other": "Other"
+    },
+    "projectPresentation": "Message / Project presentation",
+    "projectPlaceholder": "Describe your project or message...",
+    "sendMessage": "Send message",
+    "successTitle": "Message sent successfully!",
+    "successMessage": "We will respond as soon as possible.",
+    "coordinates": "Coordinates",
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "organizationRequired": "Organization is required",
+      "participationTypeRequired": "Type of participation is required",
+      "submitError": "An error occurred while sending the message"
+    }
+  },
+  "reserver": {
+    "title": "Reserve",
+    "package": "Package",
+    "packageTeranga": "Teranga Package",
+    "packageSilver": "Silver Package",
+    "packageGold": "Gold Package",
+    "standStandard": "Standard Stand",
+    "standPremium": "Premium Stand",
+    "standVip": "VIP Stand",
+    "numberOfPeople": "Number of people",
+    "participationTypes": {
+      "participant": "Participant",
+      "exposant": "Exhibitor",
+      "partenaire": "Partner",
+      "speaker": "Speaker"
+    },
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "participationTypeRequired": "Type of participation is required",
+      "standRequired": "Stand is required"
+    },
+    "successTitle": "Reservation sent successfully!",
+    "successMessage": "We will contact you as soon as possible to confirm your reservation."
+  },
+  "site": {
+    "name": "Territories Forum",
+    "tagline": "Building together the cities and territories of tomorrow",
+    "event": "PANEL – EXPO - VISITS - NETWORK",
+    "dates": "June 3-6, 2026",
+    "location": "Brussels",
+    "fullLocation": "Brussels, June 3-6, 2026",
+    "heroTitle": "Housing at the heart of Territories",
+    "heroSubtitle": "Building together the cities and territories of tomorrow - Brussels, June 3-6, 2026"
+  },
+  "pillars": {
+    "title": "Why this Forum?",
+    "subtitle": "Faced with the challenges of decentralization, territorial attractiveness and local development financing, the Territories Forum offers a pragmatic, structured and action-oriented response.",
+    "subtitleBold": "Three fundamental pillars for effective and sustainable territorial cooperation",
+    "pillar1": {
+      "title": "Political and institutional dialogue",
+      "description": "Structured dialogue space between African territorial communities, European partners and public institutions"
+    },
+    "pillar2": {
+      "title": "Structuring and bankable territorial projects",
+      "description": "Highlighting territorial development projects validated by the competent authorities"
+    },
+    "pillar3": {
+      "title": "Connecting investors-territories",
+      "description": "Action-oriented approach and direct connections"
+    }
+  },
+  "resources": {
+    "title": "Territorial Resources",
+    "paragraph1": "Senegal remains a central pillar of the Forum, particularly through its six development hubs (Sine Saloum, Casamance, Eastern Senegal, Dakar/Thiès, Touba–Louga Triangle, Senegal River Delta). However, this second edition will open the floor to other African countries that will also present their sectoral potential, their territorial strategies and their bankable projects.",
+    "paragraph2": "Discover the opportunity sectors that drive growth and sustainable development"
+  },
+  "programmeHighlights": {
+    "title": "Program Highlights",
+    "subtitle": "Discover the highlights of the Territories Forum 2026",
+    "preForum": "Pre-Forum",
+    "fieldVisit": "Field visit",
+    "opening": "Official opening",
+    "openingCeremony": "Opening ceremony",
+    "economicDay": "Economic day",
+    "cooperation": "Cooperation & meetings",
+    "commitments": "Commitments & closing",
+    "closingGala": "Closing gala",
+    "fullDay": "Full day",
+    "seeFullProgram": "See full program",
+    "days": {
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "dates": {
+      "june3": "June 3, 2026",
+      "june4": "June 4, 2026",
+      "june5": "June 5, 2026",
+      "june6": "June 6, 2026"
+    },
+    "time": {
+      "14h": "2:00 PM"
+    },
+    "location": "Brussels",
+    "descriptions": {
+      "preForum": "Visit of a characteristic city illustrating the challenges of habitat, services, and territorial economic activities",
+      "opening": "Official opening ceremony, institutional addresses, panels on habitat and economic development",
+      "economicDay": "Half-day economic event Enabel, B2B/B2G/B2I sessions, meetings with Belgian economic structures",
+      "commitments": "Restitution session, presentation of commitments and partnerships, closing gala, and high-level networking"
+    }
+  },
+  "speakers": {
+    "title": "International Speakers",
+    "subtitle": "Meet the experts and decision-makers who will shape the future of territories",
+    "seeAll": "See all speakers",
+    "pageTitle": "Our Speakers",
+    "pageSubtitle": "Discover our expert speakers who will share their vision and expertise to shape the future of territories",
+    "allSpeakers": "All our speakers",
+    "expertsWaiting": "experts and decision-makers are waiting for you at the Territories Forum 2026",
+    "titles": {
+      "mr": "Mr",
+      "mme": "Mrs",
+      "m": "Mr.",
+      "madame": "Mrs"
+    },
+    "roles": {
+      "president": "President",
+      "presidente": "President",
+      "maire": "Mayor",
+      "ministre": "Minister",
+      "directeur": "Director",
+      "directrice": "Director",
+      "depute": "Deputy",
+      "senateur": "Senator",
+      "senatrice": "Senator",
+      "gouverneur": "Governor",
+      "bourgmestre": "Mayor",
+      "echevin": "Alderman",
+      "ancien": "Former",
+      "ancienne": "Former",
+      "conseiller": "Counselor",
+      "secretaire": "Secretary",
+      "pdg": "CEO",
+      "initiateur": "Initiator",
+      "parrain": "Patron",
+      "expert": "Expert",
+      "chef": "Head",
+      "general": "General",
+      "administrateur": "Administrator"
+    }
+  },
+  "editions": {
+    "title": "Previous Editions",
+    "subtitle": "Looking back at the successes and achievements of the previous edition",
+    "theme": "Theme",
+    "panels": "Forum Panels",
+    "thematicPanels": "thematic panels",
+    "panel": "Panel",
+    "governance": "Governance",
+    "cooperation": "Cooperation",
+    "speakersCount": "speakers",
+    "highlightMoment": "Highlight moment of the 2025 edition",
+    "historicMeeting": "A historic meeting for territorial development",
+    "learnMore": "Learn more about the previous edition",
+    "pageTitle": "Previous Editions",
+    "pageSubtitle": "Looking back at the highlights of the Territories Forum",
+    "generalTheme": "General Theme",
+    "forumPanels": "Forum Panels",
+    "moderatedBy": "Moderated by",
+    "speakers": "Speakers",
+    "reliveMoments": "Relive the highlights of the Forum",
+    "viewGallery": "View Gallery",
+    "partnerships": "Partnerships"
+  },
+  "actualites": {
+    "title": "News & Insights",
+    "subtitle": "Stay informed of the latest news and insights from the Forum",
+    "readMore": "Read more",
+    "seeAll": "See all news",
+    "pageTitle": "News",
+    "pageSubtitle": "Stay informed of the latest news and announcements from the Territories Forum",
+    "notFound": "News not found",
+    "notFoundMessage": "The news you are looking for does not exist.",
+    "backToNews": "Back to news",
+    "featured": "Featured",
+    "readTime": "min read",
+    "photoGallery": "Photo Gallery",
+    "share": "Share",
+    "shareLabel": "Share:",
+    "linkCopied": "Link copied to clipboard!",
+    "relatedNews": "Related News",
+    "readMoreLabel": "Read more"
+  },
+  "packages": {
+    "title": "Participant Packages",
+    "subtitle": "Choose the package that suits your needs and participate in the Territories Forum 2026",
+    "popular": "Popular",
+    "contactUs": "Contact us"
+  },
+  "reserver": {
+    "title": "Reserve my place",
+    "subtitle": "Reserve your place at the Territories Forum 2026 and participate in this exceptional event",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "organization": "Organization",
+    "participationType": "Participation type",
+    "package": "Stand",
+    "numberOfPeople": "Number of people",
+    "selectPackage": "Select a stand",
+    "selectParticipation": "Select",
+    "confirmReservation": "Confirm reservation",
+    "processing": "Processing...",
+    "reservationConfirmed": "Reservation confirmed!",
+    "confirmationEmail": "You will receive a confirmation email in the next few minutes.",
+    "contactUs": "Contact us",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "followUs": "Follow us",
+    "required": "*",
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "participationTypeRequired": "Participation type is required",
+      "packageRequired": "Stand is required",
+      "submitError": "An error occurred while making the reservation",
+      "submitErrorGeneric": "An error occurred. Please try again later."
+    }
+  },
+  "ctaReservation": {
+    "title": "Reserve your place now",
+    "description": "Don't miss this unique opportunity to participate in the Territories Forum 2026. Join hundreds of participants, investors and decision-makers to build together the future of territories.",
+    "reservePlace": "Reserve my place",
+    "secureReservation": "Secure reservation • Free cancellation up to 30 days before the event",
+    "benefits": {
+      "access": "Access to all panels and conferences",
+      "networking": "Networking with 800+ participants",
+      "certificate": "Certificate of participation",
+      "gala": "Access to the gala evening"
+    }
+  },
+  "ctaPartners": {
+    "title": "Become a Forum Partner",
+    "subtitle": "Join us as a strategic partner and benefit from exceptional visibility and unique business opportunities",
+    "packagesTitle": "Our Partnership Packages",
+    "ready": "Ready to become a partner?",
+    "description": "Contact us to discuss partnership opportunities and discover how your organization can contribute to the success of the Territories Forum.",
+    "discoverPackages": "Discover packages",
+    "contactUs": "Contact us",
+    "advantages": {
+      "visibility": {
+        "title": "Exceptional visibility",
+        "description": "Your logo on all communication materials and strong presence during the event"
+      },
+      "networking": {
+        "title": "Premium networking",
+        "description": "Exclusive access to VIP sessions and meetings with decision-makers and investors"
+      },
+      "business": {
+        "title": "Business opportunities",
+        "description": "Direct connection with territories and structuring projects"
+      },
+      "brand": {
+        "title": "Brand image",
+        "description": "Positioning as an engaged actor in territorial development"
+      }
+    }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "pageTitle": "Become a Partner",
+    "pageSubtitle": "Join us as a strategic partner and benefit from exceptional visibility and unique business opportunities",
+    "categoriesTitle": "Partner Categories",
+    "categoriesSubtitle": "Different types of partnerships to meet your strategic objectives",
+    "institutional": {
+      "title": "Institutional Partners",
+      "description": "Public institutions, territorial communities, international organizations"
+    },
+    "financial": {
+      "title": "Financial Partners",
+      "description": "Development banks, investment funds, financial institutions"
+    },
+    "territories": {
+      "title": "Participating Territories",
+      "description": "African and European territorial communities"
+    },
+    "media": {
+      "title": "Media Partners",
+      "description": "National and international media covering the event"
+    },
+    "sponsoringTitle": "Sponsoring Offers",
+    "sponsoringSubtitle": "Choose the package that matches your strategic objectives and benefit from exclusive advantages",
+    "premium": "Premium",
+    "thematicTitle": "Exclusive Thematic Partnerships",
+    "thematicSubtitle": "Each partnership includes sector exclusivity and targeted visibility",
+    "exclusiveBenefits": "Exclusive Benefits",
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "becomePartner": "Become a partner",
+    "becomePartnerDescription": "Contact us to discuss partnership opportunities and discover how your organization can contribute to the success of the Territories Forum.",
+    "callNow": "Call now",
+    "contactAlso": "Also contact us by:"
+  },
+  "programme": {
+    "title": "Program",
+    "subtitle": "Discover the complete program of the Territories Forum 2026",
+    "contactUs": "Contact us",
+    "contactSubtitle": "Questions about the program? Contact us for more information",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "contactForm": "Contact form"
+  },
+  "panelsInscription": {
+    "title": "Actively participate in the panels of the Territories Forum 2026",
+    "description1": "Join decision-makers, experts and institutional actors for strategic exchanges on decentralized cooperation, project financing, ecological transition and territorial innovation.",
+    "description2": "Reserve your place now in the thematic panels that will shape the future of territories.",
+    "dates": "Dates",
+    "datesValue": "June 3-6, 2026",
+    "location": "Location",
+    "locationValue": "DoubleTree by Hilton Brussels City",
+    "ceremony": "Ceremony",
+    "ceremonyValue": "At the Brussels Parliament",
+    "personalInfo": "Personal Information",
+    "professionalInfo": "Professional Information",
+    "participationChoice": "Participation Choice",
+    "reminder": "Reminder - Territories Forum 2023",
+    "day1": "Participation Choice (Day 1)",
+    "day2": "Participation Choice (Day 2)",
+    "day3": "Participation Choice (Day 3 - Simultaneous Thematic Panels)",
+    "day4": "Participation Choice (Day 4)",
+    "remarks": "Remarks / Special Requests",
+    "remarksPlaceholder": "Your remarks or special requests...",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "E-mail",
+    "phone": "Phone",
+    "organization": "Organization / Company",
+    "role": "Function / Role",
+    "country": "Country of residence",
+    "selectCountry": "Select a country",
+    "required": "*",
+    "submit": "Submit",
+    "submitting": "Sending...",
+    "confirmed": "Registration confirmed!",
+    "confirmationMessage": "Your panel registration has been successfully recorded. You will receive a confirmation email in the next few minutes.",
+    "errors": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email",
+      "phoneRequired": "Phone is required",
+      "organizationRequired": "Organization is required",
+      "roleRequired": "Role is required",
+      "countryRequired": "Country is required",
+      "sessionsRequired": "Please select at least one session",
+      "submitError": "An error occurred during registration",
+      "submitErrorGeneric": "An error occurred. Please try again later."
+    }
+  },
+  "stats": {
+    "title": "Impact & Key Figures",
+    "subtitle": "Concrete results and international reach"
+  },
+  "aPropos": {
+    "pageTitle": "About",
+    "pageSubtitle": "Discover the Territories Forum and its commitment to sustainable development",
+    "presentation": {
+      "title": "Presentation",
+      "subtitle": "A strategic platform for dialogue, investment and decentralized cooperation",
+      "forumTitle": "The Territories Forum",
+      "paragraph1": "The Territories Forum is a major initiative that brings together public decision-makers, private investors, economic actors and territorial communities around a common goal: creating sustainable synergies for territorial development.",
+      "paragraph2": "This strategic platform emerges in a context marked by Act III of Decentralization in Senegal and the desire to strengthen decentralized cooperation between Africa and Europe.",
+      "paragraph3": "The 2026 edition focuses on",
+      "paragraph3Highlight": "Housing at the Heart of Territories",
+      "paragraph3End": ", highlighting the crucial challenges of housing and urban planning in sustainable territorial development.",
+      "galleryAlt": "Territories Forum Gallery"
+    },
+    "theme": {
+      "title": "Forum Theme",
+      "subtitle": "The central theme that structures all Forum activities",
+      "centralTheme": "Central Theme",
+      "themeQuote": "\"Housing as an ecosystem of life, economic activities and territorial investment\"",
+      "paragraph1": "This theme places housing as the foundation of territorial development, directly linked to local governance, social justice, land access, financing, innovation and climate resilience.",
+      "paragraph2": "It structures all panels, workshops, presented projects and partnership opportunities of the Forum.",
+      "pillars": {
+        "governance": "Local governance",
+        "justice": "Social justice",
+        "land": "Land access",
+        "financing": "Financing",
+        "innovation": "Innovation",
+        "resilience": "Climate resilience"
+      },
+      "ecosystem": {
+        "title": "Life ecosystem",
+        "description": "Housing as the foundation of human and social development"
+      },
+      "economic": {
+        "title": "Economic activities",
+        "description": "Value creation and job generation in territories"
+      },
+      "investment": {
+        "title": "Territorial investment",
+        "description": "Resource mobilization for sustainable development"
+      },
+      "vision": {
+        "label": "Vision:",
+        "text": "Build competitive, inclusive and sustainable territories through structuring and results-oriented North-South partnerships."
+      },
+      "strategicPositioning": "Strategic Positioning",
+      "domains": {
+        "institutional": {
+          "title": "Institutional",
+          "description": "Strengthening institutional capacities and territorial governance"
+        },
+        "economic": {
+          "title": "Economic",
+          "description": "Local economic development and value-added creation"
+        },
+        "investment": {
+          "title": "Investment",
+          "description": "Mobilization of investments for territorial development"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Promotion of innovation and technologies for territories"
+        },
+        "territories": {
+          "title": "Territories",
+          "description": "Enhancement and sustainable development of territories"
+        },
+        "cooperation": {
+          "title": "Cooperation",
+          "description": "Structuring partnerships between North and South territories"
+        }
+      }
+    }
+  },
+  "objectifs": {
+    "title": "Forum Objectives",
+    "subtitle": "Our strategic objectives for sustainable territorial development"
+  },
+  "participants": {
+    "title": "Participant Profiles",
+    "subtitle": "A diverse network of actors committed to territorial development",
+    "excellenceNetwork": "A network of excellence",
+    "excellenceDescription": "Join hundreds of participants from all backgrounds to build together the future of territories",
+    "typesTitle": "Types of participants",
+    "types": {
+      "governments": "Governments and territorial communities",
+      "banks": "Banks, insurance and financial institutions",
+      "funds": "Investment funds and family offices",
+      "companies": "Large companies and multinationals",
+      "startups": "Fintechs, startups and innovative SMEs",
+      "organizations": "International organizations and technical partners"
+    }
+  },
+  "partenairesSection": {
+    "title": "Why become a sponsor?",
+    "subtitle": "Join us as a strategic partner and benefit from exclusive advantages",
+    "becomePartner": "Become a Forum partner",
+    "becomePartnerDescription": "Enjoy exceptional visibility and unique business opportunities",
+    "conditionsTitle": "Partnership conditions",
+    "signature": {
+      "label": "Upon signing the partnership",
+      "description": "Initial payment to confirm your commitment"
+    },
+    "beforeEvent": {
+      "label": "No later than 30 days before the event",
+      "description": "Partnership balance before the start of the Forum"
+    },
+    "custom": {
+      "title": "Custom partnerships",
+      "description": "Possibilities of personalized partnerships on request"
+    },
+    "interested": "Interested in a partnership?",
+    "interestedDescription": "Contact us to discover our custom partnership packages",
+    "becomePartnerButton": "Become a partner"
+  },
+  "exposition": {
+    "title": "Exhibition Spaces",
+    "subtitle": "Give your brand the visibility it deserves!",
+    "maximizeVisibility": "Maximize your visibility",
+    "maximizeDescription": "Choose the exhibition space that meets your needs and benefit from exceptional visibility",
+    "premium": "Premium",
+    "included": "Included"
+  },
+  "communication": {
+    "title": "Communication & sponsor visibility",
+    "subtitle": "A complete communication strategy to maximize your visibility",
+    "maximizeBrand": "Maximum visibility for your brand",
+    "maximizeBrandDescription": "Benefit from a multi-channel communication strategy to reach your target audience"
+  }
+}

@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { COMMUNICATION_FEATURES } from '../../../services/communicationService';
+import { translateCommunicationFeatures } from '../../../utils/communicationTranslations';
 import { Globe, Camera, FileText, Radio, Megaphone, Sparkles } from 'lucide-react';
 import communicationImage from '../../../assets/images/comunication.jpg';
 
@@ -11,7 +14,12 @@ import communicationImage from '../../../assets/images/comunication.jpg';
  * Section Communication & Visibilité Sponsors - Style magnifique avec image
  */
 const CommunicationSection = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
+
+  const features = useMemo(() => {
+    return translateCommunicationFeatures(COMMUNICATION_FEATURES, t, i18n);
+  }, [t, i18n]);
 
   const communicationIcons = [
     Globe,
@@ -41,11 +49,11 @@ const CommunicationSection = () => {
             <Sparkles className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Communication & visibilité sponsors
+            {t('communication.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Une stratégie de communication complète pour maximiser votre visibilité
+            {t('communication.subtitle')}
           </p>
         </motion.div>
 
@@ -76,10 +84,10 @@ const CommunicationSection = () => {
                   className="text-center text-white mb-12"
                 >
                   <h3 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-6">
-                    Visibilité maximale pour votre marque
+                    {t('communication.maximizeBrand')}
                   </h3>
                   <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
-                    Bénéficiez d'une stratégie de communication multi-canal pour toucher votre audience cible
+                    {t('communication.maximizeBrandDescription')}
                   </p>
                 </motion.div>
               </div>
@@ -93,7 +101,7 @@ const CommunicationSection = () => {
 
         {/* Features en cards stylées */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {COMMUNICATION_FEATURES.map((feature, index) => {
+          {features.map((feature, index) => {
             const Icon = communicationIcons[index];
             return (
               <motion.div

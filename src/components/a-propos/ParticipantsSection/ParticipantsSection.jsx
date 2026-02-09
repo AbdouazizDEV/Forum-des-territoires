@@ -1,16 +1,24 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { PARTICIPANTS_DATA } from '../../../services/participantsService';
+import { translateParticipants } from '../../../utils/participantsTranslations';
 import participantImage from '../../../assets/images/participanr.jpg';
 
 /**
  * Section Participants du Forum - Style magnifique avec image
  */
 const ParticipantsSection = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
+
+  const participants = useMemo(() => {
+    return translateParticipants(PARTICIPANTS_DATA, t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="participants" background="default" padding="lg">
@@ -29,11 +37,11 @@ const ParticipantsSection = () => {
           style={{ opacity: 1 }}
         >
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Profils des participants
+            {t('participants.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-secondary via-accent-orange to-primary mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Un réseau diversifié d'acteurs engagés pour le développement territorial
+            {t('participants.subtitle')}
           </p>
         </motion.div>
 
@@ -64,10 +72,10 @@ const ParticipantsSection = () => {
                   className="mb-8"
                 >
                   <h3 className="font-display font-bold text-3xl md:text-4xl mb-4">
-                    Un réseau d'excellence
+                    {t('participants.excellenceNetwork')}
                   </h3>
                   <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-                    Rejoignez des centaines de participants venant de tous les horizons pour construire ensemble l'avenir des territoires
+                    {t('participants.excellenceDescription')}
                   </p>
                 </motion.div>
               </div>
@@ -86,16 +94,16 @@ const ParticipantsSection = () => {
         >
           <div className="bg-gradient-to-br from-secondary/5 via-accent-orange/5 to-primary/5 rounded-3xl p-8 md:p-12 border border-secondary/10">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-dark mb-8 text-center">
-              Types de participants
+              {t('participants.typesTitle')}
             </h3>
             <ul className="space-y-4 max-w-4xl mx-auto">
               {[
-                "Gouvernements et collectivités territoriales",
-                "Banques, assurances et institutions financières",
-                "Fonds d'investissement et family offices",
-                "Grandes entreprises et multinationales",
-                "Fintechs, startups et PME innovantes",
-                "Organisations internationales et partenaires techniques"
+                t('participants.types.governments'),
+                t('participants.types.banks'),
+                t('participants.types.funds'),
+                t('participants.types.companies'),
+                t('participants.types.startups'),
+                t('participants.types.organizations')
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -114,7 +122,7 @@ const ParticipantsSection = () => {
 
         {/* Participants Grid avec stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PARTICIPANTS_DATA.map((category, index) => {
+          {participants.map((category, index) => {
             const Icon = category.icon;
             return (
               <motion.div

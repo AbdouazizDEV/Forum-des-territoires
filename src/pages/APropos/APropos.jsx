@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import ObjectifsSection from '../../components/a-propos/ObjectifsSection/ObjectifsSection';
@@ -26,6 +27,7 @@ import galleryImage7 from '../../assets/images/img7.jpg';
  * Présentation, Objectifs, Participants
  */
 const APropos = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const { ref: refPresentation, controls: controlsPresentation } = useScrollAnimation();
   const { ref: refTheme, controls: controlsTheme } = useScrollAnimation();
@@ -126,10 +128,10 @@ const APropos = () => {
           className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10 text-center text-white"
         >
           <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
-            A propos
+            {t('aPropos.pageTitle')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90">
-            Découvrez le Forum des Territoires et son engagement pour le développement durable
+            {t('aPropos.pageSubtitle')}
           </p>
         </motion.div>
       </section>
@@ -148,11 +150,11 @@ const APropos = () => {
             className="text-center mb-16"
           >
             <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-              Présentation
+              {t('aPropos.presentation.title')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent-orange mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une plateforme stratégique de dialogue, d'investissement et de coopération décentralisée
+              {t('aPropos.presentation.subtitle')}
             </p>
           </motion.div>
 
@@ -190,22 +192,16 @@ const APropos = () => {
             >
               <div className="prose prose-lg max-w-none">
                 <h3 className="font-display font-bold text-2xl mb-4 text-dark">
-                  Le Forum des Territoires
+                  {t('aPropos.presentation.forumTitle')}
                 </h3>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                  Le Forum des Territoires est une initiative majeure qui rassemble les décideurs publics, 
-                  investisseurs privés, acteurs économiques et collectivités territoriales autour d'un 
-                  objectif commun : créer des synergies durables pour le développement territorial.
+                  {t('aPropos.presentation.paragraph1')}
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                  Cette plateforme stratégique émerge dans un contexte marqué par l'Acte III de la 
-                  Décentralisation au Sénégal et la volonté de renforcer la coopération décentralisée 
-                  entre l'Afrique et l'Europe.
+                  {t('aPropos.presentation.paragraph2')}
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  L'édition 2026 se concentre sur <strong className="text-primary">"L'Habitat au coeur 
-                  des Territoires"</strong>, mettant en lumière les enjeux cruciaux du logement et de 
-                  l'aménagement urbain dans le développement territorial durable.
+                  {t('aPropos.presentation.paragraph3')} <strong className="text-primary">{t('aPropos.presentation.paragraph3Highlight')}</strong>{t('aPropos.presentation.paragraph3End')}
                 </p>
               </div>
             </motion.div>
@@ -240,7 +236,7 @@ const APropos = () => {
                           >
                             <motion.img
                               src={image}
-                              alt={`Galerie Forum des Territoires ${actualIndex + 1}`}
+                              alt={`${t('aPropos.presentation.galleryAlt')} ${actualIndex + 1}`}
                               className="w-full h-full object-cover"
                               initial={{ scale: 1.1 }}
                               whileHover={{ scale: 1 }}
@@ -304,7 +300,7 @@ const APropos = () => {
                 >
                   <motion.img
                     src={image}
-                    alt={`Galerie Forum des Territoires ${index + 1}`}
+                    alt={`${t('aPropos.presentation.galleryAlt')} ${index + 1}`}
                     className="w-full h-full object-cover"
                     initial={{ scale: 1.1 }}
                     whileHover={{ scale: 1 }}
@@ -339,11 +335,11 @@ const APropos = () => {
               <Sparkles className="w-10 h-10 text-white" />
             </div>
             <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-              Thème du Forum
+              {t('aPropos.theme.title')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Le thème central qui structure l'ensemble des activités du Forum
+              {t('aPropos.theme.subtitle')}
             </p>
           </motion.div>
 
@@ -374,7 +370,7 @@ const APropos = () => {
                         <Sparkles className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-2xl md:text-3xl font-bold text-white">
-                        Thème central
+                        {t('aPropos.theme.centralTheme')}
                       </h3>
                     </div>
                   </motion.div>
@@ -385,7 +381,7 @@ const APropos = () => {
                   >
                     <div className="relative pl-6 border-l-4 border-accent-orange">
                       <h4 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
-                        « L’habitat comme écosystème de vie, d’activités économiques et d’investissement territorial »
+                        {t('aPropos.theme.themeQuote')}
                       </h4>
                     </div>
                   </motion.div>
@@ -395,10 +391,10 @@ const APropos = () => {
                     className="space-y-6 text-white/95"
                   >
                     <p className="text-lg md:text-xl leading-relaxed">
-                      Ce thème place l'habitat comme fondement du développement territorial, en lien direct avec la gouvernance locale, la justice sociale, l'accès au foncier, le financement, l'innovation et la résilience climatique.
+                      {t('aPropos.theme.paragraph1')}
                     </p>
                     <p className="text-lg md:text-xl leading-relaxed">
-                      Il structure l'ensemble des panels, ateliers, projets présentés et opportunités de partenariats du Forum.
+                      {t('aPropos.theme.paragraph2')}
                     </p>
                   </motion.div>
 
@@ -408,12 +404,12 @@ const APropos = () => {
                     className="mt-12 flex flex-wrap gap-4"
                   >
                     {[
-                      'Gouvernance locale',
-                      'Justice sociale',
-                      'Accès au foncier',
-                      'Financement',
-                      'Innovation',
-                      'Résilience climatique'
+                      t('aPropos.theme.pillars.governance'),
+                      t('aPropos.theme.pillars.justice'),
+                      t('aPropos.theme.pillars.land'),
+                      t('aPropos.theme.pillars.financing'),
+                      t('aPropos.theme.pillars.innovation'),
+                      t('aPropos.theme.pillars.resilience')
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -441,18 +437,18 @@ const APropos = () => {
             {[
               {
                 icon: Building,
-                title: 'Écosystème de vie',
-                description: "L'habitat comme fondement du développement humain et social"
+                title: t('aPropos.theme.ecosystem.title'),
+                description: t('aPropos.theme.ecosystem.description')
               },
               {
                 icon: TrendingUp,
-                title: 'Activités économiques',
-                description: "Création de valeur et génération d'emplois dans les territoires"
+                title: t('aPropos.theme.economic.title'),
+                description: t('aPropos.theme.economic.description')
               },
               {
                 icon: Handshake,
-                title: 'Investissement territorial',
-                description: 'Mobilisation des ressources pour un développement durable'
+                title: t('aPropos.theme.investment.title'),
+                description: t('aPropos.theme.investment.description')
               }
             ].map((item, index) => {
               const Icon = item.icon;
@@ -498,10 +494,10 @@ const APropos = () => {
                   <div className="w-2 h-16 bg-primary rounded-full"></div>
                   <div>
                     <h3 className="font-display font-bold text-3xl md:text-4xl text-dark mb-4">
-                      Vision :
+                      {t('aPropos.theme.vision.label')}
                     </h3>
                     <p className="text-xl md:text-2xl font-semibold text-gray-800 leading-relaxed">
-                      Construire des territoires compétitifs, inclusifs et durables grâce à des partenariats Nord-Sud structurants et orientés résultats.
+                      {t('aPropos.theme.vision.text')}
                     </p>
                   </div>
                 </div>
@@ -513,7 +509,7 @@ const APropos = () => {
                 className="mb-8"
               >
                 <h4 className="font-display font-bold text-2xl md:text-3xl text-primary mb-8 underline decoration-primary decoration-2 underline-offset-4">
-                  Positionnement stratégique
+                  {t('aPropos.theme.strategicPositioning')}
                 </h4>
               </motion.div>
 
@@ -525,33 +521,33 @@ const APropos = () => {
                 {[
                   {
                     icon: Building,
-                    title: 'Institutionnel',
-                    description: 'Renforcement des capacités institutionnelles et de la gouvernance territoriale'
+                    title: t('aPropos.theme.domains.institutional.title'),
+                    description: t('aPropos.theme.domains.institutional.description')
                   },
                   {
                     icon: DollarSign,
-                    title: 'Économique',
-                    description: 'Développement économique local et création de valeur ajoutée'
+                    title: t('aPropos.theme.domains.economic.title'),
+                    description: t('aPropos.theme.domains.economic.description')
                   },
                   {
                     icon: CircleDollarSign,
-                    title: 'Investissement',
-                    description: 'Mobilisation des investissements pour le développement territorial'
+                    title: t('aPropos.theme.domains.investment.title'),
+                    description: t('aPropos.theme.domains.investment.description')
                   },
                   {
                     icon: Lightbulb,
-                    title: 'Innovation',
-                    description: 'Promotion de l\'innovation et des technologies pour les territoires'
+                    title: t('aPropos.theme.domains.innovation.title'),
+                    description: t('aPropos.theme.domains.innovation.description')
                   },
                   {
                     icon: Globe,
-                    title: 'Territoires',
-                    description: 'Valorisation et développement durable des territoires'
+                    title: t('aPropos.theme.domains.territories.title'),
+                    description: t('aPropos.theme.domains.territories.description')
                   },
                   {
                     icon: Handshake,
-                    title: 'Coopération',
-                    description: 'Partenariats structurants entre territoires du Nord et du Sud'
+                    title: t('aPropos.theme.domains.cooperation.title'),
+                    description: t('aPropos.theme.domains.cooperation.description')
                   }
                 ].map((item, index) => {
                   const Icon = item.icon;

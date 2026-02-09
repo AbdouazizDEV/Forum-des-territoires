@@ -1,0 +1,654 @@
+{
+  "common": {
+    "reserve": "Reserver",
+    "becomePartner": "Devenir partenaire",
+    "contact": "Contact",
+    "learnMore": "En savoir plus",
+    "subscribe": "S'inscrire",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "select": "Sélectionner",
+    "required": "Requis",
+    "optional": "Optionnel",
+    "name": "Nom",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "organization": "Organisation / Entreprise",
+    "country": "Pays",
+    "message": "Message",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "allRightsReserved": "Tous droits réservés",
+    "poweredBy": "Propulsé par"
+  },
+  "header": {
+    "navigation": {
+      "about": "A propos",
+      "presentation": "Présentation",
+      "objectives": "Objectifs",
+      "participants": "Participants",
+      "program": "Programme",
+      "speakers": "Speakers",
+      "previousEditions": "Editions precedentes",
+      "news": "Actualites",
+      "partners": "Partenaires",
+      "participate": "Participer"
+    }
+  },
+  "footer": {
+    "usefulLinks": "Liens utiles",
+    "followUs": "Suivez-nous",
+    "newsletter": "Newsletter",
+    "yourEmail": "Votre email",
+    "subscribe": "S'inscrire"
+  },
+  "hero": {
+    "title1": "L'habitat comme écosystème de vie, d'activités",
+    "title2": "économiques et d'investissement territorial",
+    "subtitle": "Batir ensemble les villes et territoires de demain - Bruxelles, 3-6 Juin 2026",
+    "reservePlace": "Reserver ma place",
+    "takeStand": "Prendre un stand",
+    "reserveNow": "Réservez votre place dès maintenant",
+    "reserveSubtitle": "et participez à l'événement de l'année",
+    "reserveDescription": "Rejoignez des centaines de participants pour échanger, apprendre et construire l'avenir des territoires ensemble",
+    "limitedPlaces": "Places limitées",
+    "becomePartnerTitle": "Devenez partenaire du Forum",
+    "becomePartnerSubtitle": "et valorisez votre entreprise",
+    "becomePartnerDescription": "Profitez d'une visibilité exceptionnelle auprès d'un public ciblé et participez à un événement d'envergure internationale",
+    "exclusiveOpportunities": "Opportunités exclusives",
+    "joinUs": "Rejoignez-nous !",
+    "partnerWithUs": "Partenairez avec nous !",
+    "dontMiss": "Ne manquez pas cette opportunité unique",
+    "maxVisibility": "Bénéficiez d'une visibilité maximale"
+  },
+  "stats": {
+    "participants": "Participants",
+    "speakers": "Speakers",
+    "countries": "Pays représentés",
+    "investors": "Investisseurs & bailleurs",
+    "projects": "Projets présentés",
+    "potentialAmount": "Milliards FCFA - Montant potentiel de projets"
+  },
+  "about": {
+    "title": "Justification et Contexte",
+    "paragraph1": "Lancée en réponse aux défis et opportunités de la Décentralisation au Sénégal, la première édition du Forum des Territoires Sénégal–Belgique–Luxembourg a marqué une étape déterminante dans la mise en visibilité des potentiels économiques, culturels et environnementaux des territoires africains. Elle a permis d'initier des dynamiques structurantes de coopération décentralisée et d'investissement entre l'Afrique de l'Ouest et l'Europe.",
+    "paragraph2": "Face à l'intérêt croissant exprimé par plusieurs pays africains, le Forum a élargi son périmètre et devient",
+    "paragraph2Link": "le Forum des Territoires",
+    "paragraph2End": ", une plateforme transnationale dédiée au dialogue, au partage d'expériences et à la mise en relation d'acteurs publics et privés autour d'opportunités d'investissement concrètes. Cette évolution traduit l'ambition de consolider un espace d'échanges multilatéral, inclusif et résolument orienté vers l'action."
+  },
+  "participer": {
+    "title": "Participer",
+    "subtitle": "Choisissez la formule de participation qui correspond à vos besoins",
+    "participant": {
+      "title": "Participant",
+      "description": "Assistez aux conférences, panels et sessions de networking",
+      "benefits": {
+        "access": "Accès à tous les panels et conférences",
+        "networking": "Sessions de networking",
+        "documentation": "Documentation complète",
+        "certificate": "Certificat de participation"
+      }
+    },
+    "exposant": {
+      "title": "Exposant",
+      "description": "Présentez vos projets et solutions lors de l'exposition",
+      "benefits": {
+        "stand": "Stand d'exposition",
+        "visibility": "Visibilité accrue",
+        "marketing": "Documentation marketing",
+        "vip": "Accès VIP"
+      },
+      "price": "Sur devis"
+    },
+    "partenaire": {
+      "title": "Partenaire",
+      "description": "Rejoignez-nous en tant que partenaire stratégique",
+      "benefits": {
+        "visibility": "Visibilité premium",
+        "intervention": "Intervention dans les panels",
+        "stand": "Stand premium",
+        "invitations": "Invitations VIP"
+      },
+      "price": "Sur devis"
+    },
+    "speaker": {
+      "title": "Speaker",
+      "description": "Partagez votre expertise lors des conférences",
+      "benefits": {
+        "intervention": "Intervention dans le programme",
+        "media": "Visibilité médiatique",
+        "vip": "Accès VIP complet",
+        "networking": "Networking privilégié"
+      },
+      "price": "Sur invitation"
+    },
+    "readyToParticipate": "Prêt à participer ?",
+    "readyDescription": "Rejoignez-nous au Forum des Territoires 2026 et contribuez à bâtir ensemble les villes et territoires de demain.",
+    "reservePlace": "Reserver ma place",
+    "contactUs": "Nous contacter"
+  },
+  "contact": {
+    "title": "Contact & Inscription",
+    "subtitle": "Inscrivez-vous au Forum des Territoires 2026 ou contactez-nous pour plus d'informations",
+    "formTitle": "Formulaire de contact",
+    "formSubtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons rapidement",
+    "civility": "Civilité",
+    "civilityOptions": {
+      "mr": "M.",
+      "mrs": "Mme",
+      "miss": "Mlle"
+    },
+    "participationType": "Type de participation",
+    "participationTypes": {
+      "territory": "Territoire",
+      "investor": "Investisseur",
+      "partner": "Partenaire",
+      "other": "Autre"
+    },
+    "projectPresentation": "Message / Présentation du projet",
+    "projectPlaceholder": "Décrivez votre projet ou votre message...",
+    "sendMessage": "Envoyer le message",
+    "successTitle": "Message envoyé avec succès !",
+    "successMessage": "Nous vous répondrons dans les plus brefs délais.",
+    "coordinates": "Coordonnées",
+    "errors": {
+      "fullNameRequired": "Le nom complet est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "organizationRequired": "L'organisation est requise",
+      "participationTypeRequired": "Le type de participation est requis",
+      "submitError": "Une erreur est survenue lors de l'envoi du message"
+    }
+  },
+  "reserver": {
+    "title": "Réserver",
+    "package": "Package",
+    "packageTeranga": "Package Teranga",
+    "packageSilver": "Package Silver",
+    "packageGold": "Package Gold",
+    "standStandard": "Stand Standard",
+    "standPremium": "Stand Premium",
+    "standVip": "Stand VIP",
+    "numberOfPeople": "Nombre de personnes",
+    "participationTypes": {
+      "participant": "Participant",
+      "exposant": "Exposant",
+      "partenaire": "Partenaire",
+      "speaker": "Speaker"
+    },
+    "errors": {
+      "fullNameRequired": "Le nom complet est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "participationTypeRequired": "Le type de participation est requis",
+      "standRequired": "Le stand est requis"
+    },
+    "successTitle": "Réservation envoyée avec succès !",
+    "successMessage": "Nous vous contacterons dans les plus brefs délais pour confirmer votre réservation."
+  },
+  "site": {
+    "name": "Forum des Territoires",
+    "tagline": "Batir ensemble les villes et territoires de demain",
+    "event": "PANEL – EXPO - VISITES - NETWORK",
+    "dates": "3-6 Juin 2026",
+    "location": "Bruxelles",
+    "fullLocation": "Bruxelles, 3-6 Juin 2026",
+    "heroTitle": "L'Habitat au coeur des Territoires",
+    "heroSubtitle": "Batir ensemble les villes et territoires de demain - Bruxelles, 3-6 Juin 2026"
+  },
+  "pillars": {
+    "title": "Pourquoi ce Forum ?",
+    "subtitle": "Face aux enjeux de décentralisation, d'attractivité territoriale et de financement du développement local, le Forum des Territoires propose une réponse pragmatique, structurée et orientée vers l'action.",
+    "subtitleBold": "Trois piliers fondamentaux pour une coopération territoriale efficace et durable",
+    "pillar1": {
+      "title": "Dialogue politique et institutionnel",
+      "description": "Espace de dialogue structuré entre collectivités territoriales africaines, partenaires européens et institutions publiques"
+    },
+    "pillar2": {
+      "title": "Projets territoriaux structurants et bankables",
+      "description": "Mise en lumière des projets de développement territorial validés par les autorités compétentes"
+    },
+    "pillar3": {
+      "title": "Mise en relation investisseurs-territoires",
+      "description": "Approche orientée vers l'action et connexions directes"
+    }
+  },
+  "resources": {
+    "title": "Ressources Territoriales",
+    "paragraph1": "Le Sénégal demeure un pilier central du Forum, notamment à travers ses six pôles de développement (Sine Saloum, Casamance, Sénégal Oriental, Dakar/Thiès, Triangle Touba–Louga, Delta du Fleuve Sénégal). Cependant, cette deuxième édition ouvrira la parole à d'autres pays africains qui présenteront, eux aussi, leurs potentialités sectorielles leurs stratégies territoriales et leurs projets bankables.",
+    "paragraph2": "Découvrez les secteurs d'opportunités porteurs de croissance et de développement durable"
+  },
+  "programmeHighlights": {
+    "title": "Programme Highlights",
+    "subtitle": "Découvrez les moments forts du Forum des Territoires 2026",
+    "preForum": "Pré-Forum",
+    "fieldVisit": "Visite de terrain",
+    "opening": "Ouverture officielle",
+    "openingCeremony": "Cérémonie d'ouverture",
+    "economicDay": "Journée économique",
+    "cooperation": "Coopération & rencontres",
+    "commitments": "Engagements & clôture",
+    "closingGala": "Gala de clôture",
+    "fullDay": "Journée complète",
+    "seeFullProgram": "Voir le programme complet",
+    "days": {
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi"
+    },
+    "dates": {
+      "june3": "03 Juin 2026",
+      "june4": "04 Juin 2026",
+      "june5": "05 Juin 2026",
+      "june6": "06 Juin 2026"
+    },
+    "time": {
+      "14h": "14h"
+    },
+    "location": "Bruxelles",
+    "descriptions": {
+      "preForum": "Visite d'une cité caractéristique illustrant les enjeux de l'habitat, des services et des activités économiques territoriales",
+      "opening": "Cérémonie officielle d'ouverture, allocutions institutionnelles, panels sur l'habitat et le développement économique",
+      "economicDay": "Demi-journée économique Enabel, sessions B2B/B2G/B2I, rencontres avec les structures économiques belges",
+      "commitments": "Session de restitution, présentation des engagements et partenariats, gala de clôture et networking de haut niveau"
+    }
+  },
+  "speakers": {
+    "title": "Speakers Internationaux",
+    "subtitle": "Rencontrez les experts et décideurs qui façonneront l'avenir des territoires",
+    "seeAll": "Voir tous les speakers",
+    "pageTitle": "Nos Speakers",
+    "pageSubtitle": "Découvrez nos intervenants experts qui partageront leur vision et leur expertise pour façonner l'avenir des territoires",
+    "allSpeakers": "Tous nos intervenants",
+    "expertsWaiting": "experts et décideurs vous attendent au Forum des Territoires 2026",
+    "titles": {
+      "mr": "Mr",
+      "mme": "Mme",
+      "m": "M.",
+      "madame": "Mme"
+    },
+    "roles": {
+      "president": "Président",
+      "presidente": "Présidente",
+      "maire": "Maire",
+      "ministre": "Ministre",
+      "directeur": "Directeur",
+      "directrice": "Directrice",
+      "depute": "Député",
+      "senateur": "Sénateur",
+      "senatrice": "Sénatrice",
+      "gouverneur": "Gouverneur",
+      "bourgmestre": "Bourgmestre",
+      "echevin": "Échevin",
+      "ancien": "Ancien",
+      "ancienne": "Ancienne",
+      "conseiller": "Conseiller",
+      "secretaire": "Secrétaire",
+      "general": "Général",
+      "administrateur": "Administrateur",
+      "pdg": "PDG",
+      "initiateur": "Initiateur",
+      "parrain": "Parrain",
+      "expert": "Expert",
+      "chef": "Chef"
+    }
+  },
+  "editions": {
+    "title": "Éditions Précédentes",
+    "subtitle": "Retour sur les succès et réalisations de l'édition précédente",
+    "theme": "Thème",
+    "panels": "Les Panels du Forum",
+    "thematicPanels": "panels thématiques",
+    "panel": "Panel",
+    "governance": "Gouvernance",
+    "cooperation": "Coopération",
+    "speakersCount": "intervenants",
+    "highlightMoment": "Moment fort de l'édition 2025",
+    "historicMeeting": "Une rencontre historique pour le développement territorial",
+    "learnMore": "En savoir plus sur l'édition précédente",
+    "pageTitle": "Éditions précédentes",
+    "pageSubtitle": "Retour sur les moments forts du Forum des Territoires",
+    "generalTheme": "Thème Général",
+    "forumPanels": "Les panels du Forum",
+    "moderatedBy": "Modéré par",
+    "speakers": "Intervenants",
+    "reliveMoments": "Revivez les moments forts du Forum",
+    "viewGallery": "Voir la Galerie",
+    "partnerships": "Partenariats"
+  },
+  "actualites": {
+    "title": "Actualités & Insights",
+    "subtitle": "Restez informé des dernières actualités et insights du Forum",
+    "readMore": "Lire la suite",
+    "seeAll": "Voir toutes les actualités",
+    "pageTitle": "Actualités",
+    "pageSubtitle": "Restez informé des dernières nouvelles et annonces du Forum des Territoires",
+    "notFound": "Actualité introuvable",
+    "notFoundMessage": "L'actualité que vous recherchez n'existe pas.",
+    "backToNews": "Retour aux actualités",
+    "featured": "À la une",
+    "readTime": "min de lecture",
+    "photoGallery": "Galerie photos",
+    "share": "Partager",
+    "shareLabel": "Partager :",
+    "linkCopied": "Lien copié dans le presse-papier !",
+    "relatedNews": "Actualités similaires",
+    "readMoreLabel": "Lire la suite"
+  },
+  "packages": {
+    "title": "Packages Participants",
+    "subtitle": "Choisissez le package qui correspond à vos besoins et participez au Forum des Territoires 2026",
+    "popular": "Populaire",
+    "contactUs": "Nous contacter"
+  },
+  "reserver": {
+    "title": "Reserver ma place",
+    "subtitle": "Réservez votre place au Forum des Territoires 2026 et participez à cet événement exceptionnel",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "organization": "Organisation",
+    "participationType": "Type de participation",
+    "package": "Stand",
+    "numberOfPeople": "Nombre de personnes",
+    "selectPackage": "Sélectionner un stand",
+    "selectParticipation": "Sélectionner",
+    "confirmReservation": "Confirmer la réservation",
+    "processing": "Traitement...",
+    "reservationConfirmed": "Réservation confirmée !",
+    "confirmationEmail": "Vous recevrez un email de confirmation dans les prochaines minutes.",
+    "contactUs": "Contactez-nous",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "Email",
+    "followUs": "Suivez-nous",
+    "required": "*",
+    "errors": {
+      "fullNameRequired": "Le nom complet est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "participationTypeRequired": "Le type de participation est requis",
+      "packageRequired": "Le stand est requis",
+      "submitError": "Une erreur est survenue lors de la réservation",
+      "submitErrorGeneric": "Une erreur est survenue. Veuillez réessayer plus tard."
+    }
+  },
+  "ctaReservation": {
+    "title": "Réservez votre place dès maintenant",
+    "description": "Ne manquez pas cette opportunité unique de participer au Forum des Territoires 2026. Rejoignez des centaines de participants, investisseurs et décideurs pour construire ensemble l'avenir des territoires.",
+    "reservePlace": "Réserver ma place",
+    "secureReservation": "Réservation sécurisée • Annulation gratuite jusqu'à 30 jours avant l'événement",
+    "benefits": {
+      "access": "Accès à tous les panels et conférences",
+      "networking": "Réseautage avec 800+ participants",
+      "certificate": "Certificat de participation",
+      "gala": "Accès à la soirée de gala"
+    }
+  },
+  "ctaPartners": {
+    "title": "Devenez Partenaire du Forum",
+    "subtitle": "Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'une visibilité exceptionnelle et d'opportunités business uniques",
+    "packagesTitle": "Nos Packages de Partenariat",
+    "ready": "Prêt à devenir partenaire ?",
+    "description": "Contactez-nous pour discuter des opportunités de partenariat et découvrir comment votre organisation peut contribuer au succès du Forum des Territoires.",
+    "discoverPackages": "Découvrir les packages",
+    "contactUs": "Nous contacter",
+    "advantages": {
+      "visibility": {
+        "title": "Visibilité exceptionnelle",
+        "description": "Votre logo sur tous les supports de communication et une présence forte pendant l'événement"
+      },
+      "networking": {
+        "title": "Réseautage premium",
+        "description": "Accès exclusif aux sessions VIP et rencontres avec les décideurs et investisseurs"
+      },
+      "business": {
+        "title": "Opportunités business",
+        "description": "Mise en relation directe avec les territoires et projets structurants"
+      },
+      "brand": {
+        "title": "Image de marque",
+        "description": "Positionnement en tant qu'acteur engagé du développement territorial"
+      }
+    }
+  },
+  "partners": {
+    "title": "Nos Partenaires",
+    "pageTitle": "Devenez Partenaire",
+    "pageSubtitle": "Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'une visibilité exceptionnelle et d'opportunités business uniques",
+    "categoriesTitle": "Catégories de partenaires",
+    "categoriesSubtitle": "Différents types de partenariats pour répondre à vos objectifs stratégiques",
+    "institutional": {
+      "title": "Partenaires institutionnels",
+      "description": "Institutions publiques, collectivités territoriales, organisations internationales"
+    },
+    "financial": {
+      "title": "Partenaires financiers",
+      "description": "Banques de développement, fonds d'investissement, institutions financières"
+    },
+    "territories": {
+      "title": "Territoires participants",
+      "description": "Collectivités territoriales africaines et européennes"
+    },
+    "media": {
+      "title": "Partenaires médias",
+      "description": "Médias nationaux et internationaux couvrant l'événement"
+    },
+    "sponsoringTitle": "Offres de sponsoring",
+    "sponsoringSubtitle": "Choisissez le package qui correspond à vos objectifs stratégiques et bénéficiez d'avantages exclusifs",
+    "premium": "Premium",
+    "thematicTitle": "Partenariats thématiques exclusifs",
+    "thematicSubtitle": "Chaque partenariat inclut une exclusivité sectorielle et une visibilité ciblée",
+    "exclusiveBenefits": "Avantages exclusifs",
+    "learnMore": "En savoir plus",
+    "contactUs": "Nous contacter",
+    "becomePartner": "Devenir partenaire",
+    "becomePartnerDescription": "Contactez-nous pour discuter des opportunités de partenariat et découvrir comment votre organisation peut contribuer au succès du Forum des Territoires.",
+    "callNow": "Appeler maintenant",
+    "contactAlso": "Contactez-nous également par :"
+  },
+  "programme": {
+    "title": "Programme",
+    "subtitle": "Découvrez le programme complet du Forum des Territoires 2026",
+    "contactUs": "Nous contacter",
+    "contactSubtitle": "Des questions sur le programme ? Contactez-nous pour plus d'informations",
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone",
+    "contactForm": "Formulaire de contact"
+  },
+  "panelsInscription": {
+    "title": "Participez activement aux panels du Forum des Territoires 2026",
+    "description1": "Rejoignez les décideurs, experts et acteurs institutionnels pour des échanges stratégiques sur la coopération décentralisée, le financement des projets, la transition écologique et l'innovation territoriale.",
+    "description2": "Réservez dès maintenant votre place dans les panels thématiques qui façonneront l'avenir des territoires.",
+    "dates": "Dates",
+    "datesValue": "Du 3 au 6 juin 2026",
+    "location": "Lieu",
+    "locationValue": "DoubleTree by Hilton Brussels City",
+    "ceremony": "Cérémonie",
+    "ceremonyValue": "Au Parlement Bruxellois",
+    "personalInfo": "Informations personnelles",
+    "professionalInfo": "Informations professionnelles",
+    "participationChoice": "Choix de participation",
+    "reminder": "Rappel - Forum des Territoires 2023",
+    "day1": "Choix de participation (Jour 1)",
+    "day2": "Choix de participation (Jour 2)",
+    "day3": "Choix de participation (Jour 3 - Panels thématiques simultanés)",
+    "day4": "Choix de participation (Jour 4)",
+    "remarks": "Remarques / demandes spéciales",
+    "remarksPlaceholder": "Vos remarques ou demandes spéciales...",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "organization": "Organisation / Entreprise",
+    "role": "Fonction / Rôle",
+    "country": "Pays de résidence",
+    "selectCountry": "Sélectionner un pays",
+    "required": "*",
+    "submit": "Envoyer",
+    "submitting": "Envoi en cours...",
+    "confirmed": "Inscription confirmée !",
+    "confirmationMessage": "Votre inscription aux panels a été enregistrée avec succès. Vous recevrez un email de confirmation dans les prochaines minutes.",
+    "errors": {
+      "firstNameRequired": "Le prénom est requis",
+      "lastNameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Email invalide",
+      "phoneRequired": "Le téléphone est requis",
+      "organizationRequired": "L'organisation est requise",
+      "roleRequired": "La fonction est requise",
+      "countryRequired": "Le pays est requis",
+      "sessionsRequired": "Veuillez sélectionner au moins une session",
+      "submitError": "Une erreur est survenue lors de l'inscription",
+      "submitErrorGeneric": "Une erreur est survenue. Veuillez réessayer plus tard."
+    }
+  },
+  "stats": {
+    "title": "Impact & Chiffres Clés",
+    "subtitle": "Des résultats concrets et une portée internationale"
+  },
+  "aPropos": {
+    "pageTitle": "A propos",
+    "pageSubtitle": "Découvrez le Forum des Territoires et son engagement pour le développement durable",
+    "presentation": {
+      "title": "Présentation",
+      "subtitle": "Une plateforme stratégique de dialogue, d'investissement et de coopération décentralisée",
+      "forumTitle": "Le Forum des Territoires",
+      "paragraph1": "Le Forum des Territoires est une initiative majeure qui rassemble les décideurs publics, investisseurs privés, acteurs économiques et collectivités territoriales autour d'un objectif commun : créer des synergies durables pour le développement territorial.",
+      "paragraph2": "Cette plateforme stratégique émerge dans un contexte marqué par l'Acte III de la Décentralisation au Sénégal et la volonté de renforcer la coopération décentralisée entre l'Afrique et l'Europe.",
+      "paragraph3": "L'édition 2026 se concentre sur",
+      "paragraph3Highlight": "L'Habitat au coeur des Territoires",
+      "paragraph3End": ", mettant en lumière les enjeux cruciaux du logement et de l'aménagement urbain dans le développement territorial durable.",
+      "galleryAlt": "Galerie Forum des Territoires"
+    },
+    "theme": {
+      "title": "Thème du Forum",
+      "subtitle": "Le thème central qui structure l'ensemble des activités du Forum",
+      "centralTheme": "Thème central",
+      "themeQuote": "« L'habitat comme écosystème de vie, d'activités économiques et d'investissement territorial »",
+      "paragraph1": "Ce thème place l'habitat comme fondement du développement territorial, en lien direct avec la gouvernance locale, la justice sociale, l'accès au foncier, le financement, l'innovation et la résilience climatique.",
+      "paragraph2": "Il structure l'ensemble des panels, ateliers, projets présentés et opportunités de partenariats du Forum.",
+      "pillars": {
+        "governance": "Gouvernance locale",
+        "justice": "Justice sociale",
+        "land": "Accès au foncier",
+        "financing": "Financement",
+        "innovation": "Innovation",
+        "resilience": "Résilience climatique"
+      },
+      "ecosystem": {
+        "title": "Écosystème de vie",
+        "description": "L'habitat comme fondement du développement humain et social"
+      },
+      "economic": {
+        "title": "Activités économiques",
+        "description": "Création de valeur et génération d'emplois dans les territoires"
+      },
+      "investment": {
+        "title": "Investissement territorial",
+        "description": "Mobilisation des ressources pour un développement durable"
+      },
+      "vision": {
+        "label": "Vision :",
+        "text": "Construire des territoires compétitifs, inclusifs et durables grâce à des partenariats Nord-Sud structurants et orientés résultats."
+      },
+      "strategicPositioning": "Positionnement stratégique",
+      "domains": {
+        "institutional": {
+          "title": "Institutionnel",
+          "description": "Renforcement des capacités institutionnelles et de la gouvernance territoriale"
+        },
+        "economic": {
+          "title": "Économique",
+          "description": "Développement économique local et création de valeur ajoutée"
+        },
+        "investment": {
+          "title": "Investissement",
+          "description": "Mobilisation des investissements pour le développement territorial"
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Promotion de l'innovation et des technologies pour les territoires"
+        },
+        "territories": {
+          "title": "Territoires",
+          "description": "Valorisation et développement durable des territoires"
+        },
+        "cooperation": {
+          "title": "Coopération",
+          "description": "Partenariats structurants entre territoires du Nord et du Sud"
+        }
+      }
+    }
+  },
+  "objectifs": {
+    "title": "Objectifs du Forum",
+    "subtitle": "Nos objectifs stratégiques pour un développement territorial durable"
+  },
+  "participants": {
+    "title": "Profils des participants",
+    "subtitle": "Un réseau diversifié d'acteurs engagés pour le développement territorial",
+    "excellenceNetwork": "Un réseau d'excellence",
+    "excellenceDescription": "Rejoignez des centaines de participants venant de tous les horizons pour construire ensemble l'avenir des territoires",
+    "typesTitle": "Types de participants",
+    "types": {
+      "governments": "Gouvernements et collectivités territoriales",
+      "banks": "Banques, assurances et institutions financières",
+      "funds": "Fonds d'investissement et family offices",
+      "companies": "Grandes entreprises et multinationales",
+      "startups": "Fintechs, startups et PME innovantes",
+      "organizations": "Organisations internationales et partenaires techniques"
+    }
+  },
+  "partenairesSection": {
+    "title": "Pourquoi devenir sponsor ?",
+    "subtitle": "Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'avantages exclusifs",
+    "becomePartner": "Devenez partenaire du Forum",
+    "becomePartnerDescription": "Profitez d'une visibilité exceptionnelle et d'opportunités business uniques",
+    "conditionsTitle": "Conditions de partenariat",
+    "signature": {
+      "label": "À la signature du partenariat",
+      "description": "Paiement initial pour confirmer votre engagement"
+    },
+    "beforeEvent": {
+      "label": "Au plus tard 30 jours avant l'événement",
+      "description": "Solde du partenariat avant le début du Forum"
+    },
+    "custom": {
+      "title": "Partenariats sur mesure",
+      "description": "Possibilités de partenariats personnalisés sur demande"
+    },
+    "interested": "Intéressé par un partenariat ?",
+    "interestedDescription": "Contactez-nous pour découvrir nos packages de partenariat sur mesure",
+    "becomePartnerButton": "Devenir partenaire"
+  },
+  "exposition": {
+    "title": "Espaces d'exposition",
+    "subtitle": "Offrez à votre marque la visibilité qu'elle mérite !",
+    "maximizeVisibility": "Maximisez votre visibilité",
+    "maximizeDescription": "Choisissez l'espace d'exposition qui correspond à vos besoins et bénéficiez d'une visibilité exceptionnelle",
+    "premium": "Premium",
+    "included": "Inclus"
+  },
+  "communication": {
+    "title": "Communication & visibilité sponsors",
+    "subtitle": "Une stratégie de communication complète pour maximiser votre visibilité",
+    "maximizeBrand": "Visibilité maximale pour votre marque",
+    "maximizeBrandDescription": "Bénéficiez d'une stratégie de communication multi-canal pour toucher votre audience cible"
+  }
+}

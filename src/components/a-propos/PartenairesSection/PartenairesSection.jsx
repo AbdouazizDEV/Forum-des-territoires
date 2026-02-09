@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { PARTENAIRES_AVANTAGES } from '../../../services/partenairesService';
+import { translatePartenairesAvantages } from '../../../utils/partenairesTranslations';
 import { TrendingUp, Users, Briefcase, Target, BarChart3, Sparkles } from 'lucide-react';
 import partenaireImage from '../../../assets/images/partenaire1.jpg';
 
@@ -11,7 +15,12 @@ import partenaireImage from '../../../assets/images/partenaire1.jpg';
  * Section Partenaires du Forum - Style magnifique avec image
  */
 const PartenairesSection = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
+
+  const avantages = useMemo(() => {
+    return translatePartenairesAvantages(PARTENAIRES_AVANTAGES, t, i18n);
+  }, [t, i18n]);
 
   const avantagesIcons = [
     TrendingUp,
@@ -41,11 +50,11 @@ const PartenairesSection = () => {
             <Sparkles className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-dark">
-            Pourquoi devenir sponsor ?
+            {t('partenairesSection.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'avantages exclusifs
+            {t('partenairesSection.subtitle')}
           </p>
         </motion.div>
 
@@ -76,10 +85,10 @@ const PartenairesSection = () => {
                   className="text-center text-white mb-12"
                 >
                   <h3 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl mb-6">
-                    Devenez partenaire du Forum
+                    {t('partenairesSection.becomePartner')}
                   </h3>
                   <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
-                    Profitez d'une visibilité exceptionnelle et d'opportunités business uniques
+                    {t('partenairesSection.becomePartnerDescription')}
                   </p>
                 </motion.div>
               </div>
@@ -93,7 +102,7 @@ const PartenairesSection = () => {
 
         {/* Avantages en cards stylées */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {PARTENAIRES_AVANTAGES.map((avantage, index) => {
+          {avantages.map((avantage, index) => {
             const Icon = avantagesIcons[index];
             return (
               <motion.div
@@ -136,7 +145,7 @@ const PartenairesSection = () => {
         >
           <div className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 rounded-3xl p-8 md:p-12 border-2 border-primary/20">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-dark mb-8 text-center">
-              Conditions de partenariat
+              {t('partenairesSection.conditionsTitle')}
             </h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -226,10 +235,10 @@ const PartenairesSection = () => {
                     </div>
                     <div>
                       <h4 className="font-display font-bold text-lg text-dark mb-1">
-                        À la signature du partenariat
+                        {t('partenairesSection.signature.label')}
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Paiement initial pour confirmer votre engagement
+                        {t('partenairesSection.signature.description')}
                       </p>
                     </div>
                   </div>
@@ -240,10 +249,10 @@ const PartenairesSection = () => {
                     </div>
                     <div>
                       <h4 className="font-display font-bold text-lg text-dark mb-1">
-                        Au plus tard 30 jours avant l'événement
+                        {t('partenairesSection.beforeEvent.label')}
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Solde du partenariat avant le début du Forum
+                        {t('partenairesSection.beforeEvent.description')}
                       </p>
                     </div>
                   </div>
@@ -254,10 +263,10 @@ const PartenairesSection = () => {
                     </div>
                     <div>
                       <h4 className="font-display font-bold text-lg text-dark mb-1">
-                        Partenariats sur mesure
+                        {t('partenairesSection.custom.title')}
                       </h4>
                       <p className="text-gray-600 text-sm">
-                        Possibilités de partenariats personnalisés sur demande
+                        {t('partenairesSection.custom.description')}
                       </p>
                     </div>
                   </div>
@@ -274,19 +283,20 @@ const PartenairesSection = () => {
         >
           <div className="bg-gradient-to-br from-primary/10 via-accent-orange/10 to-secondary/10 rounded-3xl p-8 md:p-12 border-2 border-primary/20">
             <h3 className="font-display font-bold text-2xl md:text-3xl text-dark mb-4">
-              Intéressé par un partenariat ?
+              {t('partenairesSection.interested')}
             </h3>
             <p className="text-gray-600 text-lg mb-6 max-w-2xl mx-auto">
-              Contactez-nous pour découvrir nos packages de partenariat sur mesure
+              {t('partenairesSection.interestedDescription')}
             </p>
-            <motion.a
-              href="/partenaires"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-accent-orange text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-            >
-              Devenir partenaire
-            </motion.a>
+            <Link to="/partenaires">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-accent-orange text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+              >
+                {t('partenairesSection.becomePartnerButton')}
+              </motion.div>
+            </Link>
           </div>
         </motion.div>
       </motion.div>

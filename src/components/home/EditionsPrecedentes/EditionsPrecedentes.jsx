@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
@@ -8,15 +10,19 @@ import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { EDITIONS_DATA } from '../../../services/editionsService';
 import { Calendar, Users, TrendingUp, Award, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 import editionImage from '../../../assets/images/1000319723.jpg';
+import { translateEdition } from '../../../utils/editionTranslations';
 
 /**
  * Section Editions Precedentes - Basée sur les données réelles
  */
 const EditionsPrecedentes = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
 
-  // Utiliser les données réelles de l'édition 2025
-  const edition = EDITIONS_DATA[0];
+  // Utiliser les données réelles de l'édition 2025 avec traductions
+  const edition = useMemo(() => {
+    return translateEdition(EDITIONS_DATA[0], t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="editions-precedentes" background="default" padding="lg">
@@ -35,11 +41,11 @@ const EditionsPrecedentes = () => {
             <Award className="w-8 h-8 text-white" />
           </div>
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-dark">
-            Éditions Précédentes
+            {t('editions.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Retour sur les succès et réalisations de l'édition précédente
+            {t('editions.subtitle')}
           </p>
         </motion.div>
 
@@ -84,7 +90,7 @@ const EditionsPrecedentes = () => {
                 <div className="flex items-center space-x-2 mb-3">
                   <Sparkles className="w-5 h-5 text-primary" />
                   <h5 className="font-display font-semibold text-lg text-dark">
-                    Thème
+                    {t('editions.theme')}
                   </h5>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
@@ -97,22 +103,22 @@ const EditionsPrecedentes = () => {
                 <div className="text-center p-4 bg-gradient-to-br from-primary/10 to-accent-orange/10 rounded-xl border border-primary/20">
                   <Users className="w-6 h-6 text-primary mx-auto mb-2" />
                   <p className="font-bold text-xl text-dark">{edition.highlights[0]}</p>
-                  <p className="text-xs text-gray-600 mt-1">Participants</p>
+                  <p className="text-xs text-gray-600 mt-1">{t('stats.participants')}</p>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-br from-secondary/10 to-secondary-dark/10 rounded-xl border border-secondary/20">
                   <TrendingUp className="w-6 h-6 text-secondary mx-auto mb-2" />
                   <p className="font-bold text-xl text-dark">{edition.highlights[2]}</p>
-                  <p className="text-xs text-gray-600 mt-1">Projets</p>
+                  <p className="text-xs text-gray-600 mt-1">{t('stats.projects')}</p>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-br from-accent-orange/10 to-primary/10 rounded-xl border border-accent-orange/20">
                   <MapPin className="w-6 h-6 text-accent-orange mx-auto mb-2" />
                   <p className="font-bold text-xl text-dark">{edition.highlights[1]}</p>
-                  <p className="text-xs text-gray-600 mt-1">Territoires</p>
+                  <p className="text-xs text-gray-600 mt-1">{t('stats.countries')}</p>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-br from-accent-teal/10 to-secondary/10 rounded-xl border border-accent-teal/20">
                   <Award className="w-6 h-6 text-accent-teal mx-auto mb-2" />
                   <p className="font-bold text-xl text-dark">{edition.highlights[3]}</p>
-                  <p className="text-xs text-gray-600 mt-1">Partenariats</p>
+                  <p className="text-xs text-gray-600 mt-1">{t('editions.partnerships')}</p>
                 </div>
               </div>
 
@@ -144,10 +150,10 @@ const EditionsPrecedentes = () => {
                   </div>
                   <div>
                     <h3 className="font-display font-bold text-xl">
-                      Les Panels du Forum
+                      {t('editions.panels')}
                     </h3>
                     <p className="text-white/90 text-sm">
-                      {edition.panels.length} panels thématiques
+                      {edition.panels.length} {t('editions.thematicPanels')}
                     </p>
                   </div>
                 </div>
@@ -155,14 +161,14 @@ const EditionsPrecedentes = () => {
 
               {/* Liste des panels */}
               <div className="space-y-4">
-                {edition.panels.map((panel, index) => (
+                {edition.panels.map((panel) => (
                   <div key={panel.id} className="p-4 bg-gradient-to-br from-primary/5 to-accent-orange/5 rounded-xl border-l-4 border-primary">
                     <div className="flex items-start justify-between mb-2">
                       <h4 className="font-display font-bold text-lg text-dark">
-                        Panel {panel.id}
+                        {t('editions.panel')} {panel.id}
                       </h4>
                       <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">
-                        {panel.id === 1 ? 'Gouvernance' : 'Coopération'}
+                        {panel.id === 1 ? t('editions.governance') : t('editions.cooperation')}
                       </span>
                     </div>
                     <p className="text-gray-700 text-sm leading-tight mb-2">
@@ -170,7 +176,7 @@ const EditionsPrecedentes = () => {
                     </p>
                     <div className="flex items-center space-x-2 text-gray-600 text-xs">
                       <Users className="w-3 h-3" />
-                      <span>{panel.speakers.length} intervenants</span>
+                      <span>{panel.speakers.length} {t('editions.speakersCount')}</span>
                     </div>
                   </div>
                 ))}
@@ -199,10 +205,10 @@ const EditionsPrecedentes = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
               <h3 className="font-display font-bold text-2xl md:text-3xl mb-2">
-                Moment fort de l'édition 2025
+                {t('editions.highlightMoment')}
               </h3>
               <p className="text-white/90 text-sm md:text-base">
-                Une rencontre historique pour le développement territorial
+                {t('editions.historicMeeting')}
               </p>
             </div>
           </div>
@@ -214,7 +220,7 @@ const EditionsPrecedentes = () => {
         >
           <Link to="/editions-precedentes">
             <Button variant="primary" size="lg" className="px-8 group">
-              En savoir plus sur l'édition précédente
+              {t('editions.learnMore')}
               <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

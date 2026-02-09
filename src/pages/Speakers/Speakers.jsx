@@ -1,17 +1,31 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { User, Briefcase, Globe, Award, Sparkles } from 'lucide-react';
 import { SPEAKERS_DATA } from '../../services/speakersService';
+import { translateSpeakerRole, translateSpeakerBio, translateSpeakerTitle } from '../../utils/speakerTranslations';
 
 /**
  * Page Speakers - Liste complète des speakers avec style magnifique
  */
 const Speakers = () => {
+  const { t, i18n } = useTranslation();
   const { ref: refHero, controls: controlsHero } = useScrollAnimation();
   const { ref: refSpeakers, controls: controlsSpeakers } = useScrollAnimation();
+
+  // Traduire les speakers
+  const translatedSpeakers = useMemo(() => {
+    return SPEAKERS_DATA.map(speaker => ({
+      ...speaker,
+      translatedTitle: translateSpeakerTitle(speaker.title, t),
+      translatedRole: translateSpeakerRole(speaker.role, t, i18n),
+      translatedBio: speaker.bio ? translateSpeakerBio(speaker.bio, t, i18n) : ''
+    }));
+  }, [t, i18n]);
 
   return (
     <div className="pt-20">
@@ -30,12 +44,11 @@ const Speakers = () => {
               <Award className="w-10 h-10 text-white" />
             </div>
             <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
-              Nos Speakers
+              {t('speakers.pageTitle')}
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-white via-accent-orange to-white mx-auto mb-6"></div>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
-              Découvrez nos intervenants experts qui partageront leur vision et leur expertise 
-              pour façonner l'avenir des territoires
+              {t('speakers.pageSubtitle')}
             </p>
           </motion.div>
         </motion.div>
@@ -63,16 +76,16 @@ const Speakers = () => {
               <Sparkles className="w-8 h-8 text-white" />
             </div>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
-              Tous nos intervenants
+              {t('speakers.allSpeakers')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-4"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {SPEAKERS_DATA.length} experts et décideurs vous attendent au Forum des Territoires 2026
+              {translatedSpeakers.length} {t('speakers.expertsWaiting')}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {SPEAKERS_DATA.map((speaker, index) => (
+            {translatedSpeakers.map((speaker, index) => (
               <motion.div
                 key={speaker.id}
                 variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
@@ -106,7 +119,10 @@ const Speakers = () => {
                       <span className="text-xs font-bold text-gray-700">{speaker.country}</span>
                     </div> */}
                     {/* Badge titre si important */}
-                    {(speaker.role.includes('Président') || speaker.role.includes('Ministre') || speaker.role.includes('Directeur')) && (
+                    {(speaker.role.includes('Président') || speaker.role.includes('President') || 
+                      speaker.role.includes('Ministre') || speaker.role.includes('Minister') || 
+                      speaker.role.includes('Directeur') || speaker.role.includes('Director') ||
+                      speaker.role.includes('Gouverneur') || speaker.role.includes('Governor')) && (
                       <div className="absolute top-3 left-3 bg-gradient-to-r from-accent-orange to-primary px-3 py-1.5 rounded-full shadow-lg">
                         <Award className="w-3.5 h-3.5 text-white inline mr-1" />
                         <span className="text-xs font-bold text-white">VIP</span>
@@ -118,15 +134,15 @@ const Speakers = () => {
                   <div className="p-6 bg-white relative">
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary"></div>
                     <h3 className="font-display font-bold text-lg md:text-xl mb-2 text-dark leading-tight">
-                      {speaker.title} {speaker.name}
+                      {speaker.translatedTitle} {speaker.name}
                     </h3>
                     <div className="flex items-start justify-center space-x-2 mb-3 text-primary min-h-[3rem]">
                       <Briefcase className="w-4 h-4 flex-shrink-0 mt-1" />
-                      <p className="text-sm font-semibold text-center leading-tight">{speaker.role}</p>
+                      <p className="text-sm font-semibold text-center leading-tight">{speaker.translatedRole}</p>
                     </div>
-                    {speaker.bio && (
+                    {speaker.translatedBio && (
                       <p className="text-gray-600 text-xs leading-relaxed line-clamp-3 mb-2">
-                        {speaker.bio}
+                        {speaker.translatedBio}
                       </p>
                     )}
                     {/* Ligne décorative */}

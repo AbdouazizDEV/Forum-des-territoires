@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { NAVIGATION_LINKS } from '../../../utils/constants';
 import logoImage from '../../../assets/images/Logo Forum 1.png';
 import Button from '../../common/Button/Button';
@@ -11,10 +12,30 @@ import Button from '../../common/Button/Button';
  * Conforme à la maquette avec boutons "Reserver" et "Devenir partenaire"
  */
 const Header = () => {
+  const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
   const dropdownRef = useRef(null);
+
+  // Navigation links avec traductions
+  const navigationLinks = [
+    { 
+      path: "/a-propos", 
+      label: t('header.navigation.about'),
+      submenu: [
+        { path: "/a-propos#presentation", label: t('header.navigation.presentation') },
+        { path: "/a-propos#objectifs", label: t('header.navigation.objectives') },
+        { path: "/a-propos#participants", label: t('header.navigation.participants') }
+      ]
+    },
+    { path: "/programme", label: t('header.navigation.program') },
+    { path: "/speakers", label: t('header.navigation.speakers') },
+    { path: "/editions-precedentes", label: t('header.navigation.previousEditions') },
+    { path: "/actualites", label: t('header.navigation.news') },
+    { path: "/partenaires", label: t('header.navigation.partners') },
+    { path: "/participer", label: t('header.navigation.participate') }
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -75,7 +96,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
-            {NAVIGATION_LINKS.map((link) => (
+            {navigationLinks.map((link) => (
               <div key={link.path} className="relative" ref={link.submenu ? dropdownRef : null}>
                 {link.submenu ? (
                   <>
@@ -169,7 +190,7 @@ const Header = () => {
                 size="md"
                   className="px-4 transition-all duration-200"
               >
-                Reserver
+                {t('common.reserve')}
               </Button>
             </Link>
             </motion.div>
@@ -180,7 +201,7 @@ const Header = () => {
                 size="md"
                   className="px-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
               >
-                Devenir partenaire
+                {t('common.becomePartner')}
               </Button>
             </Link>
             </motion.div>
@@ -213,7 +234,7 @@ const Header = () => {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden border-t border-gray-200 py-4"
             >
-              {NAVIGATION_LINKS.map((link, index) => (
+              {navigationLinks.map((link, index) => (
                 <div key={link.path}>
                   {link.submenu ? (
                     <div>
@@ -297,7 +318,7 @@ const Header = () => {
                     size="md"
                     className="w-full mb-2"
                   >
-                    Reserver
+                    {t('common.reserve')}
                   </Button>
                 </Link>
                 <Link to="/contact?participationType=partenaire" onClick={closeMobileMenu}>
@@ -306,7 +327,7 @@ const Header = () => {
                     size="md"
                     className="w-full border-primary text-primary hover:bg-primary hover:text-white"
                   >
-                    Devenir partenaire
+                    {t('common.becomePartner')}
                   </Button>
                 </Link>
               </div>

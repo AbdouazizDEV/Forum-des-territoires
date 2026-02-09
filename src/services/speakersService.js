@@ -254,15 +254,6 @@ export const SPEAKERS_DATA = [
     image: HalewijnEnabelImage
   },
   {
-    id: 24,
-    name: "Denis Mathen",
-    title: "Mr",
-    role: "GOUVERNEUR de la Province de Namur",
-    country: "Sénégal",
-    bio: "",
-    image: DenisMathenImage
-  }, 
-  {
     id: 25,
     name: "Idrissa Diop",
     title: "Mr",

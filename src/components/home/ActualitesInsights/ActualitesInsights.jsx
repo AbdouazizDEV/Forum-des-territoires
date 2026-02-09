@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../common/Section/Section';
 import Card from '../../common/Card/Card';
 import Button from '../../common/Button/Button';
@@ -7,13 +9,19 @@ import { fadeInUp, staggerContainer } from '../../../utils/animations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
 import { Newspaper, Calendar, ArrowRight } from 'lucide-react';
 import { getFeaturedActualites } from '../../../services/actualitesService';
+import { translateActualites } from '../../../utils/actualiteTranslations';
 
 /**
  * Section Actualites & Insights
  */
 const ActualitesInsights = () => {
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
-  const actualites = getFeaturedActualites().slice(0, 3);
+  
+  // Traduire les actualités
+  const actualites = useMemo(() => {
+    return translateActualites(getFeaturedActualites().slice(0, 3), t, i18n);
+  }, [t, i18n]);
 
   return (
     <Section id="actualites-insights" background="gradient" padding="lg">
@@ -29,11 +37,11 @@ const ActualitesInsights = () => {
           className="text-center mb-12"
         >
           <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-4 text-dark">
-            Actualités & Insights
+            {t('actualites.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent-orange to-primary mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Restez informé des dernières actualités et insights du Forum
+            {t('actualites.subtitle')}
           </p>
         </motion.div>
 
@@ -87,7 +95,7 @@ const ActualitesInsights = () => {
                     to={`/actualites/${actualite.id}`}
                     className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors group/link"
                   >
-                    Lire la suite
+                    {t('actualites.readMore')}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -102,7 +110,7 @@ const ActualitesInsights = () => {
         >
           <Link to="/actualites">
             <Button variant="secondary" size="lg" className="px-8">
-              Voir toutes les actualités
+              {t('actualites.seeAll')}
             </Button>
           </Link>
         </motion.div>

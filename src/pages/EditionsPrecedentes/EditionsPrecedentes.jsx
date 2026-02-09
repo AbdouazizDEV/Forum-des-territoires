@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../components/common/Section/Section';
 import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
@@ -8,6 +10,7 @@ import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from '../../utils
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { EDITIONS_DATA } from '../../services/editionsService';
 import { Calendar, Users, Award, TrendingUp, MapPin, Mic, User, Quote, ArrowRight, Sparkles } from 'lucide-react';
+import { translateEdition } from '../../utils/editionTranslations';
 // Import des images pour le carousel
 import galleryImage1 from '../../assets/images/img2.jpg';
 import galleryImage2 from '../../assets/images/img3.jpg';
@@ -20,6 +23,7 @@ import galleryImage6 from '../../assets/images/img7.jpg';
  * Page Editions précédentes - Style magnifique avec données réelles
  */
 const EditionsPrecedentes = () => {
+  const { t, i18n } = useTranslation();
   const { ref: refHero, controls: controlsHero } = useScrollAnimation();
   const { ref: refContent, controls: controlsContent } = useScrollAnimation();
 
@@ -33,7 +37,10 @@ const EditionsPrecedentes = () => {
     galleryImage6
   ];
 
-  const edition = EDITIONS_DATA[0]; // Édition 2025
+  // Édition 2025 avec traductions
+  const edition = useMemo(() => {
+    return translateEdition(EDITIONS_DATA[0], t, i18n);
+  }, [t, i18n]);
 
   return (
     <div className="pt-20">
@@ -52,11 +59,11 @@ const EditionsPrecedentes = () => {
               <Award className="w-10 h-10 text-white" />
             </div>
             <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl mb-6">
-              Éditions précédentes
+              {t('editions.pageTitle')}
             </h1>
             <div className="w-32 h-1 bg-gradient-to-r from-white via-accent-orange to-white mx-auto mb-6"></div>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
-              Retour sur les moments forts du Forum des Territoires
+              {t('editions.pageSubtitle')}
             </p>
           </motion.div>
         </motion.div>
@@ -113,7 +120,7 @@ const EditionsPrecedentes = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-display font-bold text-2xl md:text-3xl text-dark mb-4">
-                      Thème Général
+                      {t('editions.generalTheme')}
                     </h3>
                     <p className="text-xl md:text-2xl font-semibold text-gray-800 leading-relaxed mb-4">
                       {edition.theme}
@@ -135,7 +142,7 @@ const EditionsPrecedentes = () => {
           >
             <div className="text-center mb-12">
               <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
-                Les panels du Forum
+                {t('editions.forumPanels')}
               </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto"></div>
             </div>
@@ -166,7 +173,7 @@ const EditionsPrecedentes = () => {
                           </h5>
                           <div className="flex items-center space-x-2 text-white/90">
                             <User className="w-4 h-4" />
-                            <span className="text-sm">Modéré par {panel.moderator}</span>
+                            <span className="text-sm">{t('editions.moderatedBy')} {panel.moderator}</span>
                           </div>
                         </div>
                       </div>
@@ -182,7 +189,7 @@ const EditionsPrecedentes = () => {
                       <div>
                         <h6 className="font-display font-semibold text-lg text-dark mb-3 flex items-center space-x-2">
                           <Users className="w-5 h-5 text-primary" />
-                          <span>Intervenants</span>
+                          <span>{t('editions.speakers')}</span>
                         </h6>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {panel.speakers.map((speaker, idx) => (
@@ -225,7 +232,7 @@ const EditionsPrecedentes = () => {
           >
             <div className="text-center mb-8">
               <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-dark">
-                Revivez les moments forts du Forum
+                {t('editions.reliveMoments')}
               </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-accent-orange to-secondary mx-auto mb-6"></div>
             </div>
@@ -235,7 +242,7 @@ const EditionsPrecedentes = () => {
             <div className="text-center mt-8">
               <Link to="/galerie">
                 <Button variant="primary" size="lg" className="group">
-                  Voir la Galerie
+                  {t('editions.viewGallery')}
                   <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

@@ -1,11 +1,14 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 import Section from '../../components/common/Section/Section';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Calendar, ArrowLeft, Newspaper, Share2, Clock } from 'lucide-react';
 import { getActualiteById, getAllActualites } from '../../services/actualitesService';
 import { useEffect } from 'react';
+import { translateActualite, translateActualites } from '../../utils/actualiteTranslations';
 
 /**
  * Page de détails d'une actualité
@@ -13,12 +16,27 @@ import { useEffect } from 'react';
 const ActualiteDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const { ref, controls } = useScrollAnimation();
-  const actualite = getActualiteById(id);
-  const allActualites = getAllActualites();
-  const relatedActualites = allActualites
-    .filter(actu => actu.id !== parseInt(id) && actu.category === actualite?.category)
-    .slice(0, 3);
+  
+  // Récupérer et traduire l'actualité
+  const actualiteRaw = getActualiteById(id);
+  const actualite = useMemo(() => {
+    return actualiteRaw ? translateActualite(actualiteRaw, t, i18n) : null;
+  }, [actualiteRaw, t, i18n]);
+  
+  // Récupérer et traduire les actualités similaires
+  const allActualitesRaw = getAllActualites();
+  const allActualites = useMemo(() => {
+    return translateActualites(allActualitesRaw, t, i18n);
+  }, [t, i18n]);
+  
+  const relatedActualites = useMemo(() => {
+    if (!actualite) return [];
+    return allActualites
+      .filter(actu => actu.id !== parseInt(id) && actu.category === actualite.category)
+      .slice(0, 3);
+  }, [actualite, allActualites, id]);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -29,14 +47,14 @@ const ActualiteDetail = () => {
     return (
       <Section id="actualite-detail" background="default" padding="lg">
         <div className="max-w-4xl mx-auto text-center py-20">
-          <h1 className="text-4xl font-bold text-dark mb-4">Actualité introuvable</h1>
-          <p className="text-gray-600 mb-8">L'actualité que vous recherchez n'existe pas.</p>
+          <h1 className="text-4xl font-bold text-dark mb-4">{t('actualites.notFound')}</h1>
+          <p className="text-gray-600 mb-8">{t('actualites.notFoundMessage')}</p>
           <Link
             to="/actualites"
             className="inline-flex items-center text-primary hover:text-primary-dark font-medium"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux actualités
+            {t('actualites.backToNews')}
           </Link>
         </div>
       </Section>
@@ -72,7 +90,7 @@ const ActualiteDetail = () => {
                 className="inline-flex items-center text-white/90 hover:text-white mb-6 transition-colors group"
               >
                 <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-                Retour aux actualités
+                {t('actualites.backToNews')}
               </Link>
               
               <div className="flex items-center space-x-4 mb-4">
@@ -81,7 +99,7 @@ const ActualiteDetail = () => {
                 </span>
                 {actualite.featured && (
                   <span className="px-4 py-2 bg-accent-orange/90 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
-                    À la une
+                    {t('actualites.featured')}
                   </span>
                 )}
               </div>
@@ -97,7 +115,7 @@ const ActualiteDetail = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="w-5 h-5" />
-                  <span>5 min de lecture</span>
+                  <span>5 {t('actualites.readTime')}</span>
                 </div>
               </div>
             </motion.div>
@@ -131,7 +149,7 @@ const ActualiteDetail = () => {
               variants={fadeInUp}
               className="mb-12"
             >
-              <h2 className="text-2xl font-bold text-dark mb-6">Galerie photos</h2>
+              <h2 className="text-2xl font-bold text-dark mb-6">{t('actualites.photoGallery')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {actualite.images.map((image, index) => (
                   <motion.div
@@ -171,7 +189,7 @@ const ActualiteDetail = () => {
           >
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center space-x-4">
-                <span className="text-gray-600 font-medium">Partager :</span>
+                <span className="text-gray-600 font-medium">{t('actualites.shareLabel')}</span>
                 <button
                   onClick={() => {
                     if (navigator.share) {
@@ -182,13 +200,13 @@ const ActualiteDetail = () => {
                       });
                     } else {
                       navigator.clipboard.writeText(window.location.href);
-                      alert('Lien copié dans le presse-papier !');
+                      alert(t('actualites.linkCopied'));
                     }
                   }}
                   className="flex items-center space-x-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
                 >
                   <Share2 className="w-4 h-4" />
-                  <span>Partager</span>
+                  <span>{t('actualites.share')}</span>
                 </button>
               </div>
               <Link
@@ -196,7 +214,7 @@ const ActualiteDetail = () => {
                 className="inline-flex items-center text-primary hover:text-primary-dark font-medium"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Retour aux actualités
+                {t('actualites.backToNews')}
               </Link>
             </div>
           </motion.div>
@@ -207,7 +225,7 @@ const ActualiteDetail = () => {
               variants={fadeInUp}
               className="border-t border-gray-200 pt-12"
             >
-              <h2 className="text-3xl font-bold text-dark mb-8">Actualités similaires</h2>
+              <h2 className="text-3xl font-bold text-dark mb-8">{t('actualites.relatedNews')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedActualites.map((relatedActu, index) => (
                   <motion.div
