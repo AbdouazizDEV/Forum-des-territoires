@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Globe, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 /**
  * Bouton flottant pour changer de langue
@@ -91,17 +91,9 @@ const LanguageSwitcher = () => {
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
+          className="relative z-10"
         >
-          <Globe size={28} className="relative z-10" />
-        </motion.div>
-        
-        {/* Badge avec la langue actuelle */}
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-primary"
-        >
-          <span className="text-xs font-bold text-primary">{currentLang.code.toUpperCase()}</span>
+          <span className="text-4xl">{currentLang.flag}</span>
         </motion.div>
       </motion.button>
     </div>

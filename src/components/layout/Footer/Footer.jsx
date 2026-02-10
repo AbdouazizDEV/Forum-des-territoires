@@ -135,7 +135,7 @@ const Footer = () => {
             © {new Date().getFullYear()} {t('site.name')}. {t('common.allRightsReserved')}.
           </p>
           <p className="text-gray-400 text-sm">
-            {t('common.poweredBy')} <a href="https://abdouazizdiop.com/" target="_blank" rel="noopener noreferrer"><span className="text-primary font-semibold">KAHFI SN</span></a>
+            {t('common.poweredBy')} <a href="https://digitalis-sn.com/" target="_blank" rel="noopener noreferrer"><span className="text-primary font-semibold">DIGITALIS SN</span></a>
           </p>
         </motion.div>
       </div>

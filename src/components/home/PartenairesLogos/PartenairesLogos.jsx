@@ -23,10 +23,10 @@ import logo18 from '../../../assets/images/partenaire/R.png';
 import logo19 from '../../../assets/images/partenaire/S.png';
 import logo20 from '../../../assets/images/partenaire/T.png';
 import logo21 from '../../../assets/images/partenaire/U.png';
-import logo22 from '../../../assets/images/partenaire/V.png';/* 
-import logo23 from '../../../assets/images/partenaire/W.png';
-import logo24 from '../../../assets/images/partenaire/X.png';
-import logo25 from '../../../assets/images/partenaire/Y.png';
+import logo22 from '../../../assets/images/partenaire/V.png';
+import logo23 from '../../../assets/images/partenaire/W.jpeg'; 
+import logo24 from '../../../assets/images/partenaire/X.jpeg';
+/*import logo25 from '../../../assets/images/partenaire/Y.png';
 import logo26 from '../../../assets/images/partenaire/Z.png';
 import logo27 from '../../../assets/images/partenaire/AA.png'; */
 
@@ -39,7 +39,7 @@ const PartenairesLogos = () => {
   const partnerLogos = [
     logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
     logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20,
-    logo21, logo22
+    logo21, logo22, logo23, logo24
   ];
 
   // Dupliquer les logos pour un défilement infini fluide
