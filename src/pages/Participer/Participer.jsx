@@ -5,7 +5,7 @@ import Card from '../../components/common/Card/Card';
 import Button from '../../components/common/Button/Button';
 import { fadeInUp, staggerContainer } from '../../utils/animations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { Users, Building, Handshake, Target } from 'lucide-react';
+import { Users, Building, Handshake, Target, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
@@ -29,6 +29,20 @@ const Participer = () => {
       price: "",
       redirectTo: "/reserver",
       redirectParams: { participationType: "participant" }
+    },
+    {
+      icon: Eye,
+      title: t('participer.visiteur.title'),
+      description: t('participer.visiteur.description'),
+      benefits: [
+        t('participer.visiteur.benefits.access'),
+        t('participer.visiteur.benefits.visits'),
+        t('participer.visiteur.benefits.badge'),
+        t('participer.visiteur.benefits.networking')
+      ],
+      price: t('participer.visiteur.price'),
+      redirectTo: "/reserver",
+      redirectParams: { participationType: "visiteur", package: "Accès Forum & Visites" }
     },
     {
       icon: Building,

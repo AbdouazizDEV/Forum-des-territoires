@@ -137,6 +137,17 @@
       },
       "price": "Sur invitation"
     },
+    "visiteur": {
+      "title": "Visiteur",
+      "description": "Réservez votre accès au forum et profitez des visites, puis recevez votre badge stylé par e-mail.",
+      "benefits": {
+        "access": "Accès au forum",
+        "visits": "Accès aux visites guidées",
+        "badge": "Badge visiteur (carte stylée)",
+        "networking": "Temps de rencontres"
+      },
+      "price": "Sur réservation"
+    },
     "readyToParticipate": "Prêt à participer ?",
     "readyDescription": "Rejoignez-nous au Forum des Territoires 2026 et contribuez à bâtir ensemble les villes et territoires de demain.",
     "reservePlace": "Reserver ma place",
@@ -373,6 +384,7 @@
     "processing": "Traitement...",
     "reservationConfirmed": "Réservation confirmée !",
     "confirmationEmail": "Vous recevrez un email de confirmation dans les prochaines minutes.",
+    "visitorBadgeMessage": "Vous recevrez votre badge-visiteur par e-mail (pensez à vérifier vos spams).",
     "contactUs": "Contactez-nous",
     "phoneLabel": "Téléphone",
     "emailLabel": "Email",

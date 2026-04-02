@@ -34,6 +34,10 @@ const Reserver = () => {
     { id: 'vip', name: i18n.language === 'en' ? 'VIP Stand' : 'Stand VIP' }
   ];
 
+  // Package envoyé au backend pour les réservations "visiteur"
+  // On le garde en dur pour matcher l'exemple déjà testé côté backend.
+  const visitorPackage = 'Accès Forum & Visites';
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -52,13 +56,18 @@ const Reserver = () => {
     if (packageIdFromUrl) {
       setFormData(prev => ({ ...prev, package: packageIdFromUrl }));
     }
-  }, [participationTypeFromUrl, packageIdFromUrl]);
+    // Cas visiteur : si aucun package n'est fourni en URL, on le fixe automatiquement
+    if (participationTypeFromUrl === 'visiteur' && !packageIdFromUrl) {
+      setFormData(prev => ({ ...prev, package: visitorPackage }));
+    }
+  }, [participationTypeFromUrl, packageIdFromUrl, visitorPackage]);
 
   // Déterminer si le champ package doit être affiché (uniquement pour les exposants)
   const showPackageField = formData.participationType === 'exposant';
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedParticipationType, setSubmittedParticipationType] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,7 +77,12 @@ const Reserver = () => {
       setFormData(prev => ({ 
         ...prev, 
         [name]: value,
-        package: value === 'exposant' ? prev.package : '' // Garder le package si on reste exposant
+        package:
+          value === 'exposant'
+            ? (prev.participationType === 'exposant' ? prev.package : '')
+            : value === 'visiteur'
+              ? visitorPackage
+              : '' // Pour les autres types, on repasse en "non spécifié"
       }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
@@ -109,7 +123,9 @@ const Reserver = () => {
       // Trouver le nom du package à partir de l'ID
       let packageName = '';
       
-      if (formData.package) {
+      if (formData.participationType === 'visiteur') {
+        packageName = formData.package || visitorPackage;
+      } else if (formData.package) {
         if (formData.participationType === 'exposant') {
           const selectedPackage = standPackages.find(pkg => pkg.id === formData.package);
           packageName = selectedPackage ? selectedPackage.name : formData.package;
@@ -149,6 +165,7 @@ const Reserver = () => {
 
       if (data.success) {
         setIsSubmitted(true);
+        setSubmittedParticipationType(formData.participationType);
         // Reset form after 3 seconds
         setTimeout(() => {
           setIsSubmitted(false);
@@ -161,6 +178,7 @@ const Reserver = () => {
             package: '',
             numberOfPeople: '1'
           });
+          setSubmittedParticipationType('');
         }, 3000);
       } else {
         // Gérer les erreurs de validation du backend
@@ -228,6 +246,11 @@ const Reserver = () => {
             <p className="text-green-700">
               {t('reserver.confirmationEmail')}
             </p>
+            {submittedParticipationType === 'visiteur' && (
+              <p className="text-green-700 mt-2">
+                {t('reserver.visitorBadgeMessage')}
+              </p>
+            )}
           </motion.div>
         ) : (
           <motion.form
@@ -346,6 +369,7 @@ const Reserver = () => {
                 >
                   <option value="">{t('reserver.selectParticipation')}</option>
                   <option value="participant">{t('participer.participant.title')}</option>
+                    <option value="visiteur">{t('participer.visiteur.title')}</option>
                   <option value="exposant">{t('participer.exposant.title')}</option>
                   <option value="partenaire">{t('participer.partenaire.title')}</option>
                   <option value="speaker">{t('participer.speaker.title')}</option>

@@ -137,6 +137,17 @@
       },
       "price": "By invitation"
     },
+    "visiteur": {
+      "title": "Visitor",
+      "description": "Book your access to the forum and enjoy the guided visits, then receive your stylish badge by email.",
+      "benefits": {
+        "access": "Access to the forum",
+        "visits": "Access to guided visits",
+        "badge": "Visitor badge (stylish card)",
+        "networking": "Light networking time"
+      },
+      "price": "On reservation"
+    },
     "readyToParticipate": "Ready to participate?",
     "readyDescription": "Join us at the Territories Forum 2026 and help build together the cities and territories of tomorrow.",
     "reservePlace": "Reserve my place",
@@ -373,6 +384,7 @@
     "processing": "Processing...",
     "reservationConfirmed": "Reservation confirmed!",
     "confirmationEmail": "You will receive a confirmation email in the next few minutes.",
+    "visitorBadgeMessage": "You will receive your visitor badge by email (please check your spam folder).",
     "contactUs": "Contact us",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
