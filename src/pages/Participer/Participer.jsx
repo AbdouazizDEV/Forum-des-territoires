@@ -31,20 +31,6 @@ const Participer = () => {
       redirectParams: { participationType: "participant" }
     },
     {
-      icon: Eye,
-      title: t('participer.visiteur.title'),
-      description: t('participer.visiteur.description'),
-      benefits: [
-        t('participer.visiteur.benefits.access'),
-        t('participer.visiteur.benefits.visits'),
-        t('participer.visiteur.benefits.badge'),
-        t('participer.visiteur.benefits.networking')
-      ],
-      price: t('participer.visiteur.price'),
-      redirectTo: "/reserver",
-      redirectParams: { participationType: "visiteur", package: "Accès Forum & Visites" }
-    },
-    {
       icon: Building,
       title: t('participer.exposant.title'),
       description: t('participer.exposant.description'),
@@ -85,6 +71,20 @@ const Participer = () => {
       price: t('participer.speaker.price'),
       redirectTo: "/contact",
       redirectParams: {}
+    },
+    {
+      icon: Eye,
+      title: t('participer.visiteur.title'),
+      description: t('participer.visiteur.description'),
+      benefits: [
+        t('participer.visiteur.benefits.access'),
+        t('participer.visiteur.benefits.visits'),
+        t('participer.visiteur.benefits.badge'),
+        t('participer.visiteur.benefits.networking')
+      ],
+      price: t('participer.visiteur.price'),
+      redirectTo: "/reserver",
+      redirectParams: { participationType: "visiteur", package: "Accès Forum & Visites" }
     }
   ];
 
