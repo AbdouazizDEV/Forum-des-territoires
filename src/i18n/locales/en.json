@@ -138,13 +138,15 @@
       "price": "By invitation"
     },
     "visiteur": {
-      "title": "Visitor",
-      "description": "Book your access to the forum and enjoy the guided visits, then receive your stylish badge by email.",
+      "title": "Visitor Pass – Exhibitor Access",
+      "description": "Meet exhibitors directly and explore the opportunities the forum has to offer.",
+      "descriptionSecondary": "Book your access now and receive your personalized badge by email.",
+      "benefitsHeading": "What your pass includes:",
       "benefits": {
-        "access": "Access to the forum",
-        "visits": "Access to guided visits",
-        "badge": "Visitor badge (stylish card)",
-        "networking": "Light networking time"
+        "access": "Full access to the forum",
+        "visits": "Participation in guided visits",
+        "badge": "Personalized visitor badge (stylish design)",
+        "networking": "Dedicated time to meet exhibitors"
       },
       "price": "On reservation"
     },

@@ -138,13 +138,15 @@
       "price": "Sur invitation"
     },
     "visiteur": {
-      "title": "Visiteur",
-      "description": "Réservez votre accès au forum et profitez des visites, puis recevez votre badge stylé par e-mail.",
+      "title": "Pass Visiteur – Accès Exposants",
+      "description": "Rencontrez directement les exposants et explorez les opportunités du forum.",
+      "descriptionSecondary": "Réservez dès maintenant votre accès et recevez votre badge personnalisé par e-mail.",
+      "benefitsHeading": "Ce que comprend votre pass :",
       "benefits": {
-        "access": "Accès au forum",
-        "visits": "Accès aux visites guidées",
-        "badge": "Badge visiteur (carte stylée)",
-        "networking": "Temps de rencontres"
+        "access": "Accès complet au forum",
+        "visits": "Participation aux visites guidées",
+        "badge": "Badge visiteur personnalisé (design stylé)",
+        "networking": "Temps dédié aux rencontres avec les exposants"
       },
       "price": "Sur réservation"
     },

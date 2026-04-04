@@ -73,9 +73,11 @@ const Participer = () => {
       redirectParams: {}
     },
     {
+      id: 'visiteur',
       icon: Eye,
       title: t('participer.visiteur.title'),
       description: t('participer.visiteur.description'),
+      descriptionSecondary: t('participer.visiteur.descriptionSecondary'),
       benefits: [
         t('participer.visiteur.benefits.access'),
         t('participer.visiteur.benefits.visits'),
@@ -125,7 +127,19 @@ const Participer = () => {
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-display font-bold text-2xl mb-2">{type.title}</h3>
-                  <p className="text-gray-600 mb-4">{type.description}</p>
+                  {type.id === 'visiteur' ? (
+                    <div className="text-gray-600 mb-4 space-y-3">
+                      <p>{type.description}</p>
+                      <p>{type.descriptionSecondary}</p>
+                    </div>
+                  ) : (
+                    <p className="text-gray-600 mb-4">{type.description}</p>
+                  )}
+                  {type.id === 'visiteur' && (
+                    <p className="text-sm font-semibold text-gray-800 mb-2">
+                      {t('participer.visiteur.benefitsHeading')}
+                    </p>
+                  )}
                   <ul className="space-y-2 mb-6">
                     {type.benefits.map((benefit, idx) => (
                       <li key={`benefit-${index}-${idx}`} className="flex items-start space-x-2">
