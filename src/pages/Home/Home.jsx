@@ -9,7 +9,6 @@ import EditionsPrecedentes from '../../components/home/EditionsPrecedentes/Editi
 import ActualitesInsights from '../../components/home/ActualitesInsights/ActualitesInsights';
 import AcheterPass from '../../components/home/AcheterPass/AcheterPass';
 import CallToActionReservation from '../../components/home/CallToActionReservation/CallToActionReservation';
-import PartenairesLogos from '../../components/home/PartenairesLogos/PartenairesLogos';
 import CallToActionPartners from '../../components/home/CallToActionPartners/CallToActionPartners';
 
 /**
@@ -28,7 +27,6 @@ const Home = () => {
       <ActualitesInsights />
       <AcheterPass />
       <CallToActionReservation />
-      <PartenairesLogos />
       <CallToActionPartners />
       <Stats />
     </>

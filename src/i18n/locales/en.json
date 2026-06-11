@@ -46,7 +46,7 @@
       "speakers": "Speakers",
       "previousEditions": "Previous editions",
       "news": "News",
-      "partners": "Partners",
+      "gaindeAwards": "Gaindé Awards",
       "participate": "Participate"
     }
   },
@@ -139,14 +139,14 @@
     },
     "visiteur": {
       "title": "Visitor Pass – Exhibitor Access",
-      "description": "Meet exhibitors directly and explore the opportunities the forum has to offer.",
+      "description": "Meet exhibitors directly and explore investment opportunities in Senegal and Africa.",
       "descriptionSecondary": "Book your access now and receive your personalized badge by email.",
       "benefitsHeading": "What your pass includes:",
       "benefits": {
-        "access": "Full access to the forum",
+        "access": "Access to the EXHIBITOR area",
         "visits": "Participation in guided visits",
         "badge": "Personalized visitor badge (stylish design)",
-        "networking": "Dedicated time to meet exhibitors"
+        "networking": "Dedicated time for meetings with exhibitors (e.g. SABLUX GROUP, NOTTO DIOBASS SMAT CITY, etc.)"
       },
       "price": "On reservation"
     },
@@ -442,6 +442,7 @@
     }
   },
   "partners": {
+    "footerStripTitle": "They also support us",
     "title": "Our Partners",
     "pageTitle": "Become a Partner",
     "pageSubtitle": "Join us as a strategic partner and benefit from exceptional visibility and unique business opportunities",
@@ -479,6 +480,7 @@
   "programme": {
     "title": "Program",
     "subtitle": "Discover the complete program of the Territories Forum 2026",
+    "finalVersionNotice": "Below: the updated program. For details or a PDF version, please contact the organizing team.",
     "contactUs": "Contact us",
     "contactSubtitle": "Questions about the program? Contact us for more information",
     "emailLabel": "Email",
@@ -538,16 +540,17 @@
   },
   "aPropos": {
     "pageTitle": "About",
-    "pageSubtitle": "Discover the Territories Forum and its commitment to sustainable development",
+    "pageSubtitle": "A transnational platform for dialogue and cooperation between Africa and Europe",
     "presentation": {
       "title": "Presentation",
-      "subtitle": "A strategic platform for dialogue, investment and decentralized cooperation",
+      "subtitle": "The Territories Forum, led by the non-profit Les Jeux d'Eden",
       "forumTitle": "The Territories Forum",
-      "paragraph1": "The Territories Forum is a major initiative that brings together public decision-makers, private investors, economic actors and territorial communities around a common goal: creating sustainable synergies for territorial development.",
-      "paragraph2": "This strategic platform emerges in a context marked by Act III of Decentralization in Senegal and the desire to strengthen decentralized cooperation between Africa and Europe.",
-      "paragraph3": "The 2026 edition focuses on",
-      "paragraph3Highlight": "Housing at the Heart of Territories",
-      "paragraph3End": ", highlighting the crucial challenges of housing and urban planning in sustainable territorial development.",
+      "paragraph1": "The Territories Forum is a transnational platform for dialogue and cooperation between Africa and Europe. Born from the commitment of the non-profit Les Jeux d'Eden, it is driven by a conviction: territories are the pillars of a sustainable, prosperous and solidarity-based future.",
+      "paragraph2": "Founded in 2019, Les Jeux d'Eden works for economic and cultural cooperation between the two continents. Through cross-cutting, unifying events, it connects institutions, businesses, investors and elected officials. The Territories Forum is its flagship project, designed as a space for concrete exchange and real investment.",
+      "paragraph3": "Administrator of Les Jeux d'Eden, Orphée Aissi Kinss is the driving force behind this adventure. His vision: make the forum a lever for territorial development, where public and private actors co-build innovative solutions, the local economy and international cooperation.",
+      "paragraph4": "Each edition of the Territories Forum brings together decision-makers, entrepreneurs, investors and African and European elected officials in Brussels around a theme linked to territories. Conferences, exhibition, B2B meetings, field visits and the Gaïndé Awards evening structure these days dedicated to lasting partnership.",
+      "ctaTitle": "Join the movement",
+      "ctaText": "Whether you are a public actor, investor, entrepreneur, elected official or member of the diaspora, the Territories Forum opens its doors to you. Together, let's build the cities and territories of tomorrow.",
       "galleryAlt": "Territories Forum Gallery"
     },
     "theme": {

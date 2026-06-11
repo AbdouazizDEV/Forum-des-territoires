@@ -11,6 +11,7 @@ import { SPONSOR_PACKAGES } from '../../services/sponsorPackagesService';
 import { THEMATIC_PARTNERSHIPS } from '../../services/thematicPartnershipsService';
 import { Building2, DollarSign, MapPin, Radio, Sparkles, Check, ArrowRight, Handshake } from 'lucide-react';
 import { CONTACT_INFO } from '../../utils/constants';
+import PartenairesLogos from '../../components/home/PartenairesLogos/PartenairesLogos';
 import { translateSponsorPackages } from '../../utils/sponsorTranslations';
 import { translateThematicPartnerships } from '../../utils/thematicPartnershipsTranslations';
 
@@ -424,6 +425,8 @@ const Partners = () => {
           </motion.div>
       </motion.div>
     </Section>
+
+      <PartenairesLogos variant="homeSection" />
     </div>
   );
 };

@@ -200,8 +200,17 @@ const APropos = () => {
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
                   {t('aPropos.presentation.paragraph2')}
                 </p>
+                <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  {t('aPropos.presentation.paragraph3')}
+                </p>
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                  {t('aPropos.presentation.paragraph4')}
+                </p>
+                <h4 className="font-display font-bold text-xl text-primary mb-3">
+                  {t('aPropos.presentation.ctaTitle')}
+                </h4>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  {t('aPropos.presentation.paragraph3')} <strong className="text-primary">{t('aPropos.presentation.paragraph3Highlight')}</strong>{t('aPropos.presentation.paragraph3End')}
+                  {t('aPropos.presentation.ctaText')}
                 </p>
               </div>
             </motion.div>

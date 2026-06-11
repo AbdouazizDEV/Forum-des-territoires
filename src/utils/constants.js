@@ -45,7 +45,7 @@ export const NAVIGATION_LINKS = [
   { path: "/speakers", label: "Speakers" },
   { path: "/editions-precedentes", label: "Editions precedentes" },
   { path: "/actualites", label: "Actualites" },
-  { path: "/partenaires", label: "Partenaires" },
+  { path: "/gainde-awards", label: "Gaindé Awards" },
   { path: "/participer", label: "Participer" }
 ];
 

@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import TopPartnersBar from '../TopPartnersBar/TopPartnersBar';
+import FooterPartnersStrip from '../FooterPartnersStrip/FooterPartnersStrip';
 import LanguageSwitcher from '../../common/LanguageSwitcher/LanguageSwitcher';
 import { pageVariants, pageTransition } from '../../../utils/animations';
 
@@ -21,8 +23,10 @@ const Layout = ({ children }) => {
         transition={pageTransition}
         className="flex-grow pt-20"
       >
+        <TopPartnersBar />
         {children}
       </motion.main>
+      <FooterPartnersStrip />
       <Footer />
       <LanguageSwitcher />
     </div>

@@ -20,6 +20,7 @@ import Gallery from './pages/Gallery/Gallery';
 import Galerie from './pages/Galerie/Galerie';
 import Contact from './pages/Contact/Contact';
 import SinscrirePanels from './pages/SinscrirePanels/SinscrirePanels';
+import GaindeAwards from './pages/GaindeAwards/GaindeAwards';
 
 /**
  * Composant App principal avec routing
@@ -38,6 +39,7 @@ function App() {
           <Route path="/actualites" element={<Actualites />} />
           <Route path="/actualites/:id" element={<ActualiteDetail />} />
           <Route path="/partenaires" element={<Partners />} />
+          <Route path="/gainde-awards" element={<GaindeAwards />} />
           <Route path="/participer" element={<Participer />} />
           <Route path="/reserver" element={<Reserver />} />
           <Route path="/stand" element={<Stand />} />

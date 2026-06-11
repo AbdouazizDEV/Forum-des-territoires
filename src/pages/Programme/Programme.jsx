@@ -127,10 +127,17 @@ const Programme = () => {
 
         <motion.p
           variants={fadeInUp}
-          className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto"
+          className="text-center text-gray-600 text-lg mb-6 max-w-3xl mx-auto"
         >
           {t('programme.subtitle')}
         </motion.p>
+
+        <motion.div
+          variants={fadeInUp}
+          className="max-w-3xl mx-auto mb-10 rounded-xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-center text-sm md:text-base text-amber-950"
+        >
+          {t('programme.finalVersionNotice')}
+        </motion.div>
 
         <div className="space-y-8">
           {programme.map((day, index) => (

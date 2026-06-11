@@ -46,7 +46,7 @@
       "speakers": "Speakers",
       "previousEditions": "Editions precedentes",
       "news": "Actualites",
-      "partners": "Partenaires",
+      "gaindeAwards": "Gaindé Awards",
       "participate": "Participer"
     }
   },
@@ -139,14 +139,14 @@
     },
     "visiteur": {
       "title": "Pass Visiteur – Accès Exposants",
-      "description": "Rencontrez directement les exposants et explorez les opportunités du forum.",
+      "description": "Rencontrez directement les exposants et explorez les opportunités d’investissement au Sénégal et en Afrique.",
       "descriptionSecondary": "Réservez dès maintenant votre accès et recevez votre badge personnalisé par e-mail.",
       "benefitsHeading": "Ce que comprend votre pass :",
       "benefits": {
-        "access": "Accès complet au forum",
+        "access": "Accès Espace EXPOSANT",
         "visits": "Participation aux visites guidées",
         "badge": "Badge visiteur personnalisé (design stylé)",
-        "networking": "Temps dédié aux rencontres avec les exposants"
+        "networking": "Temps dédié aux rencontres avec les exposants (ex. : SABLUX GROUP, NOTTO DIOBASS SMAT CITY, etc.)"
       },
       "price": "Sur réservation"
     },
@@ -442,6 +442,7 @@
     }
   },
   "partners": {
+    "footerStripTitle": "Ils nous accompagnent également",
     "title": "Nos Partenaires",
     "pageTitle": "Devenez Partenaire",
     "pageSubtitle": "Rejoignez-nous en tant que partenaire stratégique et bénéficiez d'une visibilité exceptionnelle et d'opportunités business uniques",
@@ -479,6 +480,7 @@
   "programme": {
     "title": "Programme",
     "subtitle": "Découvrez le programme complet du Forum des Territoires 2026",
+    "finalVersionNotice": "Ci-dessous : programme actualisé. Pour toute précision ou version PDF, contactez l'équipe organisatrice.",
     "contactUs": "Nous contacter",
     "contactSubtitle": "Des questions sur le programme ? Contactez-nous pour plus d'informations",
     "emailLabel": "Email",
@@ -538,16 +540,17 @@
   },
   "aPropos": {
     "pageTitle": "A propos",
-    "pageSubtitle": "Découvrez le Forum des Territoires et son engagement pour le développement durable",
+    "pageSubtitle": "Une plateforme transnationale de dialogue et de coopération entre l'Afrique et l'Europe",
     "presentation": {
       "title": "Présentation",
-      "subtitle": "Une plateforme stratégique de dialogue, d'investissement et de coopération décentralisée",
+      "subtitle": "Le Forum des Territoires, porté par l'ASBL Les Jeux d'Eden",
       "forumTitle": "Le Forum des Territoires",
-      "paragraph1": "Le Forum des Territoires est une initiative majeure qui rassemble les décideurs publics, investisseurs privés, acteurs économiques et collectivités territoriales autour d'un objectif commun : créer des synergies durables pour le développement territorial.",
-      "paragraph2": "Cette plateforme stratégique émerge dans un contexte marqué par l'Acte III de la Décentralisation au Sénégal et la volonté de renforcer la coopération décentralisée entre l'Afrique et l'Europe.",
-      "paragraph3": "L'édition 2026 se concentre sur",
-      "paragraph3Highlight": "L'Habitat au coeur des Territoires",
-      "paragraph3End": ", mettant en lumière les enjeux cruciaux du logement et de l'aménagement urbain dans le développement territorial durable.",
+      "paragraph1": "Le Forum des Territoires est une plateforme transnationale de dialogue et de coopération entre l'Afrique et l'Europe. Né de la volonté de l'ASBL Les Jeux d'Eden, il est porté par une conviction : les territoires sont les piliers d'un avenir durable, prospère et solidaire.",
+      "paragraph2": "Créée en 2019, l'ASBL Les Jeux d'Eden œuvre pour la coopération économique et culturelle entre les deux continents. À travers des événements transversaux et fédérateurs, elle met en relation institutions, entreprises, investisseurs et élus. Le Forum des Territoires est son projet phare, conçu comme un espace d'échanges concrets et d'investissements réels.",
+      "paragraph3": "Administrateur de l'ASBL Les Jeux d'Eden, Orphée Aissi Kinss est le moteur de cette aventure. Sa vision : faire du forum un levier de développement territorial, où les acteurs publics et privés co-construisent des solutions innovantes, l'économie locale et la coopération internationale.",
+      "paragraph4": "Chaque édition du Forum des Territoires rassemble à Bruxelles des décideurs, entrepreneurs, investisseurs et élus africains et européens autour d'un thème lié aux territoires. Conférences, exposition, rencontres B2B, visites terrain et soirée des Gaïndé Awards rythment ces journées placées sous le signe du partenariat durable.",
+      "ctaTitle": "Rejoignez le mouvement",
+      "ctaText": "Que vous soyez acteur public, investisseur, entrepreneur, élu ou membre de la diaspora, le Forum des Territoires vous ouvre ses portes. Ensemble, construisons les villes et territoires de demain.",
       "galleryAlt": "Galerie Forum des Territoires"
     },
     "theme": {

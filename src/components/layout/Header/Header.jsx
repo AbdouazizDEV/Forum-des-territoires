@@ -33,7 +33,7 @@ const Header = () => {
     { path: "/speakers", label: t('header.navigation.speakers') },
     { path: "/editions-precedentes", label: t('header.navigation.previousEditions') },
     { path: "/actualites", label: t('header.navigation.news') },
-    { path: "/partenaires", label: t('header.navigation.partners') },
+    { path: "/gainde-awards", label: t('header.navigation.gaindeAwards') },
     { path: "/participer", label: t('header.navigation.participate') }
   ];
 
@@ -194,7 +194,7 @@ const Header = () => {
               </Button>
             </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/contact?participationType=partenaire" className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md">
               <Button
                 variant="outline"
@@ -204,7 +204,7 @@ const Header = () => {
                 {t('common.becomePartner')}
               </Button>
             </Link>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Mobile Menu Button */}
